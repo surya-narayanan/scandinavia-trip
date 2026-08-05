@@ -21,6 +21,21 @@ table.sched td:first-child{white-space:nowrap;font-weight:800;font-variant-numer
 table.sched td div{margin:1px 0}
 .updated{font-size:12.5px;color:#5a6a65;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
 @media print{.tw{overflow:visible}}
+.ck{background:var(--card);border:1px solid var(--line);padding:14px 16px;margin:10px 0}
+.ckbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:4px;font-size:13px}
+.ckbar b{font-variant-numeric:tabular-nums;color:var(--sea)}
+.ckbtn{font:inherit;font-size:12px;padding:5px 10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;border-radius:3px}
+.ckbtn:hover{background:#e6ebe9}
+.ckg h3{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--sea);margin:18px 0 4px;font-weight:800}
+.ckrow{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-top:1px solid var(--line)}
+.ckrow input[type=checkbox]{margin-top:2px;width:18px;height:18px;flex:0 0 auto;accent-color:var(--sea);cursor:pointer}
+.ckrow label{flex:1;font-size:13.5px;cursor:pointer;line-height:1.45}
+.ckrow input:checked+label{opacity:.42;text-decoration:line-through}
+.ckrow .rm{border:none;background:none;color:#a3313f;cursor:pointer;font-size:16px;line-height:1;padding:0 3px}
+.ckadd{display:flex;gap:8px;margin-top:12px}
+.ckadd input[type=text]{flex:1;font:inherit;font-size:13.5px;padding:8px 9px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:3px}
+.cku{color:#C0182C;font-weight:800}
+@media print{.ckbar,.ckadd{display:none}}
 </style>
 </head>
 <body>
@@ -30,6 +45,66 @@ table.sched td div{margin:1px 0}
 <p>Bases: your Copenhagen apartment (Vesterbro, next to Central Station &amp; Tivoli) (Aug 8–12) · your Oslo apartment (Kvadraturen, by Oslo S), Oslo (Aug 12–14 &amp; Aug 20–21) · Geiranger / Ålesund / Bergen hotels · your Stockholm Airbnb (Östermalm, by Östermalmstorg), Stockholm (Aug 21–25).</p>
 <p>Row colors: PURPLE = purchased ticket, time is fixed · BLUE = transit to arrange · CREAM = meals/rest · WHITE = sights. Priorities: ★ MUST SEE · ○ worth it · ✕ SKIP. Times use typical timetables — confirm live in the Rejsekort/Vy/Skyss/SL apps on the day. Prices approximate.</p>
 <p>Transit systems: Copenhagen = Rejsekort app (tap in/out) or ticket machines; the Copenhagen Card DISCOVER (96-hr, <b>DKK 1,219</b> per adult at 2026 prices, copenhagencard.com) covers all transport + nearly every entry Aug 9–12, and saves ~DKK 350–400 per adult over paying separately. Oslo = Ruter app (24-hr pass ~NOK 132). Stockholm = just tap a contactless credit card on every SL gate/ferry (~SEK 43/ride, auto-caps at ~SEK 175/day).</p>
+<h2><span style="font-weight:700;">PRE-TRIP CHECKLIST — TAP TO TICK</span></h2>
+<p><span style="font-weight:700;color:#8A5F00;">Ticks and anything you add are saved in THIS browser on THIS device (localStorage) — so the list survives refreshes and closing the tab, but it does NOT sync between your phone and laptop, and people you share the link with get a fresh, empty copy. Use “Copy as text” to move a list between devices. Full prices, deadlines and booking URLs are in the BOOKING CHECKLIST at the foot of this page.</span></p>
+<div class="ck">
+<div class="ckbar"><b id="ckcount">0 / 0 done</b><button class="ckbtn" id="ckreset" type="button">Clear all ticks</button><button class="ckbtn" id="ckcopy" type="button">Copy as text</button></div>
+<div class="ckg"><h3>① TICKETS &amp; PASSES — BUY BEFORE YOU FLY</h3>
+<div class="ckrow"><input type="checkbox" id="tk-oslsto" data-ck="tk-oslsto"><label for="tk-oslsto"><span class="cku">MOST URGENT —</span> Oslo → Stockholm, Aug 21. The only unbooked transport leg on the trip; Day 14 can’t be timed until it exists. flysas.com / norwegian.com / vy.no</label></div>
+<div class="ckrow"><input type="checkbox" id="tk-cphcard" data-ck="tk-cphcard"><label for="tk-cphcard"><b>Copenhagen Card DISCOVER 96-hr, one per adult — DKK 1,219 each.</b> Activate the morning of Aug 9. copenhagencard.com</label></div>
+<div class="ckrow"><input type="checkbox" id="tk-gondola" data-ck="tk-gondola"><label for="tk-gondola">Romsdalen Gondola, Aug 14 ~14:30 — ~NOK 445 return. romsdalsgondolen.no</label></div>
+<div class="ckrow"><input type="checkbox" id="tk-mostraumen" data-ck="tk-mostraumen"><label for="tk-mostraumen">Mostraumen fjord cruise, Aug 18 10:00 — ~NOK 890. Confirm that departure actually runs. rodne.no</label></div>
+<div class="ckrow"><input type="checkbox" id="tk-hardanger" data-ck="tk-hardanger"><label for="tk-hardanger">Vøringsfossen / Hardanger day tour, Aug 19. NOT the Briksdal/Loen version — that leaves from Olden. getyourguide.com</label></div>
+<div class="ckrow"><input type="checkbox" id="tk-cityhall" data-ck="tk-cityhall"><label for="tk-cityhall">Stockholm City Hall — book the <b>10:00 English</b> tour, Aug 22, ~SEK 150. stadshuset.stockholm</label></div>
+<div class="ckrow"><input type="checkbox" id="tk-theatre" data-ck="tk-theatre"><label for="tk-theatre">Drottningholm Court Theatre tour, Aug 23 13:15 — ~SEK 145. The one that genuinely sells out. dtm.se</label></div>
+<div class="ckrow"><input type="checkbox" id="tk-dhboat" data-ck="tk-dhboat"><label for="tk-dhboat">Drottningholm boat + palace combo, Aug 23 09:30 sailing. stromma.com</label></div>
+<div class="ckrow"><input type="checkbox" id="tk-vasa" data-ck="tk-vasa"><label for="tk-vasa">Vasa Museum timed slot, Aug 24 14:30 — ~SEK 210. vasamuseet.se</label></div>
+<div class="ckrow"><input type="checkbox" id="tk-geirdin" data-ck="tk-geirdin"><label for="tk-geirdin">Geiranger hotel dinner, Aug 14 ~20:45 — you arrive late into a small village.</label></div>
+<div class="ckrow"><input type="checkbox" id="tk-munch" data-ck="tk-munch"><label for="tk-munch">MUNCH museum, Aug 21 ~11:00 — ~NOK 180. munchmuseet.no</label></div>
+<div class="ckrow"><input type="checkbox" id="tk-floibanen" data-ck="tk-floibanen"><label for="tk-floibanen">Fløibanen timed return, Aug 18 — ~NOK 195. floyen.no</label></div>
+<div class="ckrow"><input type="checkbox" id="tk-savior" data-ck="tk-savior"><label for="tk-savior">Church of Our Saviour tower, Aug 11 — ~DKK 79 timed. NOT covered by the Copenhagen Card. vorfrelserskirke.dk</label></div>
+<div class="ckrow"><input type="checkbox" id="tk-tivoli" data-ck="tk-tivoli"><label for="tk-tivoli">Tivoli entry slot, Aug 9 — free with the card but still reserve to skip the queue. Ride wristbands are bought at the gate. tivoli.dk</label></div>
+<div class="ckrow"><input type="checkbox" id="tk-foto" data-ck="tk-foto"><label for="tk-foto">Fotografiska restaurant table, Aug 24 — last-night dinner. fotografiska.com</label></div>
+<div class="ckrow"><input type="checkbox" id="tk-aksla" data-ck="tk-aksla"><label for="tk-aksla">Aksla taxi for the Aug 16 morning — arrange the night before via the hotel desk.</label></div>
+</div>
+<div class="ckg"><h3>② CANNOT BE PRE-BOOKED — claim these in person on Aug 9</h3>
+<div class="ckrow"><input type="checkbox" id="od-canal" data-ck="od-canal"><label for="od-canal"><b>Canal cruise slot</b> — with the Copenhagen Card, issued ONLY at the Ved Stranden box office. Claim it during the 12:30 lunch, before the 14:15 sailing.</label></div>
+<div class="ckrow"><input type="checkbox" id="od-rosenborg" data-ck="od-rosenborg"><label for="od-rosenborg"><b>Rosenborg time slot</b> — with the card, same-day at the castle desk only. Swing past in the morning if worried about the 15:45 entry.</label></div>
+</div>
+<div class="ckg"><h3>③ GEAR TO BUY BEFOREHAND</h3>
+<div class="ckrow"><input type="checkbox" id="gr-powerbank" data-ck="gr-powerbank"><label for="gr-powerbank"><b>POWER BANK</b> — and pack it in your CARRY-ON, never checked luggage; airlines refuse them in the hold, and you have four flights. The whole plan runs off your phone.</label></div>
+<div class="ckrow"><input type="checkbox" id="gr-cables" data-ck="gr-cables"><label for="gr-cables">Charging cables + a multi-port charger (one plug, four phones).</label></div>
+<div class="ckrow"><input type="checkbox" id="gr-adapter" data-ck="gr-adapter"><label for="gr-adapter"><b>Type C/F travel adapter, 230 V.</b> Denmark, Norway and Sweden all take C/F — Danish type K sockets accept a C plug fine.</label></div>
+<div class="ckrow"><input type="checkbox" id="gr-shell" data-ck="gr-shell"><label for="gr-shell"><b>Waterproof shell jacket + rain trousers.</b> Bergen is the wettest city in Europe and the Day 12 Hardanger tour explicitly calls for shells.</label></div>
+<div class="ckrow"><input type="checkbox" id="gr-thermal" data-ck="gr-thermal"><label for="gr-thermal">Thermals, warm hat, gloves — for the Day 8 Geiranger fjord-cruise deck, which is the coldest-risk hour of the trip.</label></div>
+<div class="ckrow"><input type="checkbox" id="gr-fleece" data-ck="gr-fleece"><label for="gr-fleece">Fleece or mid-layer.</label></div>
+<div class="ckrow"><input type="checkbox" id="gr-drybag" data-ck="gr-drybag"><label for="gr-drybag"><b>Dry bag for the camera</b> — named in the Day 12 notes.</label></div>
+<div class="ckrow"><input type="checkbox" id="gr-shoes" data-ck="gr-shoes"><label for="gr-shoes">Broken-in waterproof walking shoes. Do not break in new boots here.</label></div>
+<div class="ckrow"><input type="checkbox" id="gr-daypack" data-ck="gr-daypack"><label for="gr-daypack">Daypack — you carry a packed lunch on four separate days.</label></div>
+<div class="ckrow"><input type="checkbox" id="gr-lunchkit" data-ck="gr-lunchkit"><label for="gr-lunchkit"><b>Reusable containers, cutlery and a foldable cooler bag</b> — Days 3, 4, 5 and 16 are all picnic lunches.</label></div>
+<div class="ckrow"><input type="checkbox" id="gr-bottle" data-ck="gr-bottle"><label for="gr-bottle">Reusable water bottle — tap water is excellent in all three countries.</label></div>
+<div class="ckrow"><input type="checkbox" id="gr-seasick" data-ck="gr-seasick"><label for="gr-seasick"><b>Motion-sickness tablets</b> — three boat trips (Geiranger, Mostraumen, Drottningholm) plus the Trollstigen hairpins on Day 7.</label></div>
+<div class="ckrow"><input type="checkbox" id="gr-sun" data-ck="gr-sun"><label for="gr-sun">Sunscreen + sunglasses — August days are long and the fjord glare is real.</label></div>
+<div class="ckrow"><input type="checkbox" id="gr-bugs" data-ck="gr-bugs"><label for="gr-bugs">Insect repellent — August near the fjords and lakes.</label></div>
+<div class="ckrow"><input type="checkbox" id="gr-esim" data-ck="gr-esim"><label for="gr-esim"><b>eSIM or a roaming plan.</b> Non-negotiable: Rejsekort, Vy, Skyss, Ruter, SL and the taxi apps all need data.</label></div>
+<div class="ckrow"><input type="checkbox" id="gr-socks" data-ck="gr-socks"><label for="gr-socks">Compression socks for the long-haul flights.</label></div>
+<div class="ckrow"><input type="checkbox" id="gr-duffel" data-ck="gr-duffel"><label for="gr-duffel"><b>Foldable duffel, or leave luggage space.</b> You are planning to buy a wardrobe — plan the room for it now.</label></div>
+<div class="ckrow"><input type="checkbox" id="gr-meds" data-ck="gr-meds"><label for="gr-meds">Small first-aid kit; prescriptions in original labelled packaging.</label></div>
+<div class="ckrow"><input type="checkbox" id="gr-stool" data-ck="gr-stool"><label for="gr-stool">OPTIONAL — a compact folding stool or seat-cane for the standing waits (both the Amalienborg and Stockholm guard changes involve holding a spot).</label></div>
+</div>
+<div class="ckg"><h3>④ DOCUMENTS, MONEY, PHONE</h3>
+<div class="ckrow"><input type="checkbox" id="dc-passport" data-ck="dc-passport"><label for="dc-passport">Passports + photocopies and phone photos. Carried on Aug 12, 20, 21 and 25.</label></div>
+<div class="ckrow"><input type="checkbox" id="dc-insurance" data-ck="dc-insurance"><label for="dc-insurance">Travel insurance sorted.</label></div>
+<div class="ckrow"><input type="checkbox" id="dc-card" data-ck="dc-card"><label for="dc-card"><b>A card with no foreign-transaction fee, contactless enabled.</b> Stockholm transport is literally tap-your-card at the gate.</label></div>
+<div class="ckrow"><input type="checkbox" id="dc-bank" data-ck="dc-bank"><label for="dc-bank">Tell the bank your travel dates so nothing gets blocked mid-trip.</label></div>
+<div class="ckrow"><input type="checkbox" id="dc-cash" data-ck="dc-cash"><label for="dc-cash">Minimal cash only — three separate currencies (DKK / NOK / SEK) and the region is near-cashless. Don’t over-withdraw.</label></div>
+<div class="ckrow"><input type="checkbox" id="dc-apps" data-ck="dc-apps"><label for="dc-apps">Download before flying: Rejsekort/DOT, Vy, Skyss, Ruter, SL, and Bolt or Viggo for taxis.</label></div>
+<div class="ckrow"><input type="checkbox" id="dc-offline" data-ck="dc-offline"><label for="dc-offline">Offline maps for Copenhagen, Oslo, Bergen, Ålesund and Stockholm.</label></div>
+<div class="ckrow"><input type="checkbox" id="dc-pdfs" data-ck="dc-pdfs"><label for="dc-pdfs">All ticket PDFs saved OFFLINE, not just in email.</label></div>
+<div class="ckrow"><input type="checkbox" id="dc-vat" data-ck="dc-vat"><label for="dc-vat"><b>VAT refund:</b> ask for a Global Blue / Planet form at every till, keep tags on — and claim the DANISH refund at CPH on Aug 12, because Norway is outside the EU. Swedish refunds go at Arlanda on Aug 25.</label></div>
+</div>
+<div class="ckg"><h3>⑤ Your own additions</h3><div id="ckcustom"></div><form class="ckadd" id="ckadd"><input type="text" id="ckinput" placeholder="Add your own item, then press Add…" aria-label="Add a checklist item" maxlength="220"><button class="ckbtn" type="submit">Add</button></form></div>
+</div>
 <h2><span style="font-weight:700;">DAY 1 — Sat Aug 8 · Arrival in Copenhagen + optional evening loop</span></h2>
 <p><span style="font-weight:700;color:#8A5F00;">VERDICT: recovery day with an OPTIONAL bonus loop — Little Mermaid + Opera House up close, in evening light, when the cruise crowds are gone. Do it ONLY if you are landed, checked in, and functional by ~17:30. If anyone is wrecked, the fallback is the original plan: quiet Nyhavn dinner and bed — you lose nothing, the Day 2 canal cruise passes both anyway. Mobility-built: no walking segment over ~150 m.</span></p>
 <div class="tw"><table class="sched"><tr><th><div><span style="font-weight:700;">START–END</span></div></th><th><div><span style="font-weight:700;">ACTIVITY</span></div></th><th><div><span style="font-weight:700;">HOW TO GET THERE / NOTES</span></div></th><th><div><span style="font-weight:700;">TICKETS &amp; WHEN TO BOOK</span></div></th></tr>
@@ -302,5 +377,79 @@ table.sched td div{margin:1px 0}
 <p></p>
 <p><span style="font-style:italic;">Passports carried: Aug 12, Aug 20, Aug 21 (flights), Aug 25 (departure). Purple times are from your purchased tickets — recheck PDFs the night before each leg. All other times follow typical timetables; confirm live in the Rejsekort / Vy / Skyss / SL apps on the day.</span></p>
 </div>
+<script>
+(function(){
+  var KS='scandi2026-ticks', KC='scandi2026-custom';
+  function load(k,d){ try{ return JSON.parse(localStorage.getItem(k))||d; }catch(e){ return d; } }
+  function save(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
+  var ticks=load(KS,{}), custom=load(KC,[]);
+  var wrap=document.getElementById('ckcustom');
+
+  function count(){
+    var b=document.querySelectorAll('.ck input[type=checkbox]');
+    var n=0; for(var i=0;i<b.length;i++){ if(b[i].checked) n++; }
+    document.getElementById('ckcount').textContent=n+' / '+b.length+' done';
+  }
+  function bind(cb){
+    cb.addEventListener('change',function(){
+      ticks[cb.getAttribute('data-ck')]=cb.checked;
+      save(KS,ticks); count();
+    });
+  }
+  function renderCustom(){
+    wrap.innerHTML='';
+    custom.forEach(function(it,idx){
+      var row=document.createElement('div'); row.className='ckrow';
+      var cb=document.createElement('input'); cb.type='checkbox';
+      var id='cu-'+it.id; cb.id=id; cb.setAttribute('data-ck',id); cb.checked=!!ticks[id];
+      var lb=document.createElement('label'); lb.setAttribute('for',id); lb.textContent=it.text;
+      var rm=document.createElement('button'); rm.type='button'; rm.className='rm';
+      rm.textContent='×'; rm.title='Remove this item';
+      rm.addEventListener('click',function(){
+        delete ticks[id]; custom.splice(idx,1);
+        save(KC,custom); save(KS,ticks); renderCustom(); count();
+      });
+      row.appendChild(cb); row.appendChild(lb); row.appendChild(rm);
+      wrap.appendChild(row); bind(cb);
+    });
+  }
+  var boxes=document.querySelectorAll('.ck input[type=checkbox]');
+  for(var i=0;i<boxes.length;i++){
+    var cb=boxes[i], k=cb.getAttribute('data-ck');
+    if(ticks[k]) cb.checked=true;
+    bind(cb);
+  }
+  renderCustom(); count();
+
+  document.getElementById('ckadd').addEventListener('submit',function(e){
+    e.preventDefault();
+    var inp=document.getElementById('ckinput'), t=inp.value.trim();
+    if(!t) return;
+    custom.push({id:String(Date.now())+Math.floor(Math.random()*1000),text:t});
+    save(KC,custom); inp.value=''; renderCustom(); count();
+  });
+  document.getElementById('ckreset').addEventListener('click',function(){
+    if(!confirm('Clear every tick? Items you added are kept.')) return;
+    ticks={}; save(KS,ticks);
+    var b=document.querySelectorAll('.ck input[type=checkbox]');
+    for(var i=0;i<b.length;i++) b[i].checked=false;
+    count();
+  });
+  document.getElementById('ckcopy').addEventListener('click',function(){
+    var out=[];
+    document.querySelectorAll('.ck .ckg').forEach(function(g){
+      var h=g.querySelector('h3'); if(h) out.push('\n'+h.textContent.toUpperCase());
+      g.querySelectorAll('.ckrow').forEach(function(r){
+        var cb=r.querySelector('input'), lb=r.querySelector('label');
+        if(cb&&lb) out.push((cb.checked?'[x] ':'[ ] ')+lb.textContent.trim());
+      });
+    });
+    var txt='SCANDINAVIA AUG 8-25 2026 - PRE-TRIP CHECKLIST\n'+out.join('\n');
+    function done(ok){ var b=document.getElementById('ckcopy'); b.textContent=ok?'Copied':'Copy failed'; setTimeout(function(){b.textContent='Copy as text';},1600); }
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){done(true);},function(){done(false);}); }
+    else { try{ var ta=document.createElement('textarea'); ta.value=txt; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); done(true); }catch(e){ done(false); } }
+  });
+})();
+</script>
 </body>
 </html>
