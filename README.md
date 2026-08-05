@@ -4,7 +4,13 @@ Live, shareable version of the full timed itinerary: Copenhagen → Oslo → Gei
 
 **The page:** `index.html` — the entire trip, day by day, with start/end times, transit legs, priorities (★ must see / ○ worth it / ✕ skip), ticket links, and booking deadlines. Purple rows are purchased tickets (fixed times), blue rows are transit, cream rows are meals. It opens with an interactive pre-trip checklist (tickets, gear, documents) that you can tick off and add to.
 
-## Shared checklist sync (optional, ~5 minutes)
+## Shared checklist sync — LIVE
+
+The shared list is deployed and active: ticks and added items sync across every device and everyone who opens the link. Status shows as a green **Synced** pill on the page. The endpoint is a Google Apps Script web app (`sync-backend.gs`) wired into `SYNC_URL` in `index.html`.
+
+To wipe the shared list back to blank, open the Apps Script editor and run `resetSharedChecklist()` once.
+
+### How it was set up (for reference, or to redeploy)
 
 Out of the box the checklist saves to `localStorage` — it survives refreshes but is **per-browser, per-device**, and anyone you share the link with sees an empty copy. To make one shared list that syncs across every device and every person:
 
