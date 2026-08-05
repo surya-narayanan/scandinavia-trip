@@ -35,6 +35,10 @@ table.sched td div{margin:1px 0}
 .ckadd{display:flex;gap:8px;margin-top:12px}
 .ckadd input[type=text]{flex:1;font:inherit;font-size:13.5px;padding:8px 9px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:3px}
 .cku{color:#C0182C;font-weight:800}
+.cksync{font-size:11.5px;letter-spacing:.04em;padding:4px 8px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:#5a6a65;font-weight:700}
+.cksync.ok{color:#0C6B3D;border-color:#bcd8c7;background:#eef7f1}
+.cksync.warn{color:#8A5F00;border-color:#e3d5a8;background:#fbf6e6}
+.cksync.err{color:#C0182C;border-color:#eccdd3;background:#fdeef1}
 @media print{.ckbar,.ckadd{display:none}}
 </style>
 </head>
@@ -48,7 +52,7 @@ table.sched td div{margin:1px 0}
 <h2><span style="font-weight:700;">PRE-TRIP CHECKLIST — TAP TO TICK</span></h2>
 <p><span style="font-weight:700;color:#8A5F00;">Ticks and anything you add are saved in THIS browser on THIS device (localStorage) — so the list survives refreshes and closing the tab, but it does NOT sync between your phone and laptop, and people you share the link with get a fresh, empty copy. Use “Copy as text” to move a list between devices. Full prices, deadlines and booking URLs are in the BOOKING CHECKLIST at the foot of this page.</span></p>
 <div class="ck">
-<div class="ckbar"><b id="ckcount">0 / 0 done</b><button class="ckbtn" id="ckreset" type="button">Clear all ticks</button><button class="ckbtn" id="ckcopy" type="button">Copy as text</button></div>
+<div class="ckbar"><b id="ckcount">0 / 0 done</b><button class="ckbtn" id="ckreset" type="button">Clear all ticks</button><button class="ckbtn" id="ckcopy" type="button">Copy as text</button><span class="cksync" id="cksync" title="Sync status">Local only</span></div>
 <div class="ckg"><h3>① TICKETS &amp; PASSES — BUY BEFORE YOU FLY</h3>
 <div class="ckrow"><input type="checkbox" id="tk-oslsto" data-ck="tk-oslsto"><label for="tk-oslsto"><span class="cku">MOST URGENT —</span> Oslo → Stockholm, Aug 21. The only unbooked transport leg on the trip; Day 14 can’t be timed until it exists. flysas.com / norwegian.com / vy.no</label></div>
 <div class="ckrow"><input type="checkbox" id="tk-cphcard" data-ck="tk-cphcard"><label for="tk-cphcard"><b>Copenhagen Card DISCOVER 96-hr, one per adult — DKK 1,219 each.</b> Activate the morning of Aug 9. copenhagencard.com</label></div>
@@ -379,67 +383,212 @@ table.sched td div{margin:1px 0}
 </div>
 <script>
 (function(){
-  var KS='scandi2026-ticks', KC='scandi2026-custom';
-  function load(k,d){ try{ return JSON.parse(localStorage.getItem(k))||d; }catch(e){ return d; } }
+  /* ---------------------------------------------------------------
+     SHARED SYNC. Set SYNC_URL to your deployed Google Apps Script
+     web-app URL (see sync-backend.gs + README in this repo).
+     While it is empty the checklist works exactly as before:
+     saved locally, on this device only.
+     --------------------------------------------------------------- */
+  var SYNC_URL = '';
+
+  var KS='scandi2026-ticks', KC='scandi2026-custom', KQ='scandi2026-pending';
+  function load(k,d){ try{ var v=JSON.parse(localStorage.getItem(k)); return (v===null||v===undefined)?d:v; }catch(e){ return d; } }
   function save(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
-  var ticks=load(KS,{}), custom=load(KC,[]);
+  function now(){ return Date.now(); }
+
+  /* ticks: { id: {done:bool, ts:number} }  — migrate the old {id:true} shape */
+  var ticks=load(KS,{});
+  (function migrate(){
+    var changed=false;
+    for(var k in ticks){ if(typeof ticks[k]==='boolean'){ ticks[k]={done:ticks[k],ts:1}; changed=true; } }
+    if(changed) save(KS,ticks);
+  })();
+  /* custom: [ {id,text,ts,deleted} ] */
+  var custom=load(KC,[]).map(function(c){
+    return {id:String(c.id), text:c.text, ts:c.ts||1, deleted:!!c.deleted};
+  });
+  var pending=load(KQ,{ticks:{},custom:{}});
+
   var wrap=document.getElementById('ckcustom');
+  var pill=document.getElementById('cksync');
+  var syncing=false, lastOk=0;
+
+  function setPill(cls,txt,title){
+    pill.className='cksync'+(cls?' '+cls:'');
+    pill.textContent=txt;
+    if(title) pill.title=title;
+  }
+  function visibleCustom(){ return custom.filter(function(c){ return !c.deleted; }); }
 
   function count(){
     var b=document.querySelectorAll('.ck input[type=checkbox]');
     var n=0; for(var i=0;i<b.length;i++){ if(b[i].checked) n++; }
-    document.getElementById('ckcount').textContent=n+' / '+b.length+' done';
+    var el=document.getElementById('ckcount');
+    if(el) el.textContent=n+' / '+b.length+' done';
+  }
+  function setTick(id,done){
+    ticks[id]={done:!!done,ts:now()};
+    pending.ticks[id]=true;
+    save(KS,ticks); save(KQ,pending);
+    count(); queueSync();
   }
   function bind(cb){
-    cb.addEventListener('change',function(){
-      ticks[cb.getAttribute('data-ck')]=cb.checked;
-      save(KS,ticks); count();
-    });
+    cb.addEventListener('change',function(){ setTick(cb.getAttribute('data-ck'),cb.checked); });
   }
+
   function renderCustom(){
+    var keepFocus=document.activeElement===document.getElementById('ckinput');
     wrap.innerHTML='';
-    custom.forEach(function(it,idx){
+    visibleCustom().sort(function(a,b){ return a.ts-b.ts; }).forEach(function(it){
+      var id='cu-'+it.id;
       var row=document.createElement('div'); row.className='ckrow';
-      var cb=document.createElement('input'); cb.type='checkbox';
-      var id='cu-'+it.id; cb.id=id; cb.setAttribute('data-ck',id); cb.checked=!!ticks[id];
+      var cb=document.createElement('input'); cb.type='checkbox'; cb.id=id;
+      cb.setAttribute('data-ck',id);
+      cb.checked=!!(ticks[id]&&ticks[id].done);
       var lb=document.createElement('label'); lb.setAttribute('for',id); lb.textContent=it.text;
       var rm=document.createElement('button'); rm.type='button'; rm.className='rm';
       rm.textContent='×'; rm.title='Remove this item';
       rm.addEventListener('click',function(){
-        delete ticks[id]; custom.splice(idx,1);
-        save(KC,custom); save(KS,ticks); renderCustom(); count();
+        it.deleted=true; it.ts=now();
+        pending.custom[it.id]=true;
+        delete ticks[id]; pending.ticks[id]=true;
+        save(KC,custom); save(KS,ticks); save(KQ,pending);
+        renderCustom(); count(); queueSync();
       });
       row.appendChild(cb); row.appendChild(lb); row.appendChild(rm);
       wrap.appendChild(row); bind(cb);
     });
+    if(keepFocus){ var i=document.getElementById('ckinput'); if(i) i.focus(); }
   }
-  var boxes=document.querySelectorAll('.ck input[type=checkbox]');
+
+  /* apply a merged server state locally */
+  function applyState(st){
+    if(st.ticks){
+      for(var k in st.ticks){
+        var inc=st.ticks[k], cur=ticks[k];
+        if(!cur || (inc.ts||0) >= (cur.ts||0)) ticks[k]={done:!!inc.done,ts:inc.ts||0};
+      }
+    }
+    if(st.custom&&st.custom.length!==undefined){
+      var by={}; custom.forEach(function(c){ by[c.id]=c; });
+      st.custom.forEach(function(c){
+        var cur=by[String(c.id)];
+        if(!cur || (c.ts||0) >= (cur.ts||0)) by[String(c.id)]={id:String(c.id),text:c.text,ts:c.ts||0,deleted:!!c.deleted};
+      });
+      custom=Object.keys(by).map(function(k){ return by[k]; });
+    }
+    save(KS,ticks); save(KC,custom);
+    /* refresh fixed boxes */
+    var b=document.querySelectorAll('.ck input[type=checkbox][data-ck]');
+    for(var i=0;i<b.length;i++){
+      var id=b[i].getAttribute('data-ck');
+      if(id.indexOf('cu-')!==0) b[i].checked=!!(ticks[id]&&ticks[id].done);
+    }
+    renderCustom(); count();
+  }
+
+  var syncTimer=null;
+  function queueSync(){
+    if(!SYNC_URL) return;
+    clearTimeout(syncTimer);
+    syncTimer=setTimeout(doSync,700);
+  }
+
+  function doSync(){
+    if(!SYNC_URL || syncing) return;
+    if(navigator.onLine===false){ setPill('warn','Offline — saved locally'); return; }
+    syncing=true;
+    setPill('warn','Syncing…');
+    /* send only what changed locally since last successful sync */
+    var outT={}, outC=[], dropped=false;
+    Object.keys(pending.ticks).forEach(function(k){
+      if(ticks[k]) outT[k]=ticks[k];
+      /* tick belongs to an item that no longer exists (deleted custom row):
+         nothing to send and nothing will ever send it, so drop it now */
+      else { delete pending.ticks[k]; dropped=true; }
+    });
+    Object.keys(pending.custom).forEach(function(id){
+      var f=custom.filter(function(c){ return c.id===id; })[0];
+      if(f) outC.push(f);
+      else { delete pending.custom[id]; dropped=true; }
+    });
+    if(dropped) save(KQ,pending);
+    var sentT=Object.keys(outT), sentC=outC.map(function(c){ return c.id; });
+
+    fetch(SYNC_URL,{
+      method:'POST',
+      /* text/plain keeps this a CORS "simple request" so Apps Script needs no preflight */
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify({ticks:outT,custom:outC})
+    }).then(function(r){
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      return r.json();
+    }).then(function(st){
+      if(!st||st.ok===false) throw new Error(st&&st.error?st.error:'bad response');
+      sentT.forEach(function(k){ delete pending.ticks[k]; });
+      sentC.forEach(function(k){ delete pending.custom[k]; });
+      save(KQ,pending);
+      applyState(st);
+      lastOk=now(); syncing=false;
+      setPill('ok','Synced','Shared with everyone who opens this link');
+    })['catch'](function(err){
+      syncing=false;
+      setPill('err','Sync failed — saved locally', String(err&&err.message||err));
+    });
+  }
+
+  /* ---- init fixed checkboxes ---- */
+  var boxes=document.querySelectorAll('.ck input[type=checkbox][data-ck]');
   for(var i=0;i<boxes.length;i++){
     var cb=boxes[i], k=cb.getAttribute('data-ck');
-    if(ticks[k]) cb.checked=true;
+    if(ticks[k]&&ticks[k].done) cb.checked=true;
     bind(cb);
   }
   renderCustom(); count();
 
+  if(SYNC_URL){
+    setPill('warn','Syncing…');
+    doSync();
+    setInterval(function(){ if(!document.hidden) doSync(); },15000);
+    document.addEventListener('visibilitychange',function(){ if(!document.hidden) doSync(); });
+    window.addEventListener('online',doSync);
+    window.addEventListener('focus',doSync);
+  } else {
+    setPill('', 'Local only', 'Saved on this device only — sync not configured yet');
+  }
+
+  /* ---- add / reset / copy ---- */
   document.getElementById('ckadd').addEventListener('submit',function(e){
     e.preventDefault();
     var inp=document.getElementById('ckinput'), t=inp.value.trim();
     if(!t) return;
-    custom.push({id:String(Date.now())+Math.floor(Math.random()*1000),text:t});
-    save(KC,custom); inp.value=''; renderCustom(); count();
+    var id=String(now())+'-'+Math.floor(Math.random()*100000);
+    custom.push({id:id,text:t,ts:now(),deleted:false});
+    pending.custom[id]=true;
+    save(KC,custom); save(KQ,pending);
+    inp.value=''; renderCustom(); count(); queueSync();
   });
+
   document.getElementById('ckreset').addEventListener('click',function(){
-    if(!confirm('Clear every tick? Items you added are kept.')) return;
-    ticks={}; save(KS,ticks);
-    var b=document.querySelectorAll('.ck input[type=checkbox]');
-    for(var i=0;i<b.length;i++) b[i].checked=false;
-    count();
+    var shared=!!SYNC_URL;
+    if(!confirm(shared
+      ? 'Clear every tick FOR EVERYONE sharing this list? Items people added are kept.'
+      : 'Clear every tick? Items you added are kept.')) return;
+    var b=document.querySelectorAll('.ck input[type=checkbox][data-ck]');
+    for(var i=0;i<b.length;i++){
+      b[i].checked=false;
+      var id=b[i].getAttribute('data-ck');
+      ticks[id]={done:false,ts:now()};
+      pending.ticks[id]=true;
+    }
+    save(KS,ticks); save(KQ,pending); count(); queueSync();
   });
+
   document.getElementById('ckcopy').addEventListener('click',function(){
     var out=[];
-    document.querySelectorAll('.ck .ckg').forEach(function(g){
+    Array.prototype.forEach.call(document.querySelectorAll('.ck .ckg'),function(g){
       var h=g.querySelector('h3'); if(h) out.push('\n'+h.textContent.toUpperCase());
-      g.querySelectorAll('.ckrow').forEach(function(r){
+      Array.prototype.forEach.call(g.querySelectorAll('.ckrow'),function(r){
         var cb=r.querySelector('input'), lb=r.querySelector('label');
         if(cb&&lb) out.push((cb.checked?'[x] ':'[ ] ')+lb.textContent.trim());
       });
