@@ -32,7 +32,9 @@ table.sched td div{margin:1px 0}
 .ckrow label{flex:1;font-size:13.5px;cursor:pointer;line-height:1.45}
 .ckrow input:checked+label{opacity:.42;text-decoration:line-through}
 .ckrow .rm{border:none;background:none;color:#a3313f;cursor:pointer;font-size:16px;line-height:1;padding:0 3px}
-.ckadd{display:flex;gap:8px;margin-top:12px}
+.ckadd{display:flex;gap:8px;margin-top:2px}
+#ckmine h3{margin-top:10px}
+#ckcustom:empty{display:none}
 .ckadd input[type=text]{flex:1;font:inherit;font-size:13.5px;padding:8px 9px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:3px}
 .cku{color:#C0182C;font-weight:800}
 .cksync{font-size:11.5px;letter-spacing:.04em;padding:4px 8px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:#5a6a65;font-weight:700}
@@ -53,6 +55,7 @@ table.sched td div{margin:1px 0}
 <p><span style="font-weight:700;color:#8A5F00;">Ticks and anything you add are saved in THIS browser on THIS device (localStorage) — so the list survives refreshes and closing the tab, but it does NOT sync between your phone and laptop, and people you share the link with get a fresh, empty copy. Use “Copy as text” to move a list between devices. Full prices, deadlines and booking URLs are in the BOOKING CHECKLIST at the foot of this page.</span></p>
 <div class="ck">
 <div class="ckbar"><b id="ckcount">0 / 0 done</b><button class="ckbtn" id="ckreset" type="button">Clear all ticks</button><button class="ckbtn" id="ckcopy" type="button">Copy as text</button><span class="cksync" id="cksync" title="Sync status">Local only</span></div>
+<div class="ckg" id="ckmine"><h3>Your own additions</h3><form class="ckadd" id="ckadd"><input type="text" id="ckinput" placeholder="Add your own item, then press Add…" aria-label="Add a checklist item" maxlength="220"><button class="ckbtn" type="submit">Add</button></form><div id="ckcustom"></div></div>
 <div class="ckg"><h3>① TICKETS &amp; PASSES — BUY BEFORE YOU FLY</h3>
 <div class="ckrow"><input type="checkbox" id="tk-cphcard" data-ck="tk-cphcard"><label for="tk-cphcard"><b>Copenhagen Card DISCOVER 96-hr, one per adult — DKK 1,219 each.</b> Activate the morning of Aug 9. copenhagencard.com</label></div>
 <div class="ckrow"><input type="checkbox" id="tk-gondola" data-ck="tk-gondola"><label for="tk-gondola">Romsdalen Gondola, Aug 14 ~14:30 — ~NOK 445 return. romsdalsgondolen.no</label></div>
@@ -106,7 +109,7 @@ table.sched td div{margin:1px 0}
 <div class="ckrow"><input type="checkbox" id="dc-pdfs" data-ck="dc-pdfs"><label for="dc-pdfs">All ticket PDFs saved OFFLINE, not just in email.</label></div>
 <div class="ckrow"><input type="checkbox" id="dc-vat" data-ck="dc-vat"><label for="dc-vat"><b>VAT refund:</b> ask for a Global Blue / Planet form at every till, keep tags on — and claim the DANISH refund at CPH on Aug 12, because Norway is outside the EU. Swedish refunds go at Arlanda on Aug 25.</label></div>
 </div>
-<div class="ckg"><h3>⑤ Your own additions</h3><div id="ckcustom"></div><form class="ckadd" id="ckadd"><input type="text" id="ckinput" placeholder="Add your own item, then press Add…" aria-label="Add a checklist item" maxlength="220"><button class="ckbtn" type="submit">Add</button></form></div>
+
 </div>
 <h2><span style="font-weight:700;">DAY 1 — Sat Aug 8 · Arrival in Copenhagen + optional evening loop</span></h2>
 <p><span style="font-weight:700;color:#8A5F00;">VERDICT: recovery day with an OPTIONAL bonus loop — Little Mermaid + Opera House up close, in evening light, when the cruise crowds are gone. Do it ONLY if you are landed, checked in, and functional by ~17:30. If anyone is wrecked, the fallback is the original plan: quiet Nyhavn dinner and bed — you lose nothing, the Day 2 canal cruise passes both anyway. Mobility-built: no walking segment over ~150 m.</span></p>
