@@ -419,7 +419,16 @@ table.sched td div{margin:1px 0}
      by every open tab. Poll slowly, back off when nothing is changing, and back
      off hard on failure — a tab left open all day must not exhaust the quota. */
   var POLL_MIN=60000, POLL_MAX=300000, pollDelay=POLL_MIN, pollTimer=null;
-  var failCount=0, needResync=false, lastUpdated=-1;
+  var failCount=0, needResync=false, lastSig=null;
+  /* the backend stamps `updated` on every write, including a no-op poll, so it
+     cannot tell us whether anything actually changed — compare the state itself */
+  function sig(st){
+    var t=Object.keys(st.ticks||{}).sort().map(function(k){
+      var v=st.ticks[k]||{}; return k+':'+(v.done?1:0)+':'+(v.ts||0); }).join('|');
+    var c=(st.custom||[]).map(function(x){
+      return x.id+':'+(x.ts||0)+':'+(x.deleted?1:0); }).sort().join('|');
+    return t+'#'+c;
+  }
 
   function setPill(cls,txt,title){
     pill.className='cksync'+(cls?' '+cls:'');
@@ -529,12 +538,18 @@ table.sched td div{margin:1px 0}
     if(dropped) save(KQ,pending);
     var sentT=Object.keys(outT), sentC=outC.map(function(c){ return c.id; });
 
-    fetch(SYNC_URL,{
-      method:'POST',
-      /* text/plain keeps this a CORS "simple request" so Apps Script needs no preflight */
-      headers:{'Content-Type':'text/plain;charset=utf-8'},
-      body:JSON.stringify({ticks:outT,custom:outC})
-    }).then(function(r){
+    var hasPush = sentT.length>0 || outC.length>0;
+    /* POST only when we actually have local edits. A plain poll uses GET, which
+       hits doGet and performs no write at all — cheaper, and no pointless churn. */
+    var req = hasPush
+      ? fetch(SYNC_URL,{
+          method:'POST',
+          /* text/plain keeps this a CORS "simple request" so Apps Script needs no preflight */
+          headers:{'Content-Type':'text/plain;charset=utf-8'},
+          body:JSON.stringify({ticks:outT,custom:outC})
+        })
+      : fetch(SYNC_URL);
+    req.then(function(r){
       if(!r.ok) throw new Error('HTTP '+r.status);
       return r.json();
     }).then(function(st){
@@ -542,8 +557,9 @@ table.sched td div{margin:1px 0}
       sentT.forEach(function(k){ delete pending.ticks[k]; });
       sentC.forEach(function(k){ delete pending.custom[k]; });
       save(KQ,pending);
-      var changed = (st.updated||0)!==lastUpdated;
-      lastUpdated = st.updated||0;
+      var newSig = sig(st);
+      var changed = (lastSig!==null) && (newSig!==lastSig);
+      lastSig = newSig;
       applyState(st);
       lastOk=now(); syncing=false; failCount=0;
       setPill('ok','Synced','Shared with everyone who opens this link');
