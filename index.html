@@ -415,6 +415,11 @@ table.sched td div{margin:1px 0}
   var wrap=document.getElementById('ckcustom');
   var pill=document.getElementById('cksync');
   var syncing=false, lastOk=0;
+  /* Apps Script bills real runtime per call (~0.9s), and the daily cap is shared
+     by every open tab. Poll slowly, back off when nothing is changing, and back
+     off hard on failure — a tab left open all day must not exhaust the quota. */
+  var POLL_MIN=60000, POLL_MAX=300000, pollDelay=POLL_MIN, pollTimer=null;
+  var failCount=0, needResync=false, lastUpdated=-1;
 
   function setPill(cls,txt,title){
     pill.className='cksync'+(cls?' '+cls:'');
@@ -493,12 +498,18 @@ table.sched td div{margin:1px 0}
   var syncTimer=null;
   function queueSync(){
     if(!SYNC_URL) return;
+    if(syncing){ needResync=true; return; }   /* was silently dropped before */
     clearTimeout(syncTimer);
     syncTimer=setTimeout(doSync,700);
   }
+  function schedulePoll(ms){
+    clearTimeout(pollTimer);
+    pollTimer=setTimeout(function(){ if(!document.hidden) doSync(); else schedulePoll(pollDelay); }, ms);
+  }
 
   function doSync(){
-    if(!SYNC_URL || syncing) return;
+    if(!SYNC_URL) return;
+    if(syncing){ needResync=true; return; }
     if(navigator.onLine===false){ setPill('warn','Offline — saved locally'); return; }
     syncing=true;
     setPill('warn','Syncing…');
@@ -531,12 +542,21 @@ table.sched td div{margin:1px 0}
       sentT.forEach(function(k){ delete pending.ticks[k]; });
       sentC.forEach(function(k){ delete pending.custom[k]; });
       save(KQ,pending);
+      var changed = (st.updated||0)!==lastUpdated;
+      lastUpdated = st.updated||0;
       applyState(st);
-      lastOk=now(); syncing=false;
+      lastOk=now(); syncing=false; failCount=0;
       setPill('ok','Synced','Shared with everyone who opens this link');
+      /* something arrived, or we just pushed: stay responsive. Otherwise ease off. */
+      pollDelay = changed ? POLL_MIN : Math.min(Math.round(pollDelay*1.5), POLL_MAX);
+      if(needResync){ needResync=false; clearTimeout(syncTimer); syncTimer=setTimeout(doSync,400); }
+      schedulePoll(pollDelay);
     })['catch'](function(err){
-      syncing=false;
-      setPill('err','Sync failed — saved locally', String(err&&err.message||err));
+      syncing=false; failCount++;
+      var back=Math.min(5000*Math.pow(2,failCount-1),300000);
+      setPill('err','Sync failed — saved locally',
+        String(err&&err.message||err)+' · retrying in '+Math.round(back/1000)+'s (attempt '+failCount+')');
+      schedulePoll(back);
     });
   }
 
@@ -552,8 +572,9 @@ table.sched td div{margin:1px 0}
   if(SYNC_URL){
     setPill('warn','Syncing…');
     doSync();
-    setInterval(function(){ if(!document.hidden) doSync(); },15000);
-    document.addEventListener('visibilitychange',function(){ if(!document.hidden) doSync(); });
+    document.addEventListener('visibilitychange',function(){
+      if(!document.hidden){ pollDelay=POLL_MIN; doSync(); }
+    });
     window.addEventListener('online',doSync);
     window.addEventListener('focus',doSync);
   } else {
