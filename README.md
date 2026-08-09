@@ -4,6 +4,8 @@ Live, shareable version of the full timed itinerary: Copenhagen → Oslo → Gei
 
 **The page:** `index.html` — the entire trip, day by day, with start/end times, transit legs, priorities (★ must see / ○ worth it / ✕ skip), ticket links, and booking deadlines. Purple rows are purchased tickets (fixed times), blue rows are transit, cream rows are meals. It opens with an interactive pre-trip checklist (tickets, gear, documents) that you can tick off and add to.
 
+**Archived snapshot:** `plan-weekend-2026-08-08.html` — the plan as it stood over the weekend of Aug 8–9, frozen at commit `688a247` (Thu Aug 6), *before* the Sunday-morning rebuild of Aug 9. It preserves the original two-castle Monday (Frederiksborg **and** Kronborg) and keeps the National Museum on Day 2. It is a record, not a plan: it is never updated, its checklist is deliberately cut off from the shared sync (`SYNC_URL` blanked) so ticks there cannot reach the live list, and its localStorage keys are namespaced so it cannot collide with `index.html` on the same origin. Linked from the top of the live page.
+
 ## Shared checklist sync — LIVE
 
 The shared list is deployed and active: ticks and added items sync across every device and everyone who opens the link. Status shows as a green **Synced** pill on the page. The endpoint is a Google Apps Script web app (`sync-backend.gs`) wired into `SYNC_URL` in `index.html`.
