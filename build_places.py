@@ -204,6 +204,95 @@ Commons, credited to their authors.</p>
     io.open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(page)
 
 
+
+def autolink(s):
+    """Link the FIRST unlinked mention of each place name within each section.
+
+    The explicit `match` anchors only ever link one occurrence per document, so
+    as the plan got rewritten the same place ended up named in verdicts, weather
+    warnings, alternate plans and cut-lists as plain text. This pass fixes that
+    generically.
+
+    HOW IT AVOIDS CORRUPTING THE HTML: rather than tracking nesting depth while
+    scanning — which got it wrong and double-wrapped names that were already
+    linked — it builds a MASK of the section in which every unsafe character is
+    replaced by NUL while keeping the same length. Offsets therefore line up
+    exactly with the real string, and a name found in the mask is guaranteed to
+    be in plain body text. Unsafe means: inside any tag, and inside <a>,
+    <summary>, <label>, <script> or <style> elements. Links inside <summary>
+    would navigate instead of toggling the day; inside <label> they would
+    navigate instead of ticking the checkbox.
+
+    One link per place per section, not per occurrence — otherwise a paragraph
+    naming Bryggen four times becomes unreadable. Longest names first, so
+    "Bryggens Museum" wins over "Bryggen".
+    """
+    SKIP = ('a', 'summary', 'label', 'script', 'style')
+
+    def mask(text):
+        m = list(text)
+        i, n, depth = 0, len(text), 0
+        while i < n:
+            if text[i] == '<':
+                j = text.find('>', i)
+                if j == -1:
+                    for k in range(i, n):
+                        m[k] = '\x00'
+                    break
+                raw = text[i+1:j]
+                bare = raw.lstrip('/').strip()
+                nm = bare.split()[0].lower() if bare else ''
+                closing = raw.startswith('/')
+                selfclose = raw.endswith('/')
+                for k in range(i, j+1):          # the tag itself is never text
+                    m[k] = '\x00'
+                if nm in SKIP and not selfclose:
+                    depth = max(0, depth - 1) if closing else depth + 1
+                i = j + 1
+            else:
+                if depth > 0:
+                    m[i] = '\x00'
+                i += 1
+        return ''.join(m)
+
+    names = []
+    for pl in PLACES:
+        names.append((pl['name'], pl['slug']))
+        alt = pl['name'].replace('The ', '')
+        if alt != pl['name']:
+            names.append((alt, pl['slug']))
+    names.sort(key=lambda t: -len(t[0]))
+
+    cuts = [mm.start() for mm in re.finditer(r'<details\b', s)] + [len(s)]
+    pieces, prev = [], 0
+    for c in cuts:
+        pieces.append(s[prev:c]); prev = c
+
+    added = 0
+    for k, sec in enumerate(pieces):
+        if not sec:
+            continue
+        used = set()
+        for name, slug in names:
+            if slug in used:
+                continue
+            # Idempotency: index.html is edited in place and this may run many
+            # times. If the section already links this place, leave it alone —
+            # otherwise each rebuild would link one more occurrence.
+            if ('places/%s.html' % slug) in sec:
+                continue
+            idx = mask(sec).find(name)
+            if idx == -1:
+                continue
+            sec = sec[:idx] + '<a href="places/%s.html">%s</a>' % (slug, name) + sec[idx+len(name):]
+            used.add(slug)
+            added += 1
+        pieces[k] = sec
+
+    print('autolinked %d additional place mentions' % added)
+    return ''.join(pieces)
+
+
 def link_itinerary():
     """Wrap the matched activity text in index.html with a link to its page.
     Idempotent: skips anything already linked."""
@@ -251,6 +340,8 @@ def link_itinerary():
     def anchor(mo):
         return mo.group(0).replace('<details class="day"', '<details id="day%s" class="day"' % mo.group(1), 1)
     s = re.sub(r'<details class="day" data-date="[^"]+" data-day="(\d+)"', anchor, s)
+
+    s = autolink(s)
 
     io.open(path, 'w', encoding='utf-8').write(s)
     print('linked %d activities into index.html' % linked)

@@ -375,8 +375,7 @@ dict(slug='atlanterhavsparken', name='Atlanterhavsparken', native='The Atlantic 
 # ---------------------------------------------------------------- BERGEN
 dict(slug='mostraumen', name='The Mostraumen fjord cruise', city='Bergen — dropped from the plan',
  wp='Osterfjorden', commons='Mostraumen Osterfjorden fjord cruise Bergen',
- day=None, match='<a href="places/mostraumen.html">|Mostraumen',
- tagline='Three and a half hours from the middle of Bergen up a fjord that narrows to a tidal strait you can almost touch.',
+ day=None, tagline='Three and a half hours from the middle of Bergen up a fjord that narrows to a tidal strait you can almost touch.',
  facts=[('Operator','Rødne Fjord Cruise'),
         ('Departs','Zachariasbryggen, by the Fish Market — in the city centre'),
         ('Duration','~3.5 hrs return'),
@@ -661,8 +660,7 @@ dict(slug='mariakirken', name='Mariakirken (St Mary’s Church)', native='Mariak
 # ------------- Bergen: considered and not in the plan
 dict(slug='gamle-bergen', name='Gamle Bergen', native='Old Bergen Museum', city='Bergen',
  wp='Old Bergen Museum', commons='Gamle Bergen Museum Sandviken',
- day=11, when='10:05–12:05', match='<a href="places/gamle-bergen.html">|Gamle Bergen',
- 
+ day=11, when='10:05–12:05', 
  tagline='About fifty wooden houses moved to Sandviken and laid out as streets and yards — the city as it was when it was the largest wooden city in Europe.',
  facts=[('Where','Sandviken, ~4 km north of the centre'),
         ('Getting there','Bus 3, 4, 12, 16E or 19 from Bryggen'),
