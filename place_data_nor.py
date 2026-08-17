@@ -373,20 +373,16 @@ dict(slug='atlanterhavsparken', name='Atlanterhavsparken', native='The Atlantic 
  ]),
 
 # ---------------------------------------------------------------- BERGEN
-dict(slug='mostraumen', name='The Mostraumen fjord cruise', city='Bergen',
+dict(slug='mostraumen', name='The Mostraumen fjord cruise', city='Bergen — dropped from the plan',
  wp='Osterfjorden', commons='Mostraumen Osterfjorden fjord cruise Bergen',
- day=11, when='10:00–13:30',
- match='Mostraumen fjord cruise (Rødne)',
+ day=None, match='<a href="places/mostraumen.html">|Mostraumen',
  tagline='Three and a half hours from the middle of Bergen up a fjord that narrows to a tidal strait you can almost touch.',
  facts=[('Operator','Rødne Fjord Cruise'),
         ('Departs','Zachariasbryggen, by the Fish Market — in the city centre'),
         ('Duration','~3.5 hrs return'),
         ('Cost','~NOK 890'),
         ('The turn','Mostraumen, a strait so narrow the boat reverses through it')],
- plan='Your one fjord cruise from Bergen, and the only one you need. It leaves from and returns to '
-      'the city centre — there is no transfer at either end, whatever other itineraries claim. The '
-      'bow goes under a waterfall and ponchos are handed out; your shells are better. Confirm the '
-      '10:00 departure actually runs on Aug 18 when you book.',
+ plan='<b>Dropped on Aug 17.</b> By the time Aug 18 came round you had already done Geiranger on the 15th and five hours of coast and islands on the Måløy express boat on the 16th–17th, and Aug 19 covers Hardanger by road — a third sailing in five days was the weakest thing in the Bergen day. Cutting it freed 09:30–13:30 and ~NOK 890 a head, which is what made Gamle Bergen possible. <b>If it is already paid for, check Rødne’s cancellation window.</b> Left here because it is a genuinely good trip and worth knowing about for a future visit.',
  body=[
   ('p','The boat leaves from Zachariasbryggen beside the Fish Market, crosses Byfjorden, and heads '
        'north into <b>Osterfjorden</b> — away from the cruise-ship fjords and into working countryside. '
@@ -549,7 +545,6 @@ dict(slug='floyen', name='Fløyen, Fløibanen and Fjellveien', city='Bergen',
 dict(slug='schotstuene', name='Schøtstuene and the Hanseatic collection', city='Bergen',
  wp='Hanseatic Museum', commons='Schotstuene Bergen Hanseatic assembly rooms',
  day=11, when='Rain-day alternative',
- match='(1) <b>|Schøtstuene',
  tagline='The assembly halls where the Hanseatic merchants ate, drank, held court and were forbidden to light a fire at home.',
  facts=[('What','The Hanseatic League’s communal assembly rooms, behind Bryggen'),
         ('Where','Øvregaten 50'),
@@ -577,7 +572,6 @@ dict(slug='schotstuene', name='Schøtstuene and the Hanseatic collection', city=
 dict(slug='kode', name='KODE Art Museums', city='Bergen',
  wp='KODE Art Museums of Bergen', commons='KODE art museum Bergen Rasmus Meyer',
  day=11, when='Rain-day alternative',
- match='(2) <b>|KODE',
  tagline='Four buildings on a city lake holding 50,000 works — and one collection inside them worth going for.',
  facts=[('Buildings','Four, around Lille Lungegårdsvannet'),
         ('Collection','~50,000 works'),
@@ -602,7 +596,7 @@ dict(slug='kode', name='KODE Art Museums', city='Bergen',
 dict(slug='bryggens-museum', name='Bryggens Museum', city='Bergen',
  wp='Bryggens Museum', commons='Bryggens Museum Bergen excavations',
  day=11, when='Rain-day alternative',
- match="(3) <b>|Bryggens Museum",
+ 
  tagline='Built directly over the excavated foundations of Bergen’s oldest buildings, uncovered when Bryggen burned in 1955.',
  facts=[('What it is','The archaeological museum of medieval Bergen and Vestlandet'),
         ('Built over','Foundations of the city’s oldest buildings, first half of the 1100s — in place, not moved'),
@@ -634,18 +628,16 @@ dict(slug='bryggens-museum', name='Bryggens Museum', city='Bergen',
  links=[('Bryggens Museum, visitBergen','https://en.visitbergen.com/things-to-do/bryggens-museum-bymuseet-i-bergen-p819623')]),
 
 # ------------- Bergen: considered and not in the plan
-dict(slug='gamle-bergen', name='Gamle Bergen', native='Old Bergen Museum', city='Bergen — not in the plan',
+dict(slug='gamle-bergen', name='Gamle Bergen', native='Old Bergen Museum', city='Bergen',
  wp='Old Bergen Museum', commons='Gamle Bergen Museum Sandviken',
- day=None, match='<b>|Gamle Bergen',
+ day=11, when='10:05–12:05', match='<a href="places/gamle-bergen.html">|Gamle Bergen',
  
  tagline='About fifty wooden houses moved to Sandviken and laid out as streets and yards — the city as it was when it was the largest wooden city in Europe.',
  facts=[('Where','Sandviken, ~4 km north of the centre'),
         ('Getting there','Bus 3, 4, 12, 16E or 19 from Bryggen'),
         ('Season','Roughly mid-May to end of August'),
         ('Time needed','~2 hrs round trip from the centre')],
- plan='Genuinely good and warmly recommended by locals, but it loses to the fortress interiors on a '
-      'single Bergen day: it is 4 km out plus a bus, and the round trip is about two hours you do not '
-      'have. This is the first thing to add if you ever get a second day in Bergen.',
+ plan='<b>Now the morning of Aug 18</b>, after the fjord cruise was dropped on the 17th — this is what the freed 3½ hours bought. Bus 3, 4, 12, 16E or 19 from the Bryggen stops, ~15–20 min; get off at Gamle Bergen, turn right and walk under the motorway, because the entrance is not visible from the road. Two hours on site. <b>It is open-air, so if the morning is wet, skip it</b> and do the indoor Hanseatic morning instead: Bryggens Museum then Schøtstuene, both five minutes from the hotel. House interiors are guided-tour only — ask for the next English tour when you arrive.',
  body=[
   ('p','In the 19th century Bergen was the largest wooden city in Europe, and most of it is gone — '
        'lost to fire, to demolition, and to the concrete of the 20th century. Gamle Bergen collects '
