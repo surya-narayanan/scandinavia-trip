@@ -599,6 +599,40 @@ dict(slug='kode', name='KODE Art Museums', city='Bergen',
        'contemporary exhibitions. Grieg’s villa at Troldhaugen is also administratively part of KODE.'),
  ]),
 
+dict(slug='bryggens-museum', name='Bryggens Museum', city='Bergen',
+ wp='Bryggens Museum', commons='Bryggens Museum Bergen excavations',
+ day=11, when='Rain-day alternative',
+ match="(3) <b>|Bryggens Museum",
+ tagline='Built directly over the excavated foundations of Bergen’s oldest buildings, uncovered when Bryggen burned in 1955.',
+ facts=[('What it is','The archaeological museum of medieval Bergen and Vestlandet'),
+        ('Built over','Foundations of the city’s oldest buildings, first half of the 1100s — in place, not moved'),
+        ('The dig','The Bryggen excavations, 1955–1972'),
+        ('Where','Dreggsallmenningen 3, at the Bergenhus end of Bryggen'),
+        ('Hours','The Bymuseet summer pattern, roughly 10:00–17:00 — confirm at bymuseet.no'),
+        ('Note','It closes at about the same hour as Rosenkrantztårnet, so on a clear day the two compete for the same slot')],
+ plan='Third choice on a washout day, after Schøtstuene and KODE. <b>It cannot simply be added to a '
+      'clear-weather Aug 18:</b> it shuts at roughly the same time as the fortress interiors, so taking '
+      'it means giving up the tower rather than adding a stop. Any itinerary that puts you inside it at '
+      '17:25 has you arriving after it has locked up.',
+ body=[
+  ('p','In July 1955 a fire destroyed the northern part of Bryggen. What it exposed underneath became '
+       'one of the most productive urban archaeological digs in northern Europe: between 1955 and 1972 '
+       'excavators worked down through metres of waterlogged layers — each of Bryggen’s repeated fires '
+       'having sealed the one beneath it — and recovered something like a million objects.'),
+  ('p','The museum was then built directly on top of the site, so the foundations of Bergen’s oldest '
+       'known buildings, from the first half of the 1100s, are inside it, in position, forming part of '
+       'the permanent display rather than a reconstruction. You walk around and above them.'),
+  ('h2','What the finds actually show'),
+  ('p','Ordinary life, which is what makes it worth an hour. Leather shoes, combs, tools, gaming pieces, '
+       'imported pottery and cloth, ships’ timbers — and above all the <b>runic inscriptions</b>. '
+       'Several hundred runic sticks came out of the mud, and they are not monumental: they are business '
+       'notes, ownership tags, a merchant’s reminders, complaints, jokes, and at least one piece of love '
+       'poetry. They are the closest thing there is to overhearing 12th-century Bergen.'),
+  ('p','The museum is also the starting point for the guided walks of Bryggen itself, which is the '
+       'other reason to know where its door is.'),
+ ],
+ links=[('Bryggens Museum, visitBergen','https://en.visitbergen.com/things-to-do/bryggens-museum-bymuseet-i-bergen-p819623')]),
+
 # ------------- Bergen: considered and not in the plan
 dict(slug='gamle-bergen', name='Gamle Bergen', native='Old Bergen Museum', city='Bergen — not in the plan',
  wp='Old Bergen Museum', commons='Gamle Bergen Museum Sandviken',
