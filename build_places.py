@@ -122,9 +122,14 @@ def main():
         sys.exit('duplicate slugs: %s' % sorted(dupes))
 
     for pl in PLACES:
+        # Three photo sources, tried in order of trustworthiness by place.js:
+        # explicit Commons category, then images used on the Wikipedia article,
+        # then a Commons text search.
         galattrs = u''
         if pl.get('cat'):
             galattrs += u' data-commons-cat="%s"' % html.escape(pl['cat'], quote=True)
+        if pl.get('wp'):
+            galattrs += u' data-wp="%s"' % html.escape(pl['wp'], quote=True)
         if pl.get('commons'):
             galattrs += u' data-commons="%s"' % html.escape(pl['commons'], quote=True)
 
@@ -214,6 +219,12 @@ def link_itinerary():
         # so the anchor never swallows surrounding markup.
         prefix, _, text = m.rpartition('|')
         whole = prefix + text
+        # Idempotency: once linked, `whole` no longer exists as one string,
+        # because the anchor was inserted between prefix and text. Check for
+        # the linked form before deciding anything is missing.
+        already = u'%s<a href="places/%s.html">%s</a>' % (prefix, pl['slug'], text)
+        if already in s:
+            continue
         if whole not in s:
             missed.append((pl['slug'], whole))
             continue

@@ -602,7 +602,8 @@ dict(slug='kode', name='KODE Art Museums', city='Bergen',
 # ------------- Bergen: considered and not in the plan
 dict(slug='gamle-bergen', name='Gamle Bergen', native='Old Bergen Museum', city='Bergen — not in the plan',
  wp='Old Bergen Museum', commons='Gamle Bergen Museum Sandviken',
- day=None,
+ day=None, match='<b>|Gamle Bergen',
+ 
  tagline='About fifty wooden houses moved to Sandviken and laid out as streets and yards — the city as it was when it was the largest wooden city in Europe.',
  facts=[('Where','Sandviken, ~4 km north of the centre'),
         ('Getting there','Bus 3, 4, 12, 16E or 19 from Bryggen'),
@@ -627,7 +628,8 @@ dict(slug='gamle-bergen', name='Gamle Bergen', native='Old Bergen Museum', city=
 
 dict(slug='akvariet-bergen', name='Akvariet i Bergen', native='The Bergen Aquarium',
  city='Bergen — not in the plan', wp='Bergen Aquarium', commons='Akvariet i Bergen aquarium',
- day=None,
+ day=None, match='<b>|Akvariet i Bergen',
+ 
  tagline='Norway’s largest aquarium, on the tip of the Nordnes peninsula — and, by most local accounts, primarily a place to take children.',
  facts=[('Where','Nordnesbakken 4, ~20 min walk west of the Fish Market'),
         ('Open','10:00–18:00 in summer'),
@@ -654,7 +656,8 @@ dict(slug='akvariet-bergen', name='Akvariet i Bergen', native='The Bergen Aquari
 
 dict(slug='fantoft', name='Fantoft Stave Church', native='Fantoft stavkirke',
  city='Bergen — not in the plan', wp='Fantoft Stave Church', commons='Fantoft stave church Bergen',
- day=None,
+ day=None, match='<b>|Fantoft Stavkirke',
+ 
  tagline='A stave church built around 1150, moved here in 1883, burned by arsonists in 1992, and rebuilt to match.',
  facts=[('Originally built','c. 1150, at Fortun in Sogn'),
         ('Moved','1883, to Fantoft'),
@@ -681,7 +684,8 @@ dict(slug='fantoft', name='Fantoft Stave Church', native='Fantoft stavkirke',
 
 dict(slug='ulriken', name='Ulriken', city='Bergen — not in the plan',
  wp='Ulriken', commons='Ulriken cable car Bergen Ulriksbanen',
- day=None,
+ day=None, match='<b>|Ulriken',
+ 
  tagline='The highest of Bergen’s seven mountains at 643 metres, reached by cable car or by a staircase of Sherpa-built stone steps.',
  facts=[('Height','643 m — the highest of the seven'),
         ('Cable car','Ulriksbanen, departures every ~5 min from 1 April to 30 September'),
@@ -706,7 +710,8 @@ dict(slug='ulriken', name='Ulriken', city='Bergen — not in the plan',
 
 dict(slug='troldhaugen', name='Troldhaugen', city='Bergen — not in the plan',
  wp='Troldhaugen', commons='Troldhaugen Edvard Grieg villa',
- day=None,
+ day=None, match='<b>|Troldhaugen',
+ 
  tagline='Edvard Grieg’s villa above a lake, with the hut where he actually composed still standing at the water’s edge.',
  facts=[('Built','1885'), ('Museum since','1928'),
         ('Includes','The villa, the composing hut, the Griegs’ grave, and Troldsalen, a 200-seat concert hall'),

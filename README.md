@@ -85,13 +85,29 @@ attribution requires.
 
 Consequences worth knowing:
 
-- Photographs need network access **in the reader's browser**. If the fetch
+Three sources are queried in parallel and merged in order of how much they can
+be trusted:
+
+1. an explicit **Commons category** (most precise — set on 22 of the pages),
+2. the images actually used on the **English Wikipedia article** (curated, and
+   set on all 62),
+3. a **Commons text search** (least reliable, so it ranks last).
+
+Results are de-duplicated and capped at five. Wikipedia article images are
+filtered against a junk list, because articles also carry logos, flags, locator
+maps and badges.
+
+Consequences worth knowing:
+
+- Photographs need network access **in the reader's browser**. If every tier
   fails, the gallery collapses to a labelled "browse them on Wikimedia Commons"
   link rather than a row of broken frames.
 - Which photographs appear can change over time, because Commons changes.
-- The galleries were verified against a mocked API and against a blocked
-  network, but **not against the live Wikimedia API**, because this repo's
-  authoring environment cannot reach it. Open a page and confirm.
+- The galleries were verified against a mocked API (priority order, empty-tier
+  fallthrough, junk filtering, a hard-failing tier, and the all-empty case) and
+  against a blocked network — but **not against the live Wikimedia API**,
+  because this repo's authoring environment cannot reach it. Open a page and
+  confirm.
 
 To switch to committed images instead — offline-proof, print-proof, and fixed —
 the images have to be downloaded on a machine with Wikimedia access and checked

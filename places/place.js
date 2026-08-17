@@ -6,77 +6,103 @@
    filename, so hardcoding them means guessing, and a guessed URL is a broken
    image. Instead the page asks the Wikimedia APIs for photos when a reader
    opens it, and renders whatever actually comes back — together with the
-   author and licence that the API reports, which is also what Commons
-   attribution requires.
+   author and licence the API reports, which is also what Commons attribution
+   requires.
 
    Each page carries:
-     data-commons-cat  optional Commons category, tried first (precise)
-     data-commons      Commons search query, used if the category is empty
-     data-wp           English Wikipedia article title, for the text link
+     data-commons-cat  optional Commons category  (most precise)
+     data-wp           English Wikipedia article  (curated, very reliable)
+     data-commons      Commons text search query  (last resort)
 
-   Both endpoints send CORS headers (the Action API via origin=*), so this
-   works from a github.io origin. If anything fails the gallery collapses to
-   a labelled link rather than a row of broken frames.
+   The three are tried IN THAT ORDER and their results are merged, because a
+   text search is the least trustworthy of them — it can return something only
+   loosely related, or nothing at all. Images actually used on the Wikipedia
+   article are a much better signal, so they rank above search.
+
+   Both hosts send CORS headers (the Action API via origin=*), so this works
+   from a github.io origin. If every tier fails the gallery collapses to a
+   labelled link rather than a row of broken frames.
 --------------------------------------------------------------------------- */
 (function () {
   var MAX = 5;
-  var OK = /\.(jpe?g|png)$/i;
+  var PHOTO = /\.(jpe?g|png)$/i;
 
-  function el(tag, cls) { var e = document.createElement(tag); if (cls) e.className = cls; return e; }
-  function text(html) { var d = el('div'); d.innerHTML = html || ''; return (d.textContent || '').trim(); }
+  /* Wikipedia articles carry chrome — icons, flags, maps, badges. None of it
+     is a photograph of the place. */
+  var JUNK = new RegExp([
+    'commons-logo', 'wikipedia', 'wikimedia', 'wikisource', 'wikiquote', 'wikidata',
+    'logo', 'icon', 'edit-', 'symbol', 'flag[_ ]of', 'coat[_ ]of[_ ]arms',
+    'locator', 'blank', 'question', 'ambox', 'increase', 'decrease',
+    'red[_ ]pog', 'folder', 'padlock', 'crystal', 'nuvola', 'emblem',
+    'seal[_ ]of', 'disambig', '[_ ]map[_.]', '^File:Map'
+  ].join('|'), 'i');
 
-  function commonsURL(params) {
-    params.action = 'query'; params.format = 'json'; params.origin = '*';
+  function el(t, c) { var e = document.createElement(t); if (c) e.className = c; return e; }
+  function plain(html) { var d = el('div'); d.innerHTML = html || ''; return (d.textContent || '').trim(); }
+
+  function api(host, params) {
+    params.action = 'query';
+    params.format = 'json';
+    params.origin = '*';
     params.prop = 'imageinfo';
     params.iiprop = 'url|extmetadata';
     params.iiurlwidth = '900';
-    return 'https://commons.wikimedia.org/w/api.php?' + new URLSearchParams(params).toString();
+    return fetch('https://' + host + '/w/api.php?' + new URLSearchParams(params).toString())
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (j) {
+        var p = j && j.query && j.query.pages;
+        if (!p) return [];
+        return Object.keys(p).map(function (k) { return p[k]; });
+      })
+      .catch(function () { return []; });   /* a failed tier must not kill the rest */
   }
 
-  function pagesOf(json) {
-    var p = json && json.query && json.query.pages;
-    if (!p) return [];
-    return Object.keys(p).map(function (k) { return p[k]; });
+  /* Tier 1 — an explicit Commons category. */
+  function fromCategory(cat) {
+    return api('commons.wikimedia.org', {
+      generator: 'categorymembers', gcmtitle: cat, gcmtype: 'file', gcmlimit: '30'
+    });
+  }
+  /* Tier 2 — the images used on the English Wikipedia article. Commons-hosted
+     files still return full imageinfo through the local API. */
+  function fromArticle(title) {
+    return api('en.wikipedia.org', {
+      generator: 'images', titles: title, gimlimit: '40'
+    });
+  }
+  /* Tier 3 — a Commons text search. Least reliable, so it ranks last. */
+  function fromSearch(q) {
+    return api('commons.wikimedia.org', {
+      generator: 'search', gsrsearch: q, gsrnamespace: '6', gsrlimit: '30'
+    });
   }
 
-  /* Category members are far more precise than search, so try them first. */
-  function byCategory(cat) {
-    return fetch(commonsURL({
-      generator: 'categorymembers', gcmtitle: cat, gcmtype: 'file', gcmlimit: '20'
-    })).then(function (r) { return r.json(); }).then(pagesOf);
-  }
-  function bySearch(q) {
-    return fetch(commonsURL({
-      generator: 'search', gsrsearch: q, gsrnamespace: '6', gsrlimit: '20'
-    })).then(function (r) { return r.json(); }).then(pagesOf);
-  }
-
-  function usable(pages) {
-    return (pages || []).filter(function (pg) {
-      return pg && OK.test(pg.title || '') && pg.imageinfo && pg.imageinfo[0] && pg.imageinfo[0].thumburl;
-    }).slice(0, MAX);
+  function keep(pg) {
+    if (!pg || !PHOTO.test(pg.title || '')) return false;
+    if (JUNK.test(pg.title)) return false;
+    return !!(pg.imageinfo && pg.imageinfo[0] && pg.imageinfo[0].thumburl);
   }
 
   function figureFor(pg) {
     var info = pg.imageinfo[0];
     var meta = info.extmetadata || {};
     var name = (pg.title || '').replace(/^File:/, '').replace(/\.(jpe?g|png)$/i, '').replace(/_/g, ' ');
-    var artist = meta.Artist ? text(meta.Artist.value) : '';
-    var lic = meta.LicenseShortName ? text(meta.LicenseShortName.value) : '';
-    var desc = meta.ImageDescription ? text(meta.ImageDescription.value) : '';
+    var artist = meta.Artist ? plain(meta.Artist.value) : '';
+    var lic = meta.LicenseShortName ? plain(meta.LicenseShortName.value) : '';
+    var desc = meta.ImageDescription ? plain(meta.ImageDescription.value) : '';
 
     var fig = el('figure');
     var img = el('img');
     img.loading = 'lazy';
     img.alt = desc || name;
     img.src = info.thumburl;
-    /* A single dead image should not leave an empty frame behind. */
     img.onerror = function () { if (fig.parentNode) fig.parentNode.removeChild(fig); };
     fig.appendChild(img);
 
     var cap = el('figcaption');
     var a = el('a');
-    a.href = info.descriptionurl || 'https://commons.wikimedia.org/wiki/' + encodeURIComponent(pg.title);
+    a.href = info.descriptionurl ||
+             ('https://commons.wikimedia.org/wiki/' + encodeURIComponent(pg.title));
     a.target = '_blank'; a.rel = 'noopener';
     a.textContent = (desc && desc.length < 180) ? desc : name;
     cap.appendChild(a);
@@ -93,50 +119,59 @@
     return fig;
   }
 
-  function fallback(host, q, cat) {
-    var s = el('div', 'gal-status');
-    var href = cat
-      ? 'https://commons.wikimedia.org/wiki/' + encodeURIComponent(cat)
-      : 'https://commons.wikimedia.org/w/index.php?search=' +
-        encodeURIComponent(q) + '&title=Special:MediaSearch&type=image';
-    s.innerHTML = 'Photographs could not be loaded here — ' +
-      '<a target="_blank" rel="noopener" href="' + href + '">browse them on Wikimedia Commons</a>.';
-    host.innerHTML = '';
-    host.appendChild(s);
+  function browseHref(cat, q, wp) {
+    if (cat) return 'https://commons.wikimedia.org/wiki/' + encodeURIComponent(cat);
+    if (q) return 'https://commons.wikimedia.org/w/index.php?search=' +
+                  encodeURIComponent(q) + '&title=Special:MediaSearch&type=image';
+    return 'https://en.wikipedia.org/wiki/' + encodeURIComponent(wp || '');
   }
 
   document.addEventListener('DOMContentLoaded', function () {
     var host = document.getElementById('gallery');
     if (!host) return;
+
     var cat = host.getAttribute('data-commons-cat') || '';
+    var wp = host.getAttribute('data-wp') || '';
     var q = host.getAttribute('data-commons') || '';
-    if (!cat && !q) { host.parentNode.removeChild(host); return; }
+    if (!cat && !wp && !q) { host.parentNode.removeChild(host); return; }
 
     var status = el('div', 'gal-status');
     status.textContent = 'Loading photographs from Wikimedia Commons…';
     host.appendChild(status);
 
-    var first = cat ? byCategory(cat) : Promise.resolve([]);
+    /* Run the tiers in parallel but merge them in priority order, so a good
+       category still wins even though search also answered. */
+    Promise.all([
+      cat ? fromCategory(cat) : Promise.resolve([]),
+      wp ? fromArticle(wp) : Promise.resolve([]),
+      q ? fromSearch(q) : Promise.resolve([])
+    ]).then(function (tiers) {
+      var seen = {}, got = [];
+      tiers.forEach(function (pages) {
+        (pages || []).filter(keep).forEach(function (pg) {
+          if (seen[pg.title] || got.length >= MAX) return;
+          seen[pg.title] = 1;
+          got.push(pg);
+        });
+      });
 
-    first
-      .then(function (pages) {
-        var got = usable(pages);
-        if (got.length) return got;
-        return q ? bySearch(q).then(usable) : [];
-      })
-      .then(function (got) {
-        if (!got.length) { fallback(host, q, cat); return; }
+      if (!got.length) {
         host.innerHTML = '';
-        /* First figure becomes the lead purely via CSS :first-of-type. */
-        got.forEach(function (pg) { host.appendChild(figureFor(pg)); });
-        var note = el('div', 'gal-status');
-        var href = cat
-          ? 'https://commons.wikimedia.org/wiki/' + encodeURIComponent(cat)
-          : 'https://commons.wikimedia.org/w/index.php?search=' +
-            encodeURIComponent(q) + '&title=Special:MediaSearch&type=image';
-        note.innerHTML = '<a target="_blank" rel="noopener" href="' + href + '">More photographs on Wikimedia Commons →</a>';
-        host.appendChild(note);
-      })
-      .catch(function () { fallback(host, q, cat); });
+        var s = el('div', 'gal-status');
+        s.innerHTML = 'Photographs could not be loaded here — ' +
+          '<a target="_blank" rel="noopener" href="' + browseHref(cat, q, wp) +
+          '">browse them on Wikimedia Commons</a>.';
+        host.appendChild(s);
+        return;
+      }
+
+      host.innerHTML = '';
+      got.forEach(function (pg) { host.appendChild(figureFor(pg)); });
+
+      var note = el('div', 'gal-status');
+      note.innerHTML = '<a target="_blank" rel="noopener" href="' + browseHref(cat, q, wp) +
+        '">More photographs on Wikimedia Commons →</a>';
+      host.appendChild(note);
+    });
   });
 })();
