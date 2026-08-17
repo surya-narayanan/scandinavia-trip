@@ -821,16 +821,14 @@ dict(slug='voringsfossen', name='Vøringsfossen', city='Hardanger',
 dict(slug='hardanger-fartoyvernsenter', name='Hardanger Fartøyvernsenter',
  native='Hardanger Maritime Centre', city='Norheimsund',
  wp='Norheimsund', commons='Hardanger fartøyvernsenter Norheimsund boatbuilding',
- day=12, when='11:30–13:15',
+ day=None,
  tagline='A working yard on the Hardangerfjord where historic wooden ships are actually being rebuilt — with Norway’s only operating ropewalk.',
  facts=[('Founded','1984, in a former furniture factory on the quay'),
         ('Where','Norheimsund, ~1 hr 25 by bus 925 from Bergen'),
         ('Unique','Norway’s only operational rope-making lane'),
         ('Also on site','Working forge, traditional boatbuilding year-round, rowboat rental'),
         ('Cost','Pay at door — ring +47 474 79 839 to confirm the day’s hours')],
- plan='The reason Aug 19 is a day out rather than a trip to see one waterfall. Bus 925 from Bergen bus station, '
-      'get off at Norheimsund, and it is on the quay. Allow about 1¾ hrs. <b>Ring ahead</b> — it is a working '
-      'yard rather than a big museum and its hours are not something I could verify.',
+ plan='<b>On the fallback day, not the current plan.</b> Aug 19 is now the Hardanger Bridge by train and bus; this was the anchor of the Norheimsund alternative, reached by bus 925 from Bergen. Worth keeping in mind, because it is the better wet-weather day of the two — largely indoors, whereas the bridge day is entirely outdoors with a picnic table for shelter. <b>Ring +47 474 79 839</b> to confirm hours.',
  body=[
   ('p','This is not a museum of boats. It is a yard, established in 1984 in a disused furniture factory on the '
        'Norheimsund quay, where historic Norwegian wooden vessels are restored using the original techniques — '
@@ -853,16 +851,57 @@ dict(slug='hardanger-fartoyvernsenter', name='Hardanger Fartøyvernsenter',
  links=[('Hardanger fartøyvernsenter','https://fartoyvern.no/en/'),
         ('Visit information','https://fartoyvern.no/en/visit-us/')]),
 
+dict(slug='hardanger-bridge', name='The Hardanger Bridge', native='Hardangerbrua', city='Hardanger',
+ wp='Hardanger Bridge', commons='Hardangerbrua Hardanger Bridge Norway',
+ day=12, when='~11:00–12:45',
+ tagline='A 1,380-metre suspension span across the Eidfjorden branch — with a pedestrian lane you can walk, toll-free.',
+ facts=[('Opened','August 2013'),
+        ('Main span','1,380 m — among the longest suspension spans in the world'),
+        ('Connects','Bu, in Ullensvang, with Vallavik, in Ulvik'),
+        ('Replaced','The Bruravik–Brimnes ferry'),
+        ('On foot','Separate foot-and-cycle lane; pedestrians, cyclists and scooters pay NO toll'),
+        ('At the Bu end','A viewpoint with picnic area and toilets, and walk-down access to the span')],
+ plan='Reached by train to Voss then Skyss bus <b>990</b>, which crosses the bridge on its way in to Bu — so you '
+      'get the crossing by vehicle before you get it on foot. Walk out from the Bu viewpoint, or better, get off '
+      'at <b>Vallavik</b> on the north side if the 990 stops there and walk the whole span across to Bu. '
+      '<b>Bu is a junction, not a village</b> — toilets and picnic tables, no café, so bring lunch or ride 991 '
+      'on to Eidfjord to wait.',
+ body=[
+  ('p','Until 2013 the Hardangerfjord split this region in two and the road crossing was the Bruravik–Brimnes '
+       'ferry. The Hardanger Bridge replaced it with a single suspension span of 1,380 metres between Bu on the '
+       'south shore and Vallavik on the north — one of the longest in the world when it opened, and long enough '
+       'that the towers carry the deck across the whole width of the Eidfjorden arm in one go.'),
+  ('p','It was contentious for decades before it was built, on cost and on what a structure of that scale would '
+       'do to a listed fjord landscape. The compromise is visible in how it is finished: slim towers, a shallow '
+       'deck, and tunnels at both ends so the approach roads disappear into rock rather than switchbacking down '
+       'the hillsides.'),
+  ('h2','Why it is worth going on foot'),
+  ('p','Because you can, and almost nobody does. There is a <b>separate lane for pedestrians and cyclists</b>, '
+       'and no toll is charged for using it — the toll applies to cars. Walking out onto a 1,380-metre span with '
+       'the fjord well below and the Hardangervidda plateau rising behind you is a different proposition from '
+       'photographing it from a coach window at a viewpoint, which is how most visitors experience it.'),
+  ('p','The <b>Bu viewpoint</b> at the southern landing is the practical base: picnic area, toilets, and a path '
+       'down to the bridge itself. From there it is roughly 45 minutes to walk out to mid-span and back at an '
+       'unhurried pace.'),
+  ('h2','Where it sits'),
+  ('p','Bu is the interchange between Skyss route <b>990</b> (Voss–Granvin–Bu–Kinsarvik–Odda) and route '
+       '<b>991</b> (Bu–Eidfjord–Hardangervidda–Geilo), which makes the bridge the hinge of the whole Hardanger '
+       'bus network. It is also why Vøringsfossen stays out of reach on a day trip: 991 gets you to Eidfjord, '
+       'but the onward bus up Måbødalen to the falls runs about twice a day.'),
+ ],
+ links=[('Hardanger Bridge, Visit Hardangerfjord','https://hardangerfjord.com/en/eidfjord/attractions/hardanger-bridge-1680333'),
+        ('On foot or on wheels','https://hardangerfjord.com/en/attractions/hardanger-bridge-on-foot-or-on-wheels-1083353')]),
+
 dict(slug='steinsdalsfossen', name='Steinsdalsfossen', city='Hardanger',
  wp='Steinsdalsfossen', commons='Steinsdalsfossen waterfall Norheimsund',
- day=12, when='14:35–15:45',
- match='font-weight:700;">★ |Steinsdalsfossen',
+ day=None,
+ 
  tagline='The waterfall you walk behind — a footpath runs along the rock face under the falling water.',
  facts=[('Height','46 m'), ('Where','Steine, 2 km west of Norheimsund, Kvam'),
         ('The path','Runs behind the fall, on the rock face'),
         ('Changed course','1699, when the river shifted to its present line'),
         ('Cost','Free')],
- plan='<b>The anchor of Aug 19 now</b>, reached by Skyss bus 925 rather than a coach tour. It sits 2 km west of Norheimsund, on the Bergen-bound side of the village, so it comes after the maritime centre and costs no backtracking. <b>It is open 24 hours and floodlit</b>, which is why it takes the later slot — the shipyard closes and this does not. Free toilets, cafe, souvenir shops and a summer tourist office. <b>The path behind the falls is closed at some times of year</b>; if it is roped off the falls are still worth it, but the walk-behind is the whole point, so check before building the day around it.',
+ plan='<b>On the fallback day, not the current plan.</b> Aug 19 is now the Hardanger Bridge by train and bus. If the 990 timetable does not work, the Norheimsund day is where to fall back to — bus 925 from Bergen, the maritime centre, then these falls 2 km west of the village on the Bergen-bound side. <b>Open 24 hours and floodlit</b>, so it takes a late slot happily. The path behind the falls is closed at some times of year, and that walk is the whole point, so check before building a day on it.',
  body=[
   ('p','The river Fosselva changed its course in 1699 and began falling over an overhanging shelf of '
        'rock, which left a dry space underneath. A path was built along that shelf, and the result is '
