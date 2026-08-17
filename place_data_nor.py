@@ -792,17 +792,15 @@ dict(slug='troldhaugen', name='Troldhaugen', city='Bergen — not in the plan',
 # ---------------------------------------------------------------- HARDANGER DAY
 dict(slug='voringsfossen', name='Vøringsfossen', city='Hardanger',
  wp='Vøringsfossen', cat='Category:Vøringsfossen', commons='Voringsfossen waterfall Norway',
- day=12, when='13:00–14:10',
- match='font-weight:700;">★ |Vøringsfossen',
+ day=None,
+ 
  tagline='A 182-metre fall into the head of the Måbødalen gorge, with stepped platforms on both rims and a footbridge over the canyon.',
  facts=[('Total drop','182 m, the free fall about 145 m'),
         ('River','The Bjoreio, off the Hardangervidda plateau'),
         ('Where','Above Eidfjord, at the top of Måbødalen'),
         ('New viewing structures','Stepped platforms and a 47 m footbridge, completed 2020s'),
         ('Cost','Free')],
- plan='The headline stop of the Hardanger day and the longest at 70 minutes. Spray carries a long way '
-      'here — shells on, camera in the dry bag. This is also a good moment to eat the packed lunch, '
-      'since the tour has no lunch stop.',
+ plan='<b>Not in the plan any more.</b> Aug 19 was rebuilt on Aug 17 as a public-transport day to Norheimsund — one bus each way for the shipyard and Steinsdalsfossen — instead of the NOK 2,600 coach tour that reached this stop. It is left here because it is a genuinely good stop and because the tour has free cancellation up to 24 hours, so the decision is reversible.',
  body=[
   ('p','The Bjoreio river comes off the Hardangervidda plateau and drops straight off the edge into the '
        'top of Måbødalen — 182 metres in total, with a single free fall of around 145. It is not '
@@ -820,24 +818,57 @@ dict(slug='voringsfossen', name='Vøringsfossen', city='Hardanger',
   ('p','Railings throughout, but it is wet rock, exposed, and there are long drops on both sides.'),
  ]),
 
+dict(slug='hardanger-fartoyvernsenter', name='Hardanger Fartøyvernsenter',
+ native='Hardanger Maritime Centre', city='Norheimsund',
+ wp='Norheimsund', commons='Hardanger fartøyvernsenter Norheimsund boatbuilding',
+ day=12, when='11:30–13:15',
+ tagline='A working yard on the Hardangerfjord where historic wooden ships are actually being rebuilt — with Norway’s only operating ropewalk.',
+ facts=[('Founded','1984, in a former furniture factory on the quay'),
+        ('Where','Norheimsund, ~1 hr 25 by bus 925 from Bergen'),
+        ('Unique','Norway’s only operational rope-making lane'),
+        ('Also on site','Working forge, traditional boatbuilding year-round, rowboat rental'),
+        ('Cost','Pay at door — ring +47 474 79 839 to confirm the day’s hours')],
+ plan='The reason Aug 19 is a day out rather than a trip to see one waterfall. Bus 925 from Bergen bus station, '
+      'get off at Norheimsund, and it is on the quay. Allow about 1¾ hrs. <b>Ring ahead</b> — it is a working '
+      'yard rather than a big museum and its hours are not something I could verify.',
+ body=[
+  ('p','This is not a museum of boats. It is a yard, established in 1984 in a disused furniture factory on the '
+       'Norheimsund quay, where historic Norwegian wooden vessels are restored using the original techniques — '
+       'and the restoration work is the exhibit. On any given day there is likely to be a hull in pieces under '
+       'cover with shipwrights working on it.'),
+  ('h2','The ropewalk'),
+  ('p','The centre keeps <b>Norway’s only operational rope-making lane</b> — a long, narrow building in which '
+       'fibre is twisted into rope over a considerable distance, because that is the only way rope can be laid. '
+       'Ropewalks were once in every port; almost none still run. Watching one work explains a piece of '
+       'pre-industrial technology that is otherwise very hard to picture.'),
+  ('h2','And the rest'),
+  ('p','A blacksmith works the forge, making the ironwork the boats need. Traditional boatbuilding continues '
+       'year-round. In summer the centre runs hands-on activities — twist your own rope, build a toy boat, '
+       'construct a log house, learn knots — and you can <b>rent a traditional rowboat</b> and take it out on '
+       'the fjord, which is the best thirty minutes available in Norheimsund.'),
+  ('p','It also quietly completes a thread that runs through this whole trip: the Roskilde Viking ships raised '
+       'from the mud, Nansen’s Fram, the timber wharf at Bryggen, and Vasa in Stockholm on Aug 24. This is the '
+       'one place where you see the craft still being practised rather than its results behind glass.'),
+ ],
+ links=[('Hardanger fartøyvernsenter','https://fartoyvern.no/en/'),
+        ('Visit information','https://fartoyvern.no/en/visit-us/')]),
+
 dict(slug='steinsdalsfossen', name='Steinsdalsfossen', city='Hardanger',
  wp='Steinsdalsfossen', commons='Steinsdalsfossen waterfall Norheimsund',
- day=12, when='09:00–09:30',
+ day=12, when='14:35–15:45',
  match='font-weight:700;">★ |Steinsdalsfossen',
  tagline='The waterfall you walk behind — a footpath runs along the rock face under the falling water.',
- facts=[('Height','About 50 m'), ('Where','Near Norheimsund, Kvam'),
+ facts=[('Height','46 m'), ('Where','Steine, 2 km west of Norheimsund, Kvam'),
         ('The path','Runs behind the fall, on the rock face'),
         ('Changed course','1699, when the river shifted to its present line'),
         ('Cost','Free')],
- plan='Thirty minutes rather than fifteen, and the reason is the path: you get behind the water. Best '
-      'photograph of the Hardanger morning, and one of the few places where a waterfall stop is '
-      'genuinely more than a roadside look.',
+ plan='<b>The anchor of Aug 19 now</b>, reached by Skyss bus 925 rather than a coach tour. It sits 2 km west of Norheimsund, on the Bergen-bound side of the village, so it comes after the maritime centre and costs no backtracking. <b>It is open 24 hours and floodlit</b>, which is why it takes the later slot — the shipyard closes and this does not. Free toilets, cafe, souvenir shops and a summer tourist office. <b>The path behind the falls is closed at some times of year</b>; if it is roped off the falls are still worth it, but the walk-behind is the whole point, so check before building the day around it.',
  body=[
   ('p','The river Fosselva changed its course in 1699 and began falling over an overhanging shelf of '
        'rock, which left a dry space underneath. A path was built along that shelf, and the result is '
        'a waterfall you can walk behind: the water comes over the lip a couple of metres in front of '
        'you and you stay more or less dry.'),
-  ('p','It is about fifty metres high, in a green valley near Norheimsund, and the path is short, '
+  ('p','It is 46 metres high, in a green valley 2 km west of Norheimsund, and the path is short, '
        'paved and railed. Standing behind a waterfall is a genuinely different experience from '
        'looking at one, and it photographs unusually well because you are shooting out through the '
        'water toward the light.'),
@@ -846,15 +877,14 @@ dict(slug='steinsdalsfossen', name='Steinsdalsfossen', city='Hardanger',
 
 dict(slug='skjervsfossen', name='Skjervsfossen', city='Hardanger',
  wp='Skjervsfossen', commons='Skjervsfossen waterfall Granvin',
- day=12, when='14:30–15:10',
- match='font-weight:700;">★ |Skjervsfossen',
+ day=None,
+ 
  tagline='A twin-drop fall of about 150 metres with viewing platforms and stonework built into the old mountain road.',
  facts=[('Height','~150 m, in two main drops'),
         ('Where','Between Granvin and Voss'),
         ('Architecture','Viewing platforms and a stone rest area by Fortunen, part of the Scenic Routes programme'),
         ('Cost','Free')],
- plan='Forty minutes, after the Hardanger Bridge crossing. Quieter and greener than Vøringsfossen, '
-      'and the last real stop of the day before the run back through Voss.',
+ plan='<b>Not in the plan any more.</b> Aug 19 was rebuilt on Aug 17 as a public-transport day to Norheimsund — one bus each way for the shipyard and Steinsdalsfossen — instead of the NOK 2,600 coach tour that reached this stop. It is left here because it is a genuinely good stop and because the tour has free cancellation up to 24 hours, so the decision is reversible.',
  body=[
   ('p','Skjervsfossen falls about 150 metres in two stages beside the old road between Granvin and '
        'Voss. It is less famous than Vøringsfossen, less crowded, and set in dense green rather than '
@@ -866,13 +896,12 @@ dict(slug='skjervsfossen', name='Skjervsfossen', city='Hardanger',
 
 dict(slug='fossen-bratte', name='Fossen Bratte', city='Hardanger',
  wp='Samnanger', commons='Fossen Bratte waterfall Samnanger',
- day=12, when='08:25–08:40',
- match='font-weight:700;">○ |Fossen Bratte',
+ day=None,
+ 
  tagline='A roadside waterfall dropping straight down beside the road in Samnanger — fifteen minutes, no walking.',
  facts=[('Height','~90 m'), ('Where','Samnanger, on the road east from Bergen'),
         ('Time','15 min stop'), ('Cost','Free')],
- plan='The first stop of the Hardanger day, 55 minutes out of Bergen, and it is a leg-stretch as much '
-      'as a sight — no walking required.',
+ plan='<b>Not in the plan any more.</b> Aug 19 was rebuilt on Aug 17 as a public-transport day to Norheimsund — one bus each way for the shipyard and Steinsdalsfossen — instead of the NOK 2,600 coach tour that reached this stop. It is left here because it is a genuinely good stop and because the tour has free cancellation up to 24 hours, so the decision is reversible.',
  body=[
   ('p','Fossen Bratte — literally “the steep waterfall” — comes down about ninety metres in a single '
        'plunge a short distance from the road in Samnanger. There is a pull-in, a short path, and a '
@@ -885,16 +914,14 @@ dict(slug='fossen-bratte', name='Fossen Bratte', city='Hardanger',
 dict(slug='hardanger-nature-centre', name='Norwegian Nature Centre Hardanger',
  native='Hardangervidda Natursenter', city='Hardanger',
  wp='Eidfjord', commons='Hardangervidda Natursenter Eidfjord',
- day=12, when='10:20–11:50',
- match='Norwegian Nature Centre Hardanger',
+ day=None,
+ 
  tagline='Ninety minutes indoors on how the fjords and the plateau were made — and the day’s insurance against rain.',
  facts=[('Where','Øvre Eidfjord, at the mouth of Måbødalen'),
         ('Covers','Glaciation, fjord formation, Hardangervidda ecology, the reindeer herds'),
         ('Time','1½ hrs — the longest single stop of the day'),
         ('Indoors','Entirely')],
- plan='The longest stop on the Hardanger day and the only fully indoor one, which makes it the day’s '
-      'rain insurance. It is also the sensible place to eat your packed lunch, around 11:30, since the '
-      'tour builds in no meal stop at all.',
+ plan='<b>Not in the plan any more.</b> Aug 19 was rebuilt on Aug 17 as a public-transport day to Norheimsund — one bus each way for the shipyard and Steinsdalsfossen — instead of the NOK 2,600 coach tour that reached this stop. It is left here because it is a genuinely good stop and because the tour has free cancellation up to 24 hours, so the decision is reversible.',
  body=[
   ('p','The centre sits at Øvre Eidfjord where the Måbødalen valley opens out, and it exists to explain '
        'the landscape you spend the rest of the day driving through. The core of it is glaciation: how '
@@ -910,16 +937,14 @@ dict(slug='hardanger-nature-centre', name='Norwegian Nature Centre Hardanger',
 
 dict(slug='hardangerfjord', name='Hardangerfjord', city='Hardanger',
  wp='Hardangerfjord', cat='Category:Hardangerfjorden', commons='Hardangerfjord Norway orchards',
- day=12, when='10:00–10:20 viewpoint, and most of the day’s driving',
- match='Hardangerfjord viewpoint',
+ day=None,
+ 
  tagline='Norway’s second-longest fjord, and its orchard country — the one fjord where the shores are farmed rather than empty.',
  facts=[('Length','179 km — second only to Sognefjord'),
         ('Depth','Up to 800 m'),
         ('Known for','Apples, pears, plums and cider; blossom in May'),
         ('Crossed by','The Hardanger Bridge, 1,380 m, opened 2013')],
- plan='The fjord is the through-line of the whole Hardanger day rather than a single stop — you get a '
-      'dedicated viewpoint at 10:00 and then drive its shores for hours, crossing the Hardanger Bridge '
-      'in the afternoon.',
+ plan='<b>Not in the plan any more.</b> Aug 19 was rebuilt on Aug 17 as a public-transport day to Norheimsund — one bus each way for the shipyard and Steinsdalsfossen — instead of the NOK 2,600 coach tour that reached this stop. It is left here because it is a genuinely good stop and because the tour has free cancellation up to 24 hours, so the decision is reversible.',
  body=[
   ('p','Hardangerfjord runs 179 kilometres inland from the Atlantic, which makes it the second-longest '
        'in Norway and the fourth-longest in the world, and it reaches depths of around 800 metres. What '
