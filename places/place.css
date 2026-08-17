@@ -1,0 +1,74 @@
+/* Shared styling for the per-place article pages.
+   Palette and type deliberately match index.html. */
+:root{--ink:#1b2624;--paper:#f6f7f6;--card:#fff;--line:#dde3e0;--sea:#0e5a6d;--muted:#5a6a65}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Avenir Next","Segoe UI",system-ui,-apple-system,sans-serif;
+     background:var(--paper);color:var(--ink);line-height:1.62;font-size:16px}
+.wrap{max-width:760px;margin:0 auto;padding:22px 16px 80px}
+
+.crumb{font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;color:var(--muted);
+       display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:14px}
+.crumb a{color:var(--sea);text-decoration:none}
+.crumb a:hover{text-decoration:underline}
+.crumb .sep{opacity:.5}
+
+h1{font-size:clamp(25px,5.5vw,36px);font-weight:800;letter-spacing:-.015em;line-height:1.12;margin:4px 0 6px}
+.native{font-size:15px;color:var(--muted);font-weight:600;margin:0 0 10px}
+.tagline{font-size:17.5px;line-height:1.5;margin:0 0 18px;padding-bottom:16px;border-bottom:3px solid var(--ink)}
+
+h2{font-size:19px;font-weight:800;color:var(--sea);margin:32px 0 8px;padding-top:12px;border-top:1px solid var(--line)}
+p{margin:0 0 13px}
+ul{margin:0 0 13px;padding-left:22px}
+li{margin:4px 0}
+
+/* The itinerary tie-in box */
+.plan{background:#eef4f5;border-left:4px solid var(--sea);padding:13px 15px;margin:0 0 20px;font-size:15px}
+.plan .when{display:block;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;font-weight:800;
+            color:var(--sea);margin-bottom:5px}
+
+/* Fact table */
+table.facts{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);margin:0 0 20px;font-size:14.5px}
+table.facts th{text-align:left;padding:8px 11px;border-top:1px solid var(--line);width:36%;
+               vertical-align:top;font-weight:800;color:var(--muted);font-size:12px;
+               letter-spacing:.05em;text-transform:uppercase}
+table.facts td{padding:8px 11px;border-top:1px solid var(--line);vertical-align:top}
+table.facts tr:first-child th,table.facts tr:first-child td{border-top:none}
+
+/* ---- Photo gallery. Images are fetched at view time from Wikimedia,
+        so nothing here hardcodes an image URL. ---- */
+/* Lead image full width, the rest two-up, so the gallery does not push the
+   article off the screen. */
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:0 0 22px}
+.gal>.gal-status{grid-column:1 / -1}
+.gal-status{font-size:13.5px;color:var(--muted);padding:14px;border:1px dashed var(--line);
+            background:var(--card);text-align:center}
+.gal-status a{color:var(--sea);font-weight:700}
+figure{margin:0;background:var(--card);border:1px solid var(--line);
+       display:flex;flex-direction:column}
+figure img{display:block;width:100%;height:auto;background:#eceeed;
+           aspect-ratio:3/2;object-fit:cover}
+.gal>figure:first-of-type{grid-column:1 / -1;border-color:var(--ink)}
+.gal>figure:first-of-type img{aspect-ratio:16/9}
+figcaption{font-size:12.5px;line-height:1.45;color:var(--muted);padding:8px 11px}
+figcaption a{color:var(--sea)}
+figcaption .cred{display:block;margin-top:3px;font-size:11.5px;opacity:.9}
+@media (max-width:560px){.gal{grid-template-columns:1fr}}
+
+.srcs{font-size:13px;color:var(--muted);margin-top:26px;padding-top:12px;border-top:1px solid var(--line)}
+.srcs a{color:var(--sea)}
+.nav{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.nav a{font-size:13px;padding:7px 12px;border:1px solid var(--line);background:var(--card);
+       color:var(--ink);text-decoration:none;border-radius:3px;font-weight:600}
+.nav a:hover{background:#e6ebe9}
+
+/* Index page listing */
+.plist{margin:0;padding:0;list-style:none}
+.plist li{border-top:1px solid var(--line);padding:0}
+.plist a{display:block;padding:11px 2px;text-decoration:none;color:var(--ink)}
+.plist a:hover{background:var(--card)}
+.plist .nm{font-weight:700;color:var(--sea)}
+.plist .mt{font-size:13px;color:var(--muted)}
+.grp{font-size:12px;letter-spacing:.07em;text-transform:uppercase;font-weight:800;
+     color:var(--muted);margin:26px 0 2px}
+
+@media print{.nav,.gal-status{display:none}figure{break-inside:avoid}}

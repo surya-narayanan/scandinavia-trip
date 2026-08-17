@@ -55,3 +55,45 @@ git push -u origin main
 ## Privacy note
 
 Exact apartment/Airbnb street addresses are deliberately **withheld** on this public page (replaced with neighborhoods) — a public itinerary that lists addresses and the dates they're empty is an unnecessary risk. The private Word/Google-Docs version keeps the full addresses. The page also carries a `noindex` tag to keep it out of search engines; the link still works for anyone you share it with.
+
+## Place pages
+
+`places/` holds one article page per place in the itinerary — 62 of them — plus
+`places/index.html` as a browsable list. Every starred sight in `index.html`
+links through to its page, and each page links back to its day.
+
+They are generated, not hand-written:
+
+```bash
+python3 build_places.py
+```
+
+Content lives in `place_data_cph.py`, `place_data_nor.py` and `place_data_swe.py`
+(one record per place: what it is, a fact table, the itinerary tie-in, and the
+article body). The builder writes the pages, rebuilds the index, and inserts the
+links into `index.html`. It is idempotent — rerunning it will not double-link.
+
+### Photographs
+
+**No image URLs are stored in this repo.** Wikimedia thumbnail paths contain a
+hash segment that cannot be derived from a filename, so hardcoding them means
+guessing, and a guessed URL is a broken image. Instead each page carries a
+Commons category and/or search query, and `places/place.js` asks the Wikimedia
+API for photographs when a reader opens the page, rendering whatever comes back
+along with the author and licence the API reports — which is also what Commons
+attribution requires.
+
+Consequences worth knowing:
+
+- Photographs need network access **in the reader's browser**. If the fetch
+  fails, the gallery collapses to a labelled "browse them on Wikimedia Commons"
+  link rather than a row of broken frames.
+- Which photographs appear can change over time, because Commons changes.
+- The galleries were verified against a mocked API and against a blocked
+  network, but **not against the live Wikimedia API**, because this repo's
+  authoring environment cannot reach it. Open a page and confirm.
+
+To switch to committed images instead — offline-proof, print-proof, and fixed —
+the images have to be downloaded on a machine with Wikimedia access and checked
+in with their licence metadata. That is a deliberate change, not the current
+design.
