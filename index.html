@@ -42,6 +42,23 @@ table.sched td div{margin:1px 0}
 .cksync.warn{color:#8A5F00;border-color:#e3d5a8;background:#fbf6e6}
 .cksync.err{color:#C0182C;border-color:#eccdd3;background:#fdeef1}
 @media print{.ckbar,.ckadd{display:none}}
+details.day{border-top:2px solid var(--ink);margin:40px 0 0;padding:0}
+details.day>summary{cursor:pointer;list-style:none;display:flex;align-items:flex-start;gap:10px;padding:14px 0 6px}
+details.day>summary::-webkit-details-marker{display:none}
+details.day>summary::before{content:"";flex:0 0 auto;width:9px;height:9px;margin-top:9px;border-right:2.5px solid var(--sea);border-bottom:2.5px solid var(--sea);transform:rotate(-45deg);transition:transform .15s}
+details.day[open]>summary::before{transform:rotate(45deg)}
+details.day>summary:hover h2.dayh{text-decoration:underline}
+h2.dayh{border-top:none;margin:0;padding-top:0;flex:1}
+/* Collapsed days pack tight — the point is to remove scroll, so a shut
+   day costs one line, not one line plus 40px of air. */
+details.day:not([open]){margin-top:0}
+details.day:not([open])>summary{padding:9px 0}
+details.day:not([open])>summary::before{margin-top:5px}
+details.day:not([open])>summary h2.dayh{color:#5a6a65;font-size:16px}
+details.day:not([open])+details.day[open]{margin-top:34px}
+.daybar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 0;font-size:13px}
+.daybar .lbl{color:#5a6a65;font-size:12px;letter-spacing:.04em;text-transform:uppercase;font-weight:700}
+@media print{details.day>summary::before{display:none}details.day{border-top:2px solid var(--ink)}.daybar{display:none}}
 </style>
 </head>
 <body>
@@ -113,7 +130,9 @@ table.sched td div{margin:1px 0}
 </div>
 
 </div>
-<h2><span style="font-weight:700;">DAY 1 — Sat Aug 8 · Arrival in Copenhagen + optional evening loop</span></h2>
+<div class="daybar"><span class="lbl">Days</span><button class="ckbtn" id="dyToday" type="button">Today onwards</button><button class="ckbtn" id="dyAll" type="button">Expand all</button><button class="ckbtn" id="dyNone" type="button">Collapse all</button><span class="lbl" id="dyState"></span></div>
+<details class="day" data-date="2026-08-08" data-day="1"><summary><h2 class="dayh"><span style="font-weight:700;">DAY 1 — Sat Aug 8 · Arrival in Copenhagen + optional evening loop</span></h2></summary>
+
 <p><span style="font-weight:700;color:#8A5F00;">VERDICT: recovery day with an OPTIONAL bonus loop — Little Mermaid + Opera House up close, in evening light, when the cruise crowds are gone. Do it ONLY if you are landed, checked in, and functional by ~17:30. If anyone is wrecked, the fallback is the original plan: quiet Nyhavn dinner and bed — you lose nothing, the Day 2 canal cruise passes both anyway. Mobility-built: no walking segment over ~150 m.</span></p>
 <div class="tw"><table class="sched"><tr><th><div><span style="font-weight:700;">START–END</span></div></th><th><div><span style="font-weight:700;">ACTIVITY</span></div></th><th><div><span style="font-weight:700;">HOW TO GET THERE / NOTES</span></div></th><th><div><span style="font-weight:700;">TICKETS &amp; WHEN TO BOOK</span></div></th></tr>
 <tr><td><div><span style="font-weight:700;">by 17:30</span></div></td><td><div><span style="font-weight:700;">Land, airport train to Central (13 min), check in, shower, decide</span></div></td><td><div>If arrival is later or energy is gone: SKIP the loop entirely, dinner near Nyhavn, sleep.</div></td><td><div><b>ACTIVATE THE COPENHAGEN CARD NOW AND THIS RIDE IS FREE</b> — see the note under this table. Only if you land before ~14:30 do you pay separately: ~DKK 30 via Rejsekort app or machine.</div></td></tr>
@@ -125,7 +144,9 @@ table.sched td div{margin:1px 0}
 <tr><td style="background:#F4F0E3"><div><span style="font-weight:700;">19:30–21:00</span></div></td><td style="background:#F4F0E3"><div><span style="font-weight:700;">DINNER — Nyhavn side streets, then 5-min taxi home</span></div></td><td style="background:#F4F0E3"><div>Quieter + better value one street behind the quay. Early night: Day 2 starts 09:45.</div></td><td style="background:#F4F0E3"><div></div></td></tr></table></div>
 <p><span style="font-weight:700;color:#0C6B3D;">CARD TIMING — WORTH ~DKK 56 PER ADULT, FOR FREE. The 96-hour Copenhagen Card runs 96 hours from the moment YOU activate it, so activate it on arrival today rather than tomorrow morning. The binding constraint is the Aug 12 airport train at 14:15, which is exactly 96 hours after 14:15 on Aug 8 — so any activation from about 14:30 today still covers it, and landing “by 17:30” as planned leaves roughly three hours of margin. Doing it now makes today’s arrival airport train (~DKK 30) and this evening’s harbour bus (~DKK 26) free, and costs you nothing at the far end. THE ONE EXCEPTION: if you land and would be activating BEFORE ~14:30, don’t — the window would expire before the Aug 12 departure train. In that case activate tomorrow morning as originally written and just pay the DKK 30 today.</span></p>
 <p><span style="font-weight:700;color:#8A5F00;">Walkers’ variant: able family members can do apartment → Nyhavn → Amalienborg → Little Mermaid on foot (~2.6 km waterfront walk) and meet the taxi riders at the statue. NOTE: doing this loop means seeing the Mermaid + Opera twice (again from tomorrow’s cruise) — that’s fine, the up-close evening versions are the better ones.</span></p>
-<h2><span style="font-weight:700;">DAY 2 — Sun Aug 9 · Nyhavn first, then the waterfront north</span></h2>
+</details>
+<details class="day" data-date="2026-08-09" data-day="2"><summary><h2 class="dayh"><span style="font-weight:700;">DAY 2 — Sun Aug 9 · Nyhavn first, then the waterfront north</span></h2></summary>
+
 <p><span style="font-weight:700;color:#0C6B3D;">VERDICT: REBUILT AGAIN ON THE MORNING OF AUG 9, THIS TIME AROUND PHOTOGRAPHY. The coloured houses are the priority, so Nyhavn goes FIRST, at 08:45, when the quay is empty — on a Sunday it is the quietest it gets. The loop then runs NORTH along the waterfront instead of south. This costs almost nothing: the Little Mermaid is the only stop in the northern cluster that crowds, and Gefion, St Alban's and Kastellet photograph exactly as well at 11:00 as at 08:45. Dry today, 16–20°C, wind SE ~7 m/s — bring a layer for the boat. Monday is the wet day, so the National Museum lives on Day 3 now.</span></p>
 <div class="tw"><table class="sched"><tr><th><div><span style="font-weight:700;">START–END</span></div></th><th><div><span style="font-weight:700;">ACTIVITY</span></div></th><th><div><span style="font-weight:700;">HOW TO GET THERE / NOTES</span></div></th><th><div><span style="font-weight:700;">TICKETS &amp; WHEN TO BOOK</span></div></th></tr>
 <tr><td style="background:#DCEAEE"><div><span style="font-weight:700;">08:30–08:45</span></div></td><td style="background:#DCEAEE"><div><span style="font-weight:700;">METRO: Apartment → Nyhavn</span></div></td><td style="background:#DCEAEE"><div>M3 from København H to Kongens Nytorv, then a 400 m flat walk. Taxi ~DKK 100 if you would rather not wait.</div></td><td style="background:#DCEAEE"><div>FREE with the Copenhagen Card</div></td></tr>
@@ -149,7 +170,9 @@ table.sched td div{margin:1px 0}
 <p><span style="font-weight:700;color:#C0182C;">TRADED AWAY FOR THE EMPTY NYHAVN HOUR: the quiet Little Mermaid (she is busy by 11:00) and the Opera House up close (the cruise passes it at 11:45). CUT ENTIRELY: the National Museum — already seen on a previous trip, so it is off Day 2 and off Day 3. CUT: the paid Christiansborg interior.</span></p>
 <p><span style="font-weight:700;color:#8A5F00;">MOBILITY NOTE: the Nyhavn → Amalienborg → Gefion → Mermaid stretch is ~2 km of continuous flat waterfront. That is more than the arrival-night loop was built for, but it has benches the whole way and no stairs. LOW-WALKING VERSION: do the Nyhavn hour as written, then taxi Nyhavn → Langelinie (~DKK 120), see Gefion and the Mermaid from there, and taxi on to Ved Stranden — about 400 m of walking total, and you keep every subject except Amalienborg, which Day 5 covers anyway.</span></p>
 <p><span style="font-weight:700;color:#0C6B3D;">LIGHT RULE FOR THE WHOLE MORNING: the sun is in the east until midday, so anything you shoot FACING THE WATER is backlit and anything you shoot FACING INLAND is frontlit. That is why Gefion, St Alban's and the Marble Church dome all work this morning, and why the Little Mermaid — who sits on a rock with the harbour behind her — does not. Sunrise was ~05:20 and true golden hour ended around 06:30, so from 08:30 on the light is even; order the day by crowds, not by light.</span></p>
-<h2><span style="font-weight:700;">DAY 3 — Mon Aug 10 · TWO CASTLES — Frederiksborg + Kronborg</span></h2>
+</details>
+<details class="day" data-date="2026-08-10" data-day="3"><summary><h2 class="dayh"><span style="font-weight:700;">DAY 3 — Mon Aug 10 · TWO CASTLES — Frederiksborg + Kronborg</span></h2></summary>
+
 <p><span style="font-weight:700;color:#C0182C;">VERDICT: REBUILT AGAIN ON AUG 9 (evening), NOW ON REAL HOURLY DATA. Two things changed. (1) The National Museum is OUT — already seen on a previous trip — which removed the entire 2h20 anchor of the wet-day plan. Kronborg fills it, via a connection the earlier versions missed: <b>Hillerød → Helsingør direct, 28 min, no backtrack through Copenhagen.</b> (2) <b>Monday is not a washout — it is a wet morning and a SUNNY EVENING.</b> The hour-by-hour: showers at 08:00 (0.8 mm), the day's real rain at 12:00 (3.8 mm), light showers 14:00–15:00 (0.3 + 0.9 mm), then it breaks — partly sunny 16:00, mostly sunny 17:00, <b>sunny and 0% from 19:00</b>. Total ~5.8 mm, not the 15 mm this morning's rebuild assumed. 16–21°C.</span></p>
 <div class="tw"><table class="sched"><tr><th><div><span style="font-weight:700;">START–END</span></div></th><th><div><span style="font-weight:700;">ACTIVITY</span></div></th><th><div><span style="font-weight:700;">HOW TO GET THERE / NOTES</span></div></th><th><div><span style="font-weight:700;">TICKETS &amp; WHEN TO BOOK</span></div></th></tr>
 <tr><td style="background:#DCEAEE"><div><span style="font-weight:700;">08:30–08:35</span></div></td><td style="background:#DCEAEE"><div><span style="font-weight:700;">WALK: → Central Station</span></div></td><td style="background:#DCEAEE"><div></div></td><td style="background:#DCEAEE"><div></div></td></tr>
@@ -171,7 +194,9 @@ table.sched td div{margin:1px 0}
 <p><span style="font-weight:700;color:#8A5F00;">TIMING RISK, STATED HONESTLY: the 12:45 bus and the 13:05 Lille Nord departure are the hinge, and the 12:00 hour is the day's heaviest rain (3.8 mm) — do not linger over lunch. Miss the connection and the next Little North train is ~30 min later, landing you at Kronborg ~14:20. That still works: interiors 14:20–15:45, ramparts unchanged, because the clearing is fixed to the clock and not to you. Confirm both departures in Rejseplanen at breakfast.</span></p>
 <p><span style="font-weight:700;color:#0C6B3D;">MORNING NOTE: 08:00 is a shower hour (0.8 mm, 62%) — umbrella for the walk to Central at 08:30. Everything between 10:00 and 15:45 is indoors by design, so the rain never actually reaches you today.</span></p>
 <p><span style="font-weight:700;color:#C0182C;">NOTE: Viking Ship Museum + Roskilde Cathedral are not lost — they moved to Day 4 (they sit on a different train line west; doing all four sites in one day was the impossible part).</span></p>
-<h2><span style="font-weight:700;">DAY 4 — Tue Aug 11 · Roskilde Vikings + Christianshavn</span></h2>
+</details>
+<details class="day" data-date="2026-08-11" data-day="4"><summary><h2 class="dayh"><span style="font-weight:700;">DAY 4 — Tue Aug 11 · Roskilde Vikings + Christianshavn</span></h2></summary>
+
 <p><span style="font-weight:700;color:#0C6B3D;">VERDICT: doable and fully covered by the Copenhagen Card (train + Viking Ship Museum). Replaces Lund/Malmö — you get Sweden properly in Stockholm; this day restores the two strongest cuts: the Viking ships and the Christianshavn afternoon that the 17:00 flight pushed off Day 5.</span></p>
 <div class="tw"><table class="sched"><tr><th><div><span style="font-weight:700;">START–END</span></div></th><th><div><span style="font-weight:700;">ACTIVITY</span></div></th><th><div><span style="font-weight:700;">HOW TO GET THERE / NOTES</span></div></th><th><div><span style="font-weight:700;">TICKETS &amp; WHEN TO BOOK</span></div></th></tr>
 <tr><td style="background:#DCEAEE"><div><span style="font-weight:700;">08:55–09:00</span></div></td><td style="background:#DCEAEE"><div><span style="font-weight:700;">WALK: → Central Station</span></div></td><td style="background:#DCEAEE"><div></div></td><td style="background:#DCEAEE"><div></div></td></tr>
@@ -191,7 +216,9 @@ table.sched td div{margin:1px 0}
 <tr><td><div><span style="font-weight:700;">18:00–18:45</span></div></td><td><div><span style="font-weight:700;">○ SHOP: Magasin du Nord overflow (Kongens Nytorv 13)</span></div></td><td><div>Where to go the moment the boutiques shut — open till 20:00, and it carries Samsøe Samsøe, Les Deux, Rains, Tiger of Sweden and 66°North under one roof, which is the entire rest of the list in one building. ASK AT THE TILL for the 10% non-resident discount, and see the tax-free note in the shopping section below.</div></td><td><div>10% tourist discount at the till (bring passport)</div></td></tr>
 <tr><td style="background:#DCEAEE"><div><span style="font-weight:700;">18:45–19:05</span></div></td><td style="background:#DCEAEE"><div><span style="font-weight:700;">WALK or METRO: Kongens Nytorv → home</span></div></td><td style="background:#DCEAEE"><div>Strøget runs door-to-door — 1.8 km, flat, shop windows the whole way. Or M3 two stops to Central if the bags are heavy.</div></td><td style="background:#DCEAEE"><div>Card</div></td></tr></table></div>
 <p><span style="font-weight:700;color:#C0182C;">REMOVED from the plan: Lund + Malmö day trip — pleasant but outranked; you get four full Sweden days in Stockholm, and this swap saves ~DKK 600+ in non-card Sweden train fares. (If you reinstate it: Öresund train from Central ~50 min to Lund, passports required, card not valid.)</span></p>
-<h2><span style="font-weight:700;">DAY 5 — Wed Aug 12 · Royal quarter → 17:00 flight to Oslo</span></h2>
+</details>
+<details class="day" data-date="2026-08-12" data-day="5"><summary><h2 class="dayh"><span style="font-weight:700;">DAY 5 — Wed Aug 12 · Royal quarter → 17:00 flight to Oslo</span></h2></summary>
+
 <p><span style="font-weight:700;color:#8A5F00;">VERDICT: rebuilt around your 17:00 CPH departure — airport by 14:45, leave apartment 14:10. Christianshavn is cut (moves to the Day 4 swap if you take it).</span></p>
 <div class="tw"><table class="sched"><tr><th><div><span style="font-weight:700;">START–END</span></div></th><th><div><span style="font-weight:700;">ACTIVITY</span></div></th><th><div><span style="font-weight:700;">HOW TO GET THERE / NOTES</span></div></th><th><div><span style="font-weight:700;">TICKETS &amp; WHEN TO BOOK</span></div></th></tr>
 <tr><td><div><span style="font-weight:700;">09:00–09:45</span></div></td><td><div><span style="font-weight:700;">Check out, store luggage</span></div></td><td><div>At apartment if allowed, else Central Station lockers (~DKK 80, card).</div></td><td><div></div></td></tr>
@@ -207,7 +234,9 @@ table.sched td div{margin:1px 0}
 <tr><td style="background:#E7E2F6"><div><span style="font-weight:700;">17:00–18:10</span></div></td><td style="background:#E7E2F6"><div><span style="font-weight:700;">FLY: Copenhagen → Oslo (your ticket)</span></div></td><td style="background:#E7E2F6"><div></div></td><td style="background:#E7E2F6"><div>Ticket in hand</div></td></tr>
 <tr><td style="background:#DCEAEE"><div><span style="font-weight:700;">18:30–19:00</span></div></td><td style="background:#DCEAEE"><div><span style="font-weight:700;">TRAIN: Gardermoen → Oslo S + walk</span></div></td><td style="background:#DCEAEE"><div>Flytoget ~20 min (~NOK 240) or Vy ~25 min (~NOK 130). 5 min walk to your Oslo apartment (Kvadraturen, by Oslo S).</div></td><td style="background:#DCEAEE"><div>Buy at platform machines / Vy app</div></td></tr></table></div>
 <p><span style="font-weight:700;color:#C0182C;">CUT from Day 5: SMK, Botanical Garden, Round Tower. (Church of Our Saviour + Christiania moved to Day 4 afternoon.)</span></p>
-<h2><span style="font-weight:700;">DAY 6 — Thu Aug 13 · Oslo: Bygdøy museums + harbor  (EARLY NIGHT)</span></h2>
+</details>
+<details class="day" data-date="2026-08-13" data-day="6"><summary><h2 class="dayh"><span style="font-weight:700;">DAY 6 — Thu Aug 13 · Oslo: Bygdøy museums + harbor  (EARLY NIGHT)</span></h2></summary>
+
 <p><span style="font-weight:700;color:#0C6B3D;">VERDICT: doable as written. Curfew: back near home ~20:00 — tomorrow’s train is 08:02. Tonight buy breakfast + packed lunch + snacks (Kiwi/Coop, open late).</span></p>
 <div class="tw"><table class="sched"><tr><th><div><span style="font-weight:700;">START–END</span></div></th><th><div><span style="font-weight:700;">ACTIVITY</span></div></th><th><div><span style="font-weight:700;">HOW TO GET THERE / NOTES</span></div></th><th><div><span style="font-weight:700;">TICKETS &amp; WHEN TO BOOK</span></div></th></tr>
 <tr><td style="background:#DCEAEE"><div><span style="font-weight:700;">09:15–09:30</span></div></td><td style="background:#DCEAEE"><div><span style="font-weight:700;">WALK: → Rådhusbrygge pier 3 (City Hall)</span></div></td><td style="background:#DCEAEE"><div>1 km flat. Buy Ruter 24-hr ticket (~NOK 132) in app first.</div></td><td style="background:#DCEAEE"><div></div></td></tr>
@@ -220,7 +249,9 @@ table.sched td div{margin:1px 0}
 <tr><td><div><span style="font-weight:700;">14:25–15:25</span></div></td><td><div><span style="font-weight:700;">○ Akershus Fortress grounds</span></div></td><td><div>Free ramparts, harbor panorama; 5 min from your apartment.</div></td><td><div>Grounds free</div></td></tr>
 <tr><td><div><span style="font-weight:700;">15:35–16:30</span></div></td><td><div><span style="font-weight:700;">★ Oslo Opera House roof</span></div></td><td><div>Walk up the marble slope — gentle, fine for everyone.</div></td><td><div>Free, always open</div></td></tr>
 <tr><td><div><span style="font-weight:700;">16:30–20:00</span></div></td><td><div><span style="font-weight:700;">○ Bjørvika waterfront + dinner near home</span></div></td><td><div>Grocery run for tomorrow before it gets late. Pack luggage tonight.</div></td><td><div>Free</div></td></tr></table></div>
-<h2><span style="font-weight:700;">DAY 7 — Fri Aug 14 · Oslo → Åndalsnes → Trollstigen → Geiranger  (TICKETS IN HAND)</span></h2>
+</details>
+<details class="day" data-date="2026-08-14" data-day="7"><summary><h2 class="dayh"><span style="font-weight:700;">DAY 7 — Fri Aug 14 · Oslo → Åndalsnes → Trollstigen → Geiranger  (TICKETS IN HAND)</span></h2></summary>
+
 <p><span style="font-weight:700;color:#0C6B3D;">VERDICT: fully ticketed. Only the 13:30–17:00 Åndalsnes layover needs filling — the gondola. 10-MINUTE connection at Dombås: be at the train door with bags early.</span></p>
 <div class="tw"><table class="sched"><tr><th><div><span style="font-weight:700;">START–END</span></div></th><th><div><span style="font-weight:700;">ACTIVITY</span></div></th><th><div><span style="font-weight:700;">HOW TO GET THERE / NOTES</span></div></th><th><div><span style="font-weight:700;">TICKETS &amp; WHEN TO BOOK</span></div></th></tr>
 <tr><td style="background:#DCEAEE"><div><span style="font-weight:700;">07:35–07:45</span></div></td><td style="background:#DCEAEE"><div><span style="font-weight:700;">WALK: apartment → Oslo S with luggage</span></div></td><td style="background:#DCEAEE"><div>Allow 10 min; find the F6 platform on the boards.</div></td><td style="background:#DCEAEE"><div></div></td></tr>
@@ -232,7 +263,9 @@ table.sched td div{margin:1px 0}
 <tr><td><div><span style="font-weight:700;">16:20–16:50</span></div></td><td><div><span style="font-weight:700;">Collect luggage, buy snacks + water, find bus stand</span></div></td><td><div>Toilet stop now.</div></td><td><div></div></td></tr>
 <tr><td style="background:#E7E2F6"><div><span style="font-weight:700;">17:00–20:15</span></div></td><td style="background:#E7E2F6"><div><span style="font-weight:700;">BUS (ticket): Vy, Åndalsnes → Geiranger — THE GOLDEN ROUTE</span></div></td><td style="background:#E7E2F6"><div>Sit LEFT up Trollstigen (wall + waterfall); ~15-min photo stop at the top (shells on — windy at 850 m); then Eagle Road descent — RIGHT side for the famous first fjord view.</div></td><td style="background:#E7E2F6"><div>TICKET IN HAND</div></td></tr>
 <tr><td style="background:#F4F0E3"><div><span style="font-weight:700;">20:30–21:30</span></div></td><td style="background:#F4F0E3"><div><span style="font-weight:700;">DINNER at Geiranger hotel — PRE-BOOK ~20:45 this week</span></div></td><td style="background:#F4F0E3"><div>Village kitchens close 21:00–21:30 and you land at 20:15.</div></td><td style="background:#F4F0E3"><div>Phone/email hotel now</div></td></tr></table></div>
-<h2><span style="font-weight:700;">DAY 8 — Sat Aug 15 · Geiranger morning → fjord cruise → Ålesund</span></h2>
+</details>
+<details class="day" data-date="2026-08-15" data-day="8"><summary><h2 class="dayh"><span style="font-weight:700;">DAY 8 — Sat Aug 15 · Geiranger morning → fjord cruise → Ålesund</span></h2></summary>
+
 <p><span style="font-weight:700;color:#0C6B3D;">VERDICT: gentle and correct. Coldest/wettest-risk day: thermals + shells + hat/gloves for the deck; camera in dry bag between shots. Luggage at hotel desk until boarding (cruise takes luggage — confirm at Visit Geiranger pier desk in the morning).</span></p>
 <div class="tw"><table class="sched"><tr><th><div><span style="font-weight:700;">START–END</span></div></th><th><div><span style="font-weight:700;">ACTIVITY</span></div></th><th><div><span style="font-weight:700;">HOW TO GET THERE / NOTES</span></div></th><th><div><span style="font-weight:700;">TICKETS &amp; WHEN TO BOOK</span></div></th></tr>
 <tr><td><div><span style="font-weight:700;">09:30–11:00</span></div></td><td><div><span style="font-weight:700;">○ Norwegian Fjord Center + Fossevandring waterfall walk</span></div></td><td><div>Taxi/shuttle UP, walk DOWN the 327 stepped path beside Storfossen — railings throughout, parents set pace.</div></td><td><div>Pay at door ~NOK 195. verdsarvfjord.no</div></td></tr>
@@ -242,7 +275,9 @@ table.sched td div{margin:1px 0}
 <tr><td style="background:#E7E2F6"><div><span style="font-weight:700;">15:00–18:00</span></div></td><td style="background:#E7E2F6"><div><span style="font-weight:700;">BOAT (ticket): Fjord cruise Geiranger → Ålesund</span></div></td><td style="background:#E7E2F6"><div>Seven Sisters + Suitor waterfalls, cliff farms, then out to Ålesund. Deck for first 45 min (the UNESCO stretch). #1 photo window of the trip.</div></td><td style="background:#E7E2F6"><div>TICKET IN HAND</div></td></tr>
 <tr><td style="background:#DCEAEE"><div><span style="font-weight:700;">18:00–18:20</span></div></td><td style="background:#DCEAEE"><div><span style="font-weight:700;">WALK/TAXI: pier → hotel</span></div></td><td style="background:#DCEAEE"><div>Pier is central; taxi rank there if luggage is heavy (Ålesund Taxi +47 70 10 30 00).</div></td><td style="background:#DCEAEE"><div></div></td></tr>
 <tr><td style="background:#F4F0E3"><div><span style="font-weight:700;">19:00–</span></div></td><td style="background:#F4F0E3"><div><span style="font-weight:700;">DINNER — Apotekergata / Brosundet harbor zone</span></div></td><td style="background:#F4F0E3"><div>Kitchens run later here; no stress.</div></td><td style="background:#F4F0E3"><div></div></td></tr></table></div>
-<h2><span style="font-weight:700;">DAY 9 — Sun Aug 16 · Ålesund full day</span></h2>
+</details>
+<details class="day" data-date="2026-08-16" data-day="9"><summary><h2 class="dayh"><span style="font-weight:700;">DAY 9 — Sun Aug 16 · Ålesund full day</span></h2></summary>
+
 <p><span style="font-weight:700;color:#0C6B3D;">VERDICT: your working doc’s plan minus its obsolete flight-arrival rows (you’ve been here since last night). Sunday: shops mostly closed; sights run. Buy Monday’s 10-hour-travel-day provisions TONIGHT (Sunday grocery hours are short — Bunnpris Kremmergaarden or ask hotel; Saturday-night backup buy is smart).</span></p>
 <div class="tw"><table class="sched"><tr><th><div><span style="font-weight:700;">START–END</span></div></th><th><div><span style="font-weight:700;">ACTIVITY</span></div></th><th><div><span style="font-weight:700;">HOW TO GET THERE / NOTES</span></div></th><th><div><span style="font-weight:700;">TICKETS &amp; WHEN TO BOOK</span></div></th></tr>
 <tr><td style="background:#DCEAEE"><div><span style="font-weight:700;">09:45–10:00</span></div></td><td style="background:#DCEAEE"><div><span style="font-weight:700;">TAXI: hotel → Aksla viewpoint (Fjellstua)</span></div></td><td style="background:#DCEAEE"><div>Pre-book tonight via hotel desk (~NOK 200). ✕ SKIP the 418 stairs with parents.</div></td><td style="background:#DCEAEE"><div>Book via hotel</div></td></tr>
@@ -254,7 +289,9 @@ table.sched td div{margin:1px 0}
 <tr><td style="background:#DCEAEE"><div><span style="font-weight:700;">14:45–15:00</span></div></td><td style="background:#DCEAEE"><div><span style="font-weight:700;">TAXI: → Atlanterhavsparken</span></div></td><td style="background:#DCEAEE"><div>3 km, ~NOK 180. Book return on arrival — Sunday evening taxis thinner.</div></td><td style="background:#DCEAEE"><div></div></td></tr>
 <tr><td><div><span style="font-weight:700;">15:00–17:00</span></div></td><td><div><span style="font-weight:700;">○ Atlanterhavsparken Aquarium</span></div></td><td><div>Cold-water tanks, seals, otters. Check feeding times on arrival; outdoor seal area = shells.</div></td><td><div>Pay at door ~NOK 265. atlanterhavsparken.no</div></td></tr>
 <tr><td><div><span style="font-weight:700;">17:15–19:00</span></div></td><td><div><span style="font-weight:700;">○ Golden-hour harbor photos + wander</span></div></td><td><div>Best light on the facades. Dinner after. GROCERY RUN for tomorrow.</div></td><td><div>Free</div></td></tr></table></div>
-<h2><span style="font-weight:700;">DAY 10 — Mon Aug 17 · Ålesund → Bergen coastal chain  (TICKETS IN HAND)</span></h2>
+</details>
+<details class="day" data-date="2026-08-17" data-day="10" open><summary><h2 class="dayh"><span style="font-weight:700;">DAY 10 — Mon Aug 17 · Ålesund → Bergen coastal chain  (TICKETS IN HAND)</span></h2></summary>
+
 <p><span style="font-weight:700;color:#8A5F00;">VERDICT: fully ticketed, LONG day (11:00–20:45). Packed lunch + water + entertainment. Two tight changes. Tell Bergen hotel: arriving ~21:15.</span></p>
 <div class="tw"><table class="sched"><tr><th><div><span style="font-weight:700;">START–END</span></div></th><th><div><span style="font-weight:700;">ACTIVITY</span></div></th><th><div><span style="font-weight:700;">HOW TO GET THERE / NOTES</span></div></th><th><div><span style="font-weight:700;">TICKETS &amp; WHEN TO BOOK</span></div></th></tr>
 <tr><td><div><span style="font-weight:700;">09:00–10:30</span></div></td><td><div><span style="font-weight:700;">Slow morning — checkout, last stroll, coffee</span></div></td><td><div>At Ålesund bus terminal (central) by 10:40 with luggage.</div></td><td><div></div></td></tr>
@@ -263,8 +300,10 @@ table.sched td div{margin:1px 0}
 <tr><td style="background:#E7E2F6"><div><span style="font-weight:700;">15:50–20:45</span></div></td><td style="background:#E7E2F6"><div><span style="font-weight:700;">BOAT (ticket): Norled express boat, Måløy → Bergen</span></div></td><td style="background:#E7E2F6"><div>FREE SEATING — board promptly, claim LEFT (port) window seats for the coastal islands. Kiosk onboard (veg options thin — hence packed backup).</div></td><td style="background:#E7E2F6"><div>TICKET IN HAND</div></td></tr>
 <tr><td style="background:#DCEAEE"><div><span style="font-weight:700;">20:45–21:15</span></div></td><td style="background:#DCEAEE"><div><span style="font-weight:700;">WALK/TAXI: Strandkaiterminalen → hotel</span></div></td><td style="background:#DCEAEE"><div>The quay is IN central Bergen — 5–10 min walk to Bryggen-area hotels; taxi rank at terminal (Bergen Taxi 07000).</div></td><td style="background:#DCEAEE"><div></div></td></tr>
 <tr><td style="background:#F4F0E3"><div><span style="font-weight:700;">21:15–</span></div></td><td style="background:#F4F0E3"><div><span style="font-weight:700;">Late supper near Torget (kitchens till 22:00+) or room picnic</span></div></td><td style="background:#F4F0E3"><div></div></td><td style="background:#F4F0E3"><div></div></td></tr></table></div>
-<h2><span style="font-weight:700;">DAY 11 — Tue Aug 18 · Bergen: Mostraumen cruise + Bergenhus + Bryggen + Fløyen at golden hour</span></h2>
-<p><span style="font-weight:700;color:#8A5F00;">VERDICT: REBUILT Aug 16 on local advice. The afternoon is now driven by one hard fact — <b>Rosenkrantztårnet and Håkonshallen close at 17:00</b>, and Fløibanen runs until midnight. So the fortress interiors move to straight after lunch and Fløyen moves to the evening, where the light is better anyway (sunset ~21:15). Nothing is dropped; the day just runs in the right order. ALL-DAY-RAIN SWAP, in priority order — the fortress interiors are indoors and STAY, then drop Fløyen for: (1) <b>Schøtstuene</b>, Øvregaten 50 — the Hanseatic assembly halls right behind Bryggen, and currently the <i>only</i> way to see the Hanseatic collection, because the main museum building (Finnegården, on Bryggen itself) is shut for restoration until early 2027, so don’t walk to Finnegården expecting to get in; (2) <b>KODE</b>, four buildings on Lille Lungegårdsvannet — go for the <b>Rasmus Meyer Collection</b> (Munch, J.C. Dahl, Harriet Backer) rather than trying to see all 50,000 works; (3) Bryggens Museum. Schøtstuene sits on the same street the Fjellveien descent comes down, so it slots in either way.</span></p>
+</details>
+<details class="day" data-date="2026-08-18" data-day="11" open><summary><h2 class="dayh"><span style="font-weight:700;">DAY 11 — Tue Aug 18 · Bergen: Mostraumen cruise + Bergenhus + Bryggen + Fløyen at golden hour</span></h2></summary>
+
+<p><span style="font-weight:700;color:#8A5F00;">VERDICT: the day has one hard deadline and one piece of slack. <b>Rosenkrantztårnet and Håkonshallen close at 17:00</b>, so the fortress interiors have to happen straight after lunch. <b>Fløibanen runs until midnight</b> and sunset is ~21:15, so Fløyen takes the evening and gets better light for it. Everything else fits around those two facts.<br><b>ALL-DAY-RAIN SWAP</b> — the fortress interiors are indoors, so they stay; drop Fløyen and pick from, in order: (1) <b>Schøtstuene</b>, Øvregaten 50 — the Hanseatic League’s assembly halls behind Bryggen: meeting rooms, banquet halls and courtrooms where the merchants gathered, and currently the only place to see the Hanseatic collection, since the main building on Bryggen (Finnegården) is closed for restoration until early 2027; (2) <b>KODE</b>, four buildings on Lille Lungegårdsvannet holding 50,000-plus works — head for the <b>Rasmus Meyer Collection</b>, the Golden Age of Norwegian painting: Munch, J.C. Dahl, Harriet Backer; (3) <b>Bryggens Museum</b>, built over the excavated 12th-century foundations of Bryggen itself.</span></p>
 <div class="tw"><table class="sched"><tr><th><div><span style="font-weight:700;">START–END</span></div></th><th><div><span style="font-weight:700;">ACTIVITY</span></div></th><th><div><span style="font-weight:700;">HOW TO GET THERE / NOTES</span></div></th><th><div><span style="font-weight:700;">TICKETS &amp; WHEN TO BOOK</span></div></th></tr>
 <tr><td style="background:#DCEAEE"><div><span style="font-weight:700;">09:30–09:45</span></div></td><td style="background:#DCEAEE"><div><span style="font-weight:700;">WALK: hotel → Zachariasbryggen pier (by Fish Market)</span></div></td><td style="background:#DCEAEE"><div></div></td><td style="background:#DCEAEE"><div></div></td></tr>
 <tr><td><div><span style="font-weight:700;">10:00–13:30</span></div></td><td><div><span style="font-weight:700;">★ Mostraumen fjord cruise (Rødne)</span></div></td><td><div>3.5 hrs up narrow Osterfjorden — waterfalls close enough to feel, goats on the banks. Bow goes under a waterfall: ponchos provided, your shells better.</div></td><td><div><b>⚑ BOOK AHEAD</b> — THIS WEEK, ~NOK 890 — and confirm the 10:00 departure actually runs Aug 18. rodne.no</div></td></tr>
@@ -274,14 +313,18 @@ table.sched td div{margin:1px 0}
 <tr><td><div><span style="font-weight:700;">16:15–16:45</span></div></td><td><div><span style="font-weight:700;">○ Sverresborg — the old Viking-era fortification hill</span></div></td><td><div>On the hill overlooking the fortress; look for the cannons on the hillside and you can’t miss it. Just grass on a very tall hill with <b>steep, unfenced sides — stay well back from the edges</b>. Still a military area, so soldiers walking about is normal. FIRST CUT if the tower ran long.</div></td><td><div>Free</div></td></tr>
 <tr><td><div><span style="font-weight:700;">16:45–17:45</span></div></td><td><div><span style="font-weight:700;">★ Bryggen timber alleys (UNESCO)</span></div></td><td><div>Back the way you came, but this time INTO the passages behind the facade (Bugården) — the leaning timber galleries are the atmospheric part, and they’re quiet once the cruise crowds have gone.</div></td><td><div>Free</div></td></tr>
 <tr><td><div><span style="font-weight:700;">18:00–20:15</span></div></td><td><div><span style="font-weight:700;">★ Fløibanen funicular + Mount Fløyen — GOLDEN HOUR</span></div></td><td><div>6-min ride up; panorama, flat paths, troll forest, café. Sunset is ~21:15, so 18:00–20:00 is warm low light over the whole city, not dusk. <b>Walkers:</b> come DOWN on foot instead — the path off Fløyen drops onto <b>Fjellveien</b>, a flat pedestrian road running along the mountainside above the city; follow it to <b>Skansen fire station</b> (about its midpoint) for the best free vista of the centre, then down the zig-zag road through the old wooden houses to the funicular base. Allow ~1 hr — that hour is the figure locals give, and the paved city-centre walkway is the easy grade; it is still a long descent. <b>Anyone who shouldn’t do a 320 m descent rides down.</b></div></td><td><div><b>⚑ BOOK NOW</b> — timed ticket for ~18:00, ~NOK 195 return / ~NOK 120 one-way (summer). Buy RETURN for whoever rides down, ONE-WAY UP for whoever walks. floyen.no</div></td></tr>
-<tr><td style="background:#F4F0E3"><div><span style="font-weight:700;">20:15–</span></div></td><td style="background:#F4F0E3"><div><span style="font-weight:700;">DINNER near Bryggen — LATE, so book or pick somewhere with a late kitchen. Tonight: sink-wash thermals; buy tomorrow’s packed breakfast + lunch; 07:00 pickup prep</span></div></td><td style="background:#F4F0E3"><div>This is the one real cost of the reorder: dinner lands ~20:15 with a 07:00 pickup the next morning. If that’s too much, cut Sverresborg and ride the funicular down at 19:45 — that buys back 45 min.</div></td><td style="background:#F4F0E3"><div></div></td></tr></table></div>
-<p><span style="font-weight:700;color:#C0182C;">CUT, and why: <b>Ulriken cable car</b> — duplicates Fløyen + 1 hr of transfers. <b>Gamle Bergen</b> (open-air old-town museum, Sandviken) — genuinely good and locals rate it, but it’s 4 km out, bus 3/4/12 from Bryggen, and 2 hrs round trip you do not have on a single Bergen day. <b>Fantoft Stavkirke</b> — 20 min each way on Bybanen line 1, and it is a 1992 reconstruction after the 1992 arson, not the original. <b>Akvariet i Bergen</b> — you already do a better cold-water aquarium at Atlanterhavsparken on Aug 16. <b>Bryggens Museum</b> — still doesn’t fit; the fortress interiors won that slot. <b>Skredderdalen</b> — the good quiet hike up Fløyen, but it is a proper hike and this is not a hiking group. <b>Troldhaugen</b> (Grieg’s villa) and <b>Nordnes Sjøbad</b> (heated sea pool + sauna) — both genuinely lovely, both need a half-day you don’t have. <b>Damsgård Manor</b> — closed all 2026 for renovation, so not even an option. <b>Ulriken</b>, <b>Løvstakken</b>, <b>Marineholmen beach</b>, kayaking, RIB safari — all need the second Bergen day this trip doesn’t contain.</span></p>
+<tr><td style="background:#F4F0E3"><div><span style="font-weight:700;">20:15–</span></div></td><td style="background:#F4F0E3"><div><span style="font-weight:700;">DINNER near Bryggen — LATE, so book or pick somewhere with a late kitchen. Tonight: sink-wash thermals; buy tomorrow’s packed breakfast + lunch; 07:00 pickup prep</span></div></td><td style="background:#F4F0E3"><div>Dinner lands ~20:15 against a 07:00 pickup, so kitchens near Bryggen that stop at 21:00 are cutting it fine — Bryggeloftet and the Torget side streets run later. To pull it earlier: cut Sverresborg and ride the funicular down at 19:45, which buys back 45 min.</div></td><td style="background:#F4F0E3"><div></div></td></tr></table></div>
+<p><span style="font-weight:700;color:#C0182C;">NOT ON THIS DAY — what each one is, and what it costs you. <b>Gamle Bergen</b>: an open-air museum in Sandviken, ~50 relocated wooden houses from the 1700s–1900s laid out as streets and yards, from the era when Bergen was Europe’s largest wooden city. 4 km out, bus 3/4/12 from Bryggen, ~2 hrs round trip. <b>Akvariet i Bergen</b>: Norway’s largest aquarium at Nordnesbakken 4 — 60-plus tanks, penguins, sea lions, seals, otters, tropical hall, daily feedings. Open 10:00–18:00, ~20 min walk from the Fish Market, and it wants 1½–2 hrs. <b>Fantoft Stavkirke</b>: a stave church built at Fortun in Sogn around 1150, moved here in 1883, burned down in 1992 and rebuilt to match — 20 min each way on Bybanen line 1, opens ~10:30, ~NOK 70. <b>Ulriken</b>: Bergen’s highest of the seven mountains, 643 m, by cable car or the Sherpa steps (bus 12 to Montana) — the view overlaps Fløyen’s and the transfers run ~1 hr. <b>Skredderdalen</b>: the quiet unpaved route up Fløyen, a proper hike rather than a walk. <b>Troldhaugen</b>: Edvard Grieg’s 1885 villa, composer’s hut and grave, plus the 200-seat Troldsalen concert hall — 45 min out by public transport. <b>Nordnes Sjøbad</b>: heated outdoor seawater pool and sauna on the Nordnes waterfront. <b>Løvstakken</b> (477 m, ~1 hr each way) and <b>Marineholmen Sandstrand</b>, the city beach. <b>Damsgård Manor</b>: one of Europe’s best-preserved wooden Rococo houses, 1770s, with 1780s gardens — <b>closed all of 2026 for renovation</b>, so not an option regardless.</span></p>
 <p><span style="font-weight:700;color:#C0182C;">ONE FJORD CRUISE ONLY. Mostraumen on Aug 18 is it. Do NOT also book the Hardangerfjord express boat to Rosendal that Bergen guides push — Aug 19’s bus tour already gives you Hardanger, and Aug 15 already gave you the Geiranger cruise. Three fjord sailings in five days is the single easiest way to make this trip feel repetitive.</span></p>
-<p><span style="font-weight:700;color:#8A5F00;">BERGEN CARD — skip it. It only pays off if you’re stacking museums, and your one day is a cruise plus two paid entries (~NOK 315 total). A 48-hr card activated Aug 18 morning also expires ~09:30 on Aug 20, right as you board the airport light rail, so it wouldn’t even cover the ride it’s best known for.</span></p>
+<p><span style="font-weight:700;color:#8A5F00;">BERGEN CARD — <b>skip it.</b> What it is: NOK 400 for 24 hrs or NOK 500 for 48 hrs per adult, activating on first use and running consecutive hours. It gives free Bybanen and bus travel including the airport run, free or reduced museum entry, <b>50% off Fløibanen but on RETURN tickets only — it is not valid on one-way tickets</b>, and 20% off the Rødne Mostraumen cruise. Priced against this day, per adult: cruise 890 → saves 178, fortress entry 120 → saves 120, Fløibanen return 195 → saves 98, airport light rail 45 → saves 45. That is 441 against a 500 card, so it loses money even when every single discount lands. And two of them won’t: the cruise discount wants you booking with the card rather than the advance online booking you need in order to secure the 10:00 departure, and anyone walking down via Fjellveien is on a one-way ticket the card refuses. Realistically it returns ~165–265 on a 500 outlay. The 24-hr card at 400 is nearer the line but drops the Aug 20 airport ride entirely.</span></p>
 <p><span style="font-weight:700;color:#0C6B3D;">GETTING AROUND BERGEN: everything on this day is walkable — the centre is small and you can basically walk to anything you can see. You only need the <b>Skyss</b> app for the Bybanen airport ride on Aug 20 (and for Gamle Bergen if you ever add it). Don’t buy a multi-day pass for a one-day stay.</span></p>
-<h2><span style="font-weight:700;">DAY 12 — Wed Aug 19 · Vøringsfossen / Hardangerfjord day tour</span></h2>
+</details>
+<details class="day" data-date="2026-08-19" data-day="12" open><summary><h2 class="dayh"><span style="font-weight:700;">DAY 12 — Wed Aug 19 · Vøringsfossen / Hardangerfjord day tour</span></h2></summary>
+
 <p><span style="font-weight:700;color:#0C6B3D;">VERDICT: fine as written — the bus does the work. Pickup 07:00–07:30 at Strandkaien 17 (confirm exact point on voucher); back ~18:30. Bring packed lunch, shells, camera dry bag. BOOK THIS WEEK if not already: getyourguide.com (the Vøringsfossen Grand Tour of Hardanger from your doc). DO NOT book the Briksdal/Loen excursion — it departs from Olden, 5–6 hrs away, not Bergen.</span></p>
-<h2><span style="font-weight:700;">DAY 13 — Thu Aug 20 · Fly to Oslo (DY617) + free Oslo afternoon  (TICKET IN HAND)</span></h2>
+</details>
+<details class="day" data-date="2026-08-20" data-day="13" open><summary><h2 class="dayh"><span style="font-weight:700;">DAY 13 — Thu Aug 20 · Fly to Oslo (DY617) + free Oslo afternoon  (TICKET IN HAND)</span></h2></summary>
+
 <p><span style="font-weight:700;color:#0C6B3D;">VERDICT: your noon flight replaces the 13-hour Nutshell day — strictly better. Vigeland moves here, un-cramming tomorrow.</span></p>
 <div class="tw"><table class="sched"><tr><th><div><span style="font-weight:700;">START–END</span></div></th><th><div><span style="font-weight:700;">ACTIVITY</span></div></th><th><div><span style="font-weight:700;">HOW TO GET THERE / NOTES</span></div></th><th><div><span style="font-weight:700;">TICKETS &amp; WHEN TO BOOK</span></div></th></tr>
 <tr><td><div><span style="font-weight:700;">08:00–09:30</span></div></td><td><div><span style="font-weight:700;">Slow breakfast, checkout</span></div></td><td><div>Bags packed the night before.</div></td><td><div></div></td></tr>
@@ -293,7 +336,9 @@ table.sched td div{margin:1px 0}
 <tr><td><div><span style="font-weight:700;">15:15–16:45</span></div></td><td><div><span style="font-weight:700;">★ Vigeland Sculpture Park</span></div></td><td><div>200+ sculptures, the Monolith; flat gravel paths.</div></td><td><div>Free, open 24 hrs</div></td></tr>
 <tr><td style="background:#DCEAEE"><div><span style="font-weight:700;">16:45–17:10</span></div></td><td style="background:#DCEAEE"><div><span style="font-weight:700;">TRAM: 12 back — optional hop-off at Slottsparken</span></div></td><td style="background:#DCEAEE"><div>30-min Royal Palace grounds + Karl Johans stroll toward home if energy allows.</div></td><td style="background:#DCEAEE"><div>Ruter</div></td></tr>
 <tr><td><div><span style="font-weight:700;">17:30–</span></div></td><td><div><span style="font-weight:700;">Free evening — Bjørvika / harbor</span></div></td><td><div>Early night optional; tomorrow is calm.</div></td><td><div></div></td></tr></table></div>
-<h2><span style="font-weight:700;">DAY 14 — Fri Aug 21 · Oslo morning → STOCKHOLM  (TICKET IN HAND)</span></h2>
+</details>
+<details class="day" data-date="2026-08-21" data-day="14" open><summary><h2 class="dayh"><span style="font-weight:700;">DAY 14 — Fri Aug 21 · Oslo morning → STOCKHOLM  (TICKET IN HAND)</span></h2></summary>
+
 <p><span style="font-weight:700;color:#C0182C;">VERDICT: BOOKED — every transport leg of the trip is now ticketed. The times below still assume a ~18:00 departure, which was the placeholder: <b>check your ticket and tell me the real departure time and I will re-time this day around it.</b> It matters, because an earlier departure than ~17:00 eats into MUNCH (11:00–13:00) and a train rather than a flight would cut MUNCH entirely.</span></p>
 <div class="tw"><table class="sched"><tr><th><div><span style="font-weight:700;">START–END</span></div></th><th><div><span style="font-weight:700;">ACTIVITY</span></div></th><th><div><span style="font-weight:700;">HOW TO GET THERE / NOTES</span></div></th><th><div><span style="font-weight:700;">TICKETS &amp; WHEN TO BOOK</span></div></th></tr>
 <tr><td><div><span style="font-weight:700;">09:00–09:30</span></div></td><td><div><span style="font-weight:700;">Checkout, store luggage</span></div></td><td><div></div></td><td><div></div></td></tr>
@@ -305,7 +350,9 @@ table.sched td div{margin:1px 0}
 <tr><td style="background:#E7E2F6"><div><span style="font-weight:700;">~18:00–19:00</span></div></td><td style="background:#E7E2F6"><div><span style="font-weight:700;">FLY/TRAIN: Oslo → Stockholm (your ticket)</span></div></td><td style="background:#E7E2F6"><div>Time shown is still the ~18:00 PLACEHOLDER, not your ticket. Send me the actual departure and I will re-time the day.</div></td><td style="background:#E7E2F6"><div>Ticket in hand — recheck the PDF the night before, per the rule for every purple leg.</div></td></tr>
 <tr><td style="background:#DCEAEE"><div><span style="font-weight:700;">19:20–20:05</span></div></td><td style="background:#DCEAEE"><div><span style="font-weight:700;">TRAIN+METRO: Arlanda Express → Central (18 min, ~SEK 340; cheaper Flygbussarna coach 45 min) → metro T-Centralen → Östermalmstorg (2 stops, tap credit card) → 7-min walk</span></div></td><td style="background:#DCEAEE"><div>To your Stockholm Airbnb (Östermalm, by Östermalmstorg).</div></td><td style="background:#DCEAEE"><div>arlandaexpress.com</div></td></tr>
 <tr><td style="background:#F4F0E3"><div><span style="font-weight:700;">20:30–</span></div></td><td style="background:#F4F0E3"><div><span style="font-weight:700;">DINNER in Östermalm — Nybrogatan area, late Friday kitchens</span></div></td><td style="background:#F4F0E3"><div></div></td><td style="background:#F4F0E3"><div></div></td></tr></table></div>
-<h2><span style="font-weight:700;">DAY 15 — Sat Aug 22 · Stockholm: City Hall + Hallwyl + Nationalmuseum</span></h2>
+</details>
+<details class="day" data-date="2026-08-22" data-day="15" open><summary><h2 class="dayh"><span style="font-weight:700;">DAY 15 — Sat Aug 22 · Stockholm: City Hall + Hallwyl + Nationalmuseum</span></h2></summary>
+
 <p><span style="font-weight:700;color:#0C6B3D;">VERDICT: RETIMED after checking real opening hours. The City Hall tour is 45 minutes, not 90 — the original block double-counted it, which also meant arriving at Hallwyl 20 min before it opened. Everything now starts 30 min later, the wait is gone, and the day still ends at the same time. Saluhall lunch is 8 min from your door. Stockholm transit: tap contactless card on every gate/ferry; no app needed.</span></p>
 <div class="tw"><table class="sched"><tr><th><div><span style="font-weight:700;">START–END</span></div></th><th><div><span style="font-weight:700;">ACTIVITY</span></div></th><th><div><span style="font-weight:700;">HOW TO GET THERE / NOTES</span></div></th><th><div><span style="font-weight:700;">TICKETS &amp; WHEN TO BOOK</span></div></th></tr>
 <tr><td style="background:#DCEAEE"><div><span style="font-weight:700;">09:30–09:55</span></div></td><td style="background:#DCEAEE"><div><span style="font-weight:700;">METRO+WALK: Östermalmstorg → T-Centralen (2 stops) + 8-min walk to City Hall</span></div></td><td style="background:#DCEAEE"><div>RETIMED — 30 min later than the original plan. The City Hall tour is only 45 min, not 90, so the whole morning shifted back and nobody has to wait outside Hallwyl for it to open. Tap card.</div></td><td style="background:#DCEAEE"><div>~SEK 43/tap, day-capped</div></td></tr>
@@ -315,7 +362,9 @@ table.sched td div{margin:1px 0}
 <tr><td style="background:#F4F0E3"><div><span style="font-weight:700;">12:30–13:30</span></div></td><td style="background:#F4F0E3"><div><span style="font-weight:700;">LUNCH — Östermalms Saluhall</span></div></td><td style="background:#F4F0E3"><div>The 1888 food hall; proper vegetarian counters. 8 min from your apartment. Saturday is its short day — go now, not later.</div></td><td style="background:#F4F0E3"><div></div></td></tr>
 <tr><td><div><span style="font-weight:700;">13:45–16:45</span></div></td><td><div><span style="font-weight:700;">★ Nationalmuseum</span></div></td><td><div>Rembrandt, Scandinavian rooms, design floor. CONFIRMED against the museum’s own page: Tue–Wed + Fri–Sun 11:00–17:00, closed Mondays — so Saturday is the correct day for it and the 17:00 close is real. Cut to 2 hrs if museum fatigue.</div></td><td><div>Pay at door ~SEK 160 (confirmed). Arriving in the LAST 60 MIN drops it to SEK 80 if anyone wants a cheap look. nationalmuseum.se</div></td></tr>
 <tr><td><div><span style="font-weight:700;">17:00–18:30</span></div></td><td><div><span style="font-weight:700;">★ Strandvägen waterfront stroll home + dinner en route</span></div></td><td><div>The grand boulevard ends near your neighborhood; golden light.</div></td><td><div>Free</div></td></tr></table></div>
-<h2><span style="font-weight:700;">DAY 16 — Sun Aug 23 · Drottningholm by boat</span></h2>
+</details>
+<details class="day" data-date="2026-08-23" data-day="16" open><summary><h2 class="dayh"><span style="font-weight:700;">DAY 16 — Sun Aug 23 · Drottningholm by boat</span></h2></summary>
+
 <p><span style="font-weight:700;color:#0C6B3D;">VERDICT: doable and lovely. Book the boat combo + Court Theatre tour now.</span></p>
 <div class="tw"><table class="sched"><tr><th><div><span style="font-weight:700;">START–END</span></div></th><th><div><span style="font-weight:700;">ACTIVITY</span></div></th><th><div><span style="font-weight:700;">HOW TO GET THERE / NOTES</span></div></th><th><div><span style="font-weight:700;">TICKETS &amp; WHEN TO BOOK</span></div></th></tr>
 <tr><td style="background:#DCEAEE"><div><span style="font-weight:700;">08:50–09:20</span></div></td><td style="background:#DCEAEE"><div><span style="font-weight:700;">METRO+WALK: → Klara Mälarstrand quay (beside City Hall)</span></div></td><td style="background:#DCEAEE"><div></div></td><td style="background:#DCEAEE"><div>Tap card</div></td></tr>
@@ -327,7 +376,9 @@ table.sched td div{margin:1px 0}
 <tr><td style="background:#DCEAEE"><div><span style="font-weight:700;">15:30–16:25</span></div></td><td style="background:#DCEAEE"><div><span style="font-weight:700;">BOAT: return steamer → Klara Mälarstrand</span></div></td><td style="background:#DCEAEE"><div></div></td><td style="background:#DCEAEE"><div></div></td></tr>
 <tr><td><div><span style="font-weight:700;">16:45–18:00</span></div></td><td><div><span style="font-weight:700;">○ SHOP (optional, fills the dead 16:25–18:30 gap): Beyond Retro, Åsögatan 144</span></div></td><td><div>The second-hand recommendation that Copenhagen has no room for, recovered here at no cost: a 300 m² vintage basement — and it sits in SoFo, exactly where you are already eating dinner at 18:30. Metro to Slussen, then flat walk; you end the shop 10 min from the Monteliusvägen path. CONFIRM SUNDAY HOURS before committing (Swedish vintage shops often close 17:00 on Sundays) — if they’re shut, the same store has a central branch at Drottninggatan 77.</div></td><td><div>Free to browse. beyondretro.com</div></td></tr>
 <tr><td><div><span style="font-weight:700;">18:30–</span></div></td><td><div><span style="font-weight:700;">○ Monteliusvägen sunset (Södermalm) + dinner in SoFo</span></div></td><td><div>Metro to Slussen + 10-min uphill (some stairs — parents’ call). Clifftop path facing Old Town; sunset ~20:30.</div></td><td><div>Free</div></td></tr></table></div>
-<h2><span style="font-weight:700;">DAY 17 — Mon Aug 24 · Gamla Stan, Royal Palace, Vasa</span></h2>
+</details>
+<details class="day" data-date="2026-08-24" data-day="17" open><summary><h2 class="dayh"><span style="font-weight:700;">DAY 17 — Mon Aug 24 · Gamla Stan, Royal Palace, Vasa</span></h2></summary>
+
 <p><span style="font-weight:700;color:#8A5F00;">VERDICT: doable — Skansen is the designated cut if energy dips after Vasa.</span></p>
 <div class="tw"><table class="sched"><tr><th><div><span style="font-weight:700;">START–END</span></div></th><th><div><span style="font-weight:700;">ACTIVITY</span></div></th><th><div><span style="font-weight:700;">HOW TO GET THERE / NOTES</span></div></th><th><div><span style="font-weight:700;">TICKETS &amp; WHEN TO BOOK</span></div></th></tr>
 <tr><td style="background:#DCEAEE"><div><span style="font-weight:700;">09:10–09:30</span></div></td><td style="background:#DCEAEE"><div><span style="font-weight:700;">METRO: Östermalmstorg → Gamla Stan (3 stops)</span></div></td><td style="background:#DCEAEE"><div>Tap card.</div></td><td style="background:#DCEAEE"><div></div></td></tr>
@@ -339,8 +390,11 @@ table.sched td div{margin:1px 0}
 <tr><td><div><span style="font-weight:700;">14:30–16:00</span></div></td><td><div><span style="font-weight:700;">★ Vasa Museum</span></div></td><td><div>The 1628 warship, 98% original. Film (20 min, English) first, then circle top-down.</div></td><td><div><b>⚑ BOOK AHEAD</b> — THIS WEEK, ~SEK 210, timed 14:30 slot. Museum runs daily 08:30–18:00 in August, so an earlier slot is available if you want one. vasamuseet.se</div></td></tr>
 <tr><td><div><span style="font-weight:700;">16:10–17:40</span></div></td><td><div><span style="font-weight:700;">○ Skansen (OPTIONAL — the designated cut)</span></div></td><td><div>Historic Sweden + Nordic animals; open till 18:00. ✕ Skip freely — Vasa is the summit.</div></td><td><div>Pay at door ~SEK 260. skansen.se</div></td></tr>
 <tr><td><div><span style="font-weight:700;">18:15–20:30</span></div></td><td><div><span style="font-weight:700;">○ Fotografiska + rooftop dinner (last-night finale)</span></div></td><td><div>Photography museum open till 23:00; top-rated, very vegetarian-friendly restaurant with skyline views.</div></td><td><div>Museum ~SEK 220 at door. <b>⚑ BOOK AHEAD</b> — the restaurant table (last-night dinner). fotografiska.com</div></td></tr></table></div>
-<h2><span style="font-weight:700;">DAY 18 — Tue Aug 25 · Stockholm → India / USA</span></h2>
+</details>
+<details class="day" data-date="2026-08-25" data-day="18" open><summary><h2 class="dayh"><span style="font-weight:700;">DAY 18 — Tue Aug 25 · Stockholm → India / USA</span></h2></summary>
+
 <p><span style="font-weight:700;color:#0C6B3D;">VERDICT: keep it empty. Long-haul rule: Arlanda 3 hrs before departure (non-Schengen exit + tax-refund queue). From the Airbnb: 45 min door-to-door via T-Centralen + Arlanda Express, 30 by fixed-price taxi (~SEK 550 — confirm price before riding). Saluhall coffee if time allows. Passports + documents in the handbag.</span></p>
+</details>
 <h2><span style="font-weight:700;">COPENHAGEN SHOPPING — RANKED BY AREA, THEN BY PRICE</span></h2>
 <p><span style="font-weight:700;color:#C0182C;">VERDICT: ranked by walking distance from your Vesterbro flat, then filtered against your ~$100–200 (≈DKK 700–1,400) per-item budget. That budget is the useful fact here — it clears almost every Danish brand on the list comfortably, tops out at Han Kjøbenhavn, and goes furthest of all on vintage, where the same money buys archival designer instead of a plain tee. CORRECTION to what this page said earlier: I had written that the second-hand scene needs a Nørrebro trip you don’t have time for. That was wrong — there is a four-door vintage block in Indre By, 7 minutes flat from your front door, and it is now the Day 3 plan.</span></p>
 <p><span style="font-weight:700;color:#8A5F00;">SALES — WHAT YOU ARE ACTUALLY WALKING INTO: neither Denmark nor Sweden has official sale dates. Summer markdowns start late June, run 30–70% off, and are in their FINAL clearance stage by mid-August as autumn stock lands. So: <b>SANDALS AND T-SHIRTS ARE THE SALE BUY</b> — they are exactly the end-of-summer stock being cleared while you are there. <b>A JACKET IS NOT</b> — outerwear arriving in late August is new-season and full price, so buy your jacket vintage (the Day 3 block) or accept paying full. Deepest remaining markdowns sit on the clearance racks of the department stores (Magasin, Illum) rather than in the small boutiques, and at Magasin the 10% non-resident discount may stack on top of a markdown — worth asking at the till. Sizes will be picked over; go early in the day, not at 17:45.</span></p>
@@ -403,6 +457,75 @@ table.sched td div{margin:1px 0}
 <p><span style="font-style:italic;">Passports carried: Aug 12, Aug 20, Aug 21 (flights), Aug 25 (departure). Purple times are from your purchased tickets — recheck PDFs the night before each leg. All other times follow typical timetables; confirm live in the Rejsekort / Vy / Skyss / SL apps on the day.</span></p>
 </div>
 <script>
+/* -----------------------------------------------------------------
+   DAY COLLAPSE. Each day is a <details data-date="YYYY-MM-DD">.
+   On every load: days before today collapse, today and everything
+   after stay open — so the page walks itself forward through the
+   trip without anyone editing it. Manual toggles last for the
+   session only; reload (or "Today onwards") returns to the default.
+   The `open` attributes in the HTML are the no-JS fallback.
+------------------------------------------------------------------ */
+(function(){
+  var days = [].slice.call(document.querySelectorAll('details.day'));
+  if (!days.length) return;
+  var state = document.getElementById('dyState');
+
+  function today(){
+    var d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0')
+         + '-' + String(d.getDate()).padStart(2,'0');
+  }
+  function setAll(v){ days.forEach(function(d){ d.open = v; }); report(); }
+  function fromToday(){
+    var t = today();
+    days.forEach(function(d){ d.open = d.getAttribute('data-date') >= t; });
+    report();
+  }
+  /* Derived entirely from the DOM, because the async `toggle` event
+     also calls this and must not race with whoever changed things. */
+  function report(){
+    if (!state) return;
+    var t = today();
+    var open = days.filter(function(d){ return d.open; }).length;
+    var pastShut = days.filter(function(d){
+      return !d.open && d.getAttribute('data-date') < t;
+    }).length;
+    state.textContent = open + ' of ' + days.length + ' open'
+      + (pastShut ? ' · ' + pastShut + ' past ' + (pastShut === 1 ? 'day' : 'days') + ' hidden' : '');
+  }
+
+  var b;
+  if ((b = document.getElementById('dyToday'))) b.onclick = fromToday;
+  if ((b = document.getElementById('dyAll')))   b.onclick = function(){ setAll(true); };
+  if ((b = document.getElementById('dyNone')))  b.onclick = function(){ setAll(false); };
+  days.forEach(function(d){ d.addEventListener('toggle', function(){ report(); }); });
+
+  fromToday();
+
+  /* Printing a half-collapsed itinerary is never what you want. */
+  var before = null;
+  window.addEventListener('beforeprint', function(){
+    before = days.map(function(d){ return d.open; });
+    setAll(true);
+  });
+  window.addEventListener('afterprint', function(){
+    if (!before) return;
+    days.forEach(function(d,i){ d.open = before[i]; });
+    before = null; report();
+  });
+
+  /* A link to #someday inside a collapsed day should open it. */
+  window.addEventListener('hashchange', revealHash);
+  function revealHash(){
+    if (!location.hash) return;
+    var el = null;
+    try { el = document.querySelector(location.hash); } catch(e){ return; }
+    if (!el) return;
+    var host = el.closest && el.closest('details.day');
+    if (host && !host.open){ host.open = true; report(); el.scrollIntoView(); }
+  }
+  revealHash();
+})();
 (function(){
   /* ---------------------------------------------------------------
      SHARED SYNC. Set SYNC_URL to your deployed Google Apps Script
