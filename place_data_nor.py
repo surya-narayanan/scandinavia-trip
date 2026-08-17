@@ -467,6 +467,49 @@ dict(slug='sverresborg-bergen', name='Sverresborg', city='Bergen',
        'and expect to see personnel.'),
  ]),
 
+dict(slug='bergenhus', name='Bergenhus Fortress', native='Bergenhus festning', city='Bergen',
+ wp='Bergenhus Fortress', cat='Category:Bergenhus fortress', commons='Bergenhus festning Bergen fortress',
+ day=11, when='15:00–17:15 — you are inside it for the tower, the hall and Sverresborg',
+ tagline='The walled royal citadel at the far end of Bryggen — and the enclosure that contains almost every medieval stop on the Bergen day.',
+ facts=[('What it is','One of the best-preserved stone fortifications in Norway, walled since the 1240s'),
+        ('Contains','Håkonshallen (1247–61), Rosenkrantztårnet (1560s on 1270s foundations), Sverresborg, the parade ground, the commandant’s buildings'),
+        ('Later use','German western headquarters during the 1940–45 occupation'),
+        ('The 1944 blast','A Dutch munitions ship blew up at the quay nearby, killing ~160 and gutting Håkonshallen'),
+        ('Grounds','Free, and open late — roughly 06:00–23:00'),
+        ('Interiors','Ticketed, ~NOK 120 combined, and they close at 17:00')],
+ plan='<b>You are in it for most of the Aug 18 afternoon — it is just labelled by its buildings rather '
+      'than by its name.</b> Walk in through the big stone gate at the far end of Bryggen at 14:45; the '
+      'Rosenkrantz Tower and Håkonshallen at 15:00–16:45 are both inside these walls, and Sverresborg at '
+      '16:45 is the hill immediately above them. <b>The grounds themselves are free and open until about '
+      '23:00</b>, so they are also the obvious place for an after-dinner walk — the interiors are the '
+      'only part on a clock.',
+ body=[
+  ('p','Bergen was the capital of Norway in the 13th century and this was the royal seat: a walled '
+       'enclosure on the promontory at the mouth of the harbour, positioned so that its guns and its '
+       'gatehouse controlled everything entering Vågen. It has been continuously fortified since the '
+       '1240s, which makes it one of the oldest and best-preserved stone fortifications in the country.'),
+  ('h2','What is inside the walls'),
+  ('p','This is the thing worth understanding before you go, because the fortress is usually listed on '
+       'itineraries as though it were a separate sight from the buildings in it. It is not. Inside the '
+       'gate you will find <b>Håkonshallen</b>, the royal great hall of 1247–61; the '
+       '<b>Rosenkrantz Tower</b>, a 1560s Renaissance residence wrapped around a keep from about 1270; '
+       'the parade ground and commandant’s quarters; and on the rock above, <b>Sverresborg</b>, the '
+       'oldest fortified ground in Bergen. Three of those are separate stops in the plan.'),
+  ('h2','The 20th century'),
+  ('p','The fortress was the German western headquarters during the occupation of 1940–45. On '
+       '20 April 1944 the Dutch cargo ship <i>Voorbode</i>, carrying 124 tonnes of explosives, blew up '
+       'at the quay a short distance away — it killed around 160 people, flattened much of the district '
+       'and gutted Håkonshallen, whose roof and interior were destroyed. Both hall and tower were '
+       'restored over the following two decades, which is why the medieval walls now enclose modern '
+       'fittings.'),
+  ('h2','Practical'),
+  ('p','The <b>grounds are free</b> and stay open into the late evening, so they work as an unhurried '
+       'walk at any hour; the <b>interiors are ticketed and shut at 17:00</b>, which is the deadline the '
+       'whole Bergen afternoon is built around. Parts of the site remain in military use, so expect to '
+       'see personnel and keep to the open areas.'),
+ ],
+ links=[('Bergenhus Fortress, visitBergen','https://en.visitbergen.com/things-to-do/bergenhus-fortress-p825383')]),
+
 dict(slug='bryggen', name='Bryggen', city='Bergen',
  wp='Bryggen', cat='Category:Bryggen', commons='Bryggen Bergen wharf',
  day=11, when='Frontage 14:15, alleys 16:45–17:45',
@@ -501,6 +544,36 @@ dict(slug='bryggen', name='Bryggen', city='Bergen',
        'structure visibly out of true after three centuries of settling. There are workshops, small '
        'galleries and craftspeople in among them. Walk the length of one passage and back through '
        'another; it takes twenty minutes and it is the real thing.'),
+  ('h2','What to walk into, specifically'),
+  ('p','Bryggen is not one building. It is a row of separate tenements, each with its own name and its '
+       'own passage running back from the quay, and the names are on plaques at the passage mouths — '
+       'which is how locals navigate it. These are the ones worth stepping into:'),
+  ('ul',[
+    '<b>Jacobsfjorden</b> — look for the <b>gilded deer head</b> mounted on the front facade, which is '
+    'why it is also called Hjortegården, the Deer Courtyard. The single most findable detail on the '
+    'whole wharf, and the easiest way to orient yourself.',
+    '<b>Bellgården</b> — around three hundred years old, and it forms a <b>double courtyard</b> with '
+    'Jacobsfjorden. Go in through one passage and out through the other; that one manoeuvre is the best '
+    'two minutes at Bryggen.',
+    '<b>Bredsgården</b> — one of the best-preserved passages, and the 18th-century dining rooms of '
+    '<b>Bryggen Tracteursted</b> open off it. Worth stepping inside even if you are not eating.',
+    '<b>Enhjørningsgården</b> — the Unicorn Courtyard.',
+    '<b>Svensgården</b>, <b>Bugården</b>, <b>Holmedalsgården</b> and <b>Engelgården</b> — the rest of '
+    'the surviving rows, and the ones with the most visible lean.',
+    '<b>Finnegården, Bryggen 39</b> — the Hanseatic Museum building. Under restoration until about '
+    '2027, so note the facade and do not queue at the door.',
+    '<b>Øvregaten</b> — the back lane running behind the entire wharf, and the street the Fjellveien '
+    'descent comes down onto. <b>Schøtstuene</b> is at number 50 and <b>Mariakirken</b> is at its '
+    'northern end.',
+  ]),
+  ('h2','A walking route you can open on your phone'),
+  ('p','<b><a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;travelmode=walking&amp;origin=Fisketorget%2C+Bergen&amp;destination=Rosenkrantzt%C3%A5rnet%2C+Bergen&amp;waypoints=Bryggen%2C+Bergen%7CBryggens+Museum%2C+Bergen%7CMariakirken%2C+Bergen%7CSch%C3%B8tstuene%2C+Bergen">Open the Bryggen walk in Google Maps →</a></b> '
+       'It runs Fish Market → Bryggen → Bryggens Museum → Mariakirken → Schøtstuene → Rosenkrantz '
+       'Tower, on foot, which is the spine of the whole area and the exact order the Aug 18 plan uses.'),
+  ('p','One caveat worth knowing: <b>Maps will not route you into the passages themselves.</b> They are '
+       'short, partly private, dead-end lanes, so they do not appear as walkable ways — the route line '
+       'runs along the quay and Øvregaten instead. Treat the passages as twenty-metre detours off that '
+       'line, taken on foot by reading the name plaques as you pass them.'),
  ]),
 
 dict(slug='floyen', name='Fløyen, Fløibanen and Fjellveien', city='Bergen',

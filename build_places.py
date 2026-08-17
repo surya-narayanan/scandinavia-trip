@@ -272,21 +272,19 @@ def autolink(s):
     for k, sec in enumerate(pieces):
         if not sec:
             continue
-        used = set()
         for name, slug in names:
-            if slug in used:
-                continue
-            # Idempotency: index.html is edited in place and this may run many
-            # times. If the section already links this place, leave it alone —
-            # otherwise each rebuild would link one more occurrence.
-            if ('places/%s.html' % slug) in sec:
-                continue
-            idx = mask(sec).find(name)
-            if idx == -1:
-                continue
-            sec = sec[:idx] + '<a href="places/%s.html">%s</a>' % (slug, name) + sec[idx+len(name):]
-            used.add(slug)
-            added += 1
+            # EVERY unlinked occurrence gets a link, not just the first — the
+            # point is that any mention of a place is a way to read about it.
+            # Naturally idempotent: once wrapped, an occurrence sits inside an
+            # <a> and is masked out, so a rerun finds nothing left to do.
+            while True:
+                idx = mask(sec).find(name)
+                if idx == -1:
+                    break
+                sec = (sec[:idx]
+                       + '<a href="places/%s.html">%s</a>' % (slug, name)
+                       + sec[idx+len(name):])
+                added += 1
         pieces[k] = sec
 
     print('autolinked %d additional place mentions' % added)
