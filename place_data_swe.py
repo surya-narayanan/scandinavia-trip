@@ -6,7 +6,7 @@ PLACES = [
 dict(slug='stockholm-city-hall', name='Stockholm City Hall', native='Stadshuset', city='Stockholm',
  wp='Stockholm City Hall', cat='Category:Stockholm City Hall', commons='Stockholm City Hall Golden Hall',
  day=15, when='10:00–10:45',
- match='Stockholm City Hall — guided tour (45 min)',
+ 
  tagline='Eight million bricks on the waterfront, and inside it a hall lined with eighteen million gold mosaic tiles.',
  facts=[('Built','1911–1923'), ('Architect','Ragnar Östberg'),
         ('Bricks','About 8 million, hand-made'),
@@ -111,7 +111,7 @@ dict(slug='hallwyl', name='The Hallwyl Museum', native='Hallwylska museet', city
 dict(slug='nationalmuseum', name='Nationalmuseum', city='Stockholm',
  wp='Nationalmuseum', commons='Nationalmuseum Stockholm',
  day=15, when='16:10–17:00, closing hour only',
- match='font-weight:700;">○ |Nationalmuseum — closing hour only',
+ 
  tagline='Sweden’s national gallery, on the water opposite the palace — Rembrandt, the Scandinavian rooms, and a design floor running to the present.',
  facts=[('Opened','1866; reopened 2018 after a five-year renovation'),
         ('Collection','~700,000 objects; ~5,000 shown'),
@@ -142,7 +142,7 @@ dict(slug='nationalmuseum', name='Nationalmuseum', city='Stockholm',
 dict(slug='strandvagen', name='Strandvägen', city='Stockholm',
  wp='Strandvägen', commons='Strandvägen Stockholm',
  day=15, when='17:00–18:30',
- match='Strandvägen waterfront stroll home + dinner en route',
+ 
  tagline='The boulevard built to impress the world in 1897 — and still the most expensive address in Sweden.',
  facts=[('Laid out','1860s–1890s, completed for the 1897 Stockholm exhibition'),
         ('Length','About 1 km along the Östermalm waterfront'),

@@ -444,7 +444,7 @@ dict(slug='rosenkrantz-hakonshallen', name='Rosenkrantz Tower and Håkon’s Hal
 dict(slug='sverresborg-bergen', name='Sverresborg', city='Bergen',
  wp='Bergenhus Fortress', commons='Sverresborg Bergenhus Bergen fortress',
  day=11, when='16:15–16:45',
- match='Sverresborg — the old Viking-era fortification hill',
+ 
  tagline='A grass hill above the fortress with extremely steep, unfenced sides — and the oldest fortified ground in Bergen.',
  facts=[('Named for','King Sverre Sigurdsson, who fortified it in the 1180s'),
         ('Destroyed','1198, in the civil wars'),
@@ -626,6 +626,37 @@ dict(slug='bryggens-museum', name='Bryggens Museum', city='Bergen',
        'other reason to know where its door is.'),
  ],
  links=[('Bryggens Museum, visitBergen','https://en.visitbergen.com/things-to-do/bryggens-museum-bymuseet-i-bergen-p819623')]),
+
+dict(slug='mariakirken', name='Mariakirken (St Mary’s Church)', native='Mariakirken', city='Bergen',
+ wp="St Mary's Church, Bergen", commons='Mariakirken Bergen St Marys Church',
+ day=11, when='13:30–14:00',
+ tagline='The oldest building in Bergen — Romanesque stone begun in the 1130s, and the Hanseatic merchants’ own church for three centuries.',
+ facts=[('Begun','1130s–1140s; finished around 1180'),
+        ('Style','Romanesque — one of the finest examples in Norway'),
+        ('Where','Øvregaten, at the Dreggen end, just behind Bryggen'),
+        ('Cost','Free; donations welcome'),
+        ('Hours','Limited — a working church. Mornings and early afternoon on weekdays and Saturdays in summer; services take priority')],
+ plan='Slotted at 13:30 straight after lunch, because its hours are the tightest of anything on Aug 18 and it '
+      'shuts in the early afternoon. Two minutes from Schøtstuene on the same street, so if it is closed when you '
+      'arrive you have lost nothing — walk on to the next stop.',
+ body=[
+  ('p','Bergen has burned down repeatedly, which is why almost nothing medieval survives above ground. '
+       'Mariakirken is the exception: begun in the 1130s or 1140s and finished around 1180, it is the oldest '
+       'building in the city and has been in continuous use for close to nine centuries. The exterior is plain, '
+       'heavy Romanesque stone with two square west towers, and it is one of the best Romanesque buildings in Norway.'),
+  ('p','From 1408 to 1766 it belonged to the German merchants of the Hanseatic Kontor at Bryggen, and services '
+       'were held in German. That is the connective tissue with the rest of your Bergen day — this was the parish '
+       'church of the men whose assembly rooms you see at Schøtstuene and whose warehouses are the wharf.'),
+  ('h2','What to look for inside'),
+  ('p','Three things. The carved and painted <b>triptych altarpiece</b> from around 1460, a late-medieval '
+       'survivor of a kind that was mostly destroyed at the Reformation. The <b>original medieval frescoes</b> in '
+       'the apse. And the <b>baroque pulpit</b>, given by the Hanseatic merchants in the 1670s and extravagantly '
+       'ornate — a deliberate display of who paid for the building’s upkeep.'),
+  ('p','Almost no visitors come here, which in high-season Bergen makes it one of the few genuinely quiet '
+       'interiors in the centre. It is free, and it is a hundred metres off a wharf that has thousands of people '
+       'on it.'),
+ ],
+ links=[('St Mary’s Church, visitBergen','https://en.visitbergen.com/things-to-do/st-marys-church-p827623')]),
 
 # ------------- Bergen: considered and not in the plan
 dict(slug='gamle-bergen', name='Gamle Bergen', native='Old Bergen Museum', city='Bergen',
