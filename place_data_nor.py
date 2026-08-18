@@ -632,17 +632,29 @@ dict(slug='floyen', name='Fløyen, Fløibanen and Fjellveien', city='Bergen',
        '<b>The only real constraint is knees</b> — 320 m of continuous downhill is joint work regardless of '
        'surface — so anyone who would rather not simply takes the funicular back.'),
   ('h2','You do not have to walk the flat bit'),
-  ('p','This is worth saying plainly, because the standard description makes Fjellveien sound compulsory and '
-       'it is not. Fløysvingene <b>crosses</b> Fjellveien on its way down; following Fjellveien along the '
-       'hillside is a <b>detour you choose</b>, taken for the promenade and for the Skansen viewpoint. If you '
-       'want continuous descent and then streets, cross straight over at the drinking fountain and keep going '
-       'down — that shortens the walk to roughly 2.5 km and keeps it downhill nearly the whole way. Fjellveien '
-       'sits at about 100 m, so the switchbacks above it do around two thirds of the drop and the zig-zag below '
-       'it does the last third.'),
-  ('p','Either way the descent ends in the <b>old town, not on a ring road</b>. You come out on Øvregaten, the '
-       'back lane behind Bryggen, a few doors from Schøtstuene and a short walk from Mariakirken — so the last '
-       'stretch of the walk down the mountain is already a walk through medieval Bergen, and you can carry '
-       'straight on into the Bryggen passages, Torgallmenningen and the harbour without a break.'),
+  ('p','Descriptions of this walk make Fjellveien sound compulsory. It is not. Fløysvingene <b>crosses</b> '
+       'Fjellveien on its way down — it does not merge into it — so following the flat road along the hillside '
+       'is an <b>optional promenade that adds distance</b>, taken for the walk itself and for the views. Walk '
+       'straight across it and you carry on descending. The ~3 km quoted for the descent is the direct route; '
+       'Fjellveien is extra on top.'),
+  ('h2','What you pass, in order'),
+  ('p','Ignoring the names for a moment, the walk down is six things in sequence:'),
+  ('ul',[
+    '<b>The viewing deck at the top</b>, 320 m up, where the funicular leaves you.',
+    '<b>A wide zig-zag road going down</b> (signed <b>Fløysvingene</b>) — car-width, gravel and asphalt, '
+    'hairpin after hairpin through trees. This is most of the walk and most of the descent.',
+    '<b>A flat road crossing it sideways</b> (signed <b>Fjellveien</b>), at about 100 m. Walk straight over.',
+    '<b>A small pond and an old fire station</b> (<b>Skansedammen</b> and <b>Skansen</b>) — an open view over '
+    'the city and the harbour, free and unticketed.',
+    '<b>Narrow lanes between small painted wooden houses</b>, too narrow for cars, zig-zagging steeply down. '
+    'Roughly the last 10–15 minutes, and the part most people come for.',
+    '<b>The square where the funicular started</b>, two minutes from the fish market and Bryggen.',
+  ]),
+  ('p','So the descent <b>ends on its best stretch</b> and puts you straight into the old town rather than on '
+       'a ring road. You come out by Øvregaten, the back lane behind Bryggen, a few doors from Schøtstuene and '
+       'a short walk from Mariakirken, and can carry on into the Bryggen passages and the harbour without a '
+       'break. This is the clearest argument for Fløyen over Ulriken for anyone who wants to walk through the '
+       'city afterwards: Ulriken sets you down at Haukeland hospital, in a suburb, needing a bus back.'),
   ('p','About halfway along it, above the <b>Skansen</b> fire station, is the best free viewpoint over '
        'the city centre. From there a zig-zag road drops steeply down through the oldest surviving '
        'wooden houses in Bergen — small painted timber cottages clinging to the slope on lanes too '
