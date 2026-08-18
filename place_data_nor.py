@@ -606,6 +606,22 @@ dict(slug='floyen', name='Fløyen, Fløibanen and Fjellveien', city='Bergen',
        'city, from Sandviken in the north almost to Haukeland hospital in the south. It is a walking '
        'road, not a trail: flat, wide, and full of Bergensers exercising, with the city laid out below '
        'the whole way.'),
+  ('h2','The descent, in numbers'),
+  ('p','The route down is <b>Fløysvingene</b> — a serpentine road that switchbacks off the summit — and the '
+       'single most useful thing to know is that <b>it is a road, not a staircase</b>. Gravel and asphalt the '
+       'whole way, described by the local tourist board as suitable for all ages and fitness levels. There are '
+       'no steps to count.'),
+  ('ul',[
+    '<b>Distance:</b> about 3 km from the top station to the city centre.',
+    '<b>Descent:</b> ~320 m.',
+    '<b>Time:</b> about 40 minutes at a brisk pace, an hour taking it gently and stopping for the view.',
+    '<b>Junction:</b> Fløysvingene meets Fjellveien by the drinking fountain, roughly 200 m north of where '
+    'Fjellveien crosses the funicular line.',
+  ]),
+  ('p','So the walk has three distinct characters rather than one: the switchback road down, then <b>Fjellveien '
+       'itself, which is flat</b> and can be followed as far as you like, then a short steep zig-zag down through '
+       'the wooden houses into Øvregaten. <b>The only real constraint is knees</b> — 320 m of continuous downhill '
+       'is joint work regardless of surface — so anyone who would rather not simply takes the funicular back.'),
   ('p','About halfway along it, above the <b>Skansen</b> fire station, is the best free viewpoint over '
        'the city centre. From there a zig-zag road drops steeply down through the oldest surviving '
        'wooden houses in Bergen — small painted timber cottages clinging to the slope on lanes too '
