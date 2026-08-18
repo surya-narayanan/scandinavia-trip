@@ -583,8 +583,10 @@ dict(slug='floyen', name='Fløyen, Fløibanen and Fjellveien', city='Bergen',
  tagline='A funicular from the city centre to 320 metres, and a flat pedestrian road along the mountainside that almost no visitor finds.',
  facts=[('Fløibanen opened','1918'),
         ('Ride','~6 minutes, to 320 m'),
-        ('Runs','07:30–midnight — the latest-running sight in Bergen'),
-        ('Cost','~NOK 195 return, ~NOK 120 one way'),
+        ('Runs','Mon–Fri 07:30–24:00, Sat–Sun 08:00–24:00 — the latest-running sight in Bergen'),
+        ('Frequency','Every 10–15 min; every 30 min before 10:00 and after 19:00'),
+        ('Cost, return','NOK 200 online, NOK 220 at the bottom-station counter'),
+        ('Cost, one way','NOK 105 online, NOK 120 at the counter — this is the one walkers need'),
         ('Fjellveien','A level gravel road along the hillside, free, no ticket')],
  plan='Booked for ~18:00 rather than the afternoon: the funicular runs to midnight, sunset is about '
       '21:15, so the evening gets the low light and the fortress gets the daytime hours it needs. '
@@ -611,17 +613,36 @@ dict(slug='floyen', name='Fløyen, Fløibanen and Fjellveien', city='Bergen',
        'single most useful thing to know is that <b>it is a road, not a staircase</b>. Gravel and asphalt the '
        'whole way, described by the local tourist board as suitable for all ages and fitness levels. There are '
        'no steps to count.'),
+  ('p','The two numbers people quote are not alternatives and they are not in conflict — they measure '
+       'different axes. <b>3 km is the ground you cover; 320 m is how far you drop.</b> The summit really is '
+       '320 m above the sea, and the road really is about 3 km long, because a road that fell 320 m in a '
+       'straight line would be unwalkable. That is the whole reason it switchbacks. Averaged out it works '
+       'to a gradient of roughly 11%, which is a firm, continuous downhill but never a scramble.'),
   ('ul',[
-    '<b>Distance:</b> about 3 km from the top station to the city centre.',
-    '<b>Descent:</b> ~320 m.',
+    '<b>Distance:</b> about 3 km from the top station to the city centre by the standard route.',
+    '<b>Descent:</b> 320 m — the full height of the mountain, since the bottom station is at sea level.',
+    '<b>Average gradient:</b> ~11%, i.e. 1 m down for every 9 m forward.',
     '<b>Time:</b> about 40 minutes at a brisk pace, an hour taking it gently and stopping for the view.',
+    '<b>Steps:</b> essentially none. It is a vehicle-width road surface throughout.',
     '<b>Junction:</b> Fløysvingene meets Fjellveien by the drinking fountain, roughly 200 m north of where '
     'Fjellveien crosses the funicular line.',
   ]),
   ('p','So the walk has three distinct characters rather than one: the switchback road down, then <b>Fjellveien '
-       'itself, which is flat</b> and can be followed as far as you like, then a short steep zig-zag down through '
-       'the wooden houses into Øvregaten. <b>The only real constraint is knees</b> — 320 m of continuous downhill '
-       'is joint work regardless of surface — so anyone who would rather not simply takes the funicular back.'),
+       'itself, which is flat</b>, then a short steep zig-zag down through the wooden houses into Øvregaten. '
+       '<b>The only real constraint is knees</b> — 320 m of continuous downhill is joint work regardless of '
+       'surface — so anyone who would rather not simply takes the funicular back.'),
+  ('h2','You do not have to walk the flat bit'),
+  ('p','This is worth saying plainly, because the standard description makes Fjellveien sound compulsory and '
+       'it is not. Fløysvingene <b>crosses</b> Fjellveien on its way down; following Fjellveien along the '
+       'hillside is a <b>detour you choose</b>, taken for the promenade and for the Skansen viewpoint. If you '
+       'want continuous descent and then streets, cross straight over at the drinking fountain and keep going '
+       'down — that shortens the walk to roughly 2.5 km and keeps it downhill nearly the whole way. Fjellveien '
+       'sits at about 100 m, so the switchbacks above it do around two thirds of the drop and the zig-zag below '
+       'it does the last third.'),
+  ('p','Either way the descent ends in the <b>old town, not on a ring road</b>. You come out on Øvregaten, the '
+       'back lane behind Bryggen, a few doors from Schøtstuene and a short walk from Mariakirken — so the last '
+       'stretch of the walk down the mountain is already a walk through medieval Bergen, and you can carry '
+       'straight on into the Bryggen passages, Torgallmenningen and the harbour without a break.'),
   ('p','About halfway along it, above the <b>Skansen</b> fire station, is the best free viewpoint over '
        'the city centre. From there a zig-zag road drops steeply down through the oldest surviving '
        'wooden houses in Bergen — small painted timber cottages clinging to the slope on lanes too '
