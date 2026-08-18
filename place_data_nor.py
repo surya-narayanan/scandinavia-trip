@@ -578,8 +578,8 @@ dict(slug='bryggen', name='Bryggen', city='Bergen',
 
 dict(slug='floyen', name='Fløyen, Fløibanen and Fjellveien', city='Bergen',
  wp='Fløyen', cat='Category:Fløyen', commons='Floyen Floibanen Bergen funicular view',
- day=11, when='18:00–20:15',
- match='Fløibanen funicular + Mount Fløyen — GOLDEN HOUR',
+ day=11, when='20:15–21:45',
+ match='Fløibanen funicular + Mount Fløyen',
  tagline='A funicular from the city centre to 320 metres, and a flat pedestrian road along the mountainside that almost no visitor finds.',
  facts=[('Fløibanen opened','1918'),
         ('Ride','~6 minutes, to 320 m'),
@@ -588,10 +588,10 @@ dict(slug='floyen', name='Fløyen, Fløibanen and Fjellveien', city='Bergen',
         ('Cost, return','NOK 200 online, NOK 220 at the bottom-station counter'),
         ('Cost, one way','NOK 105 online, NOK 120 at the counter — this is the one walkers need'),
         ('Fjellveien','A level gravel road along the hillside, free, no ticket')],
- plan='Booked for ~18:00 rather than the afternoon: the funicular runs to midnight, sunset is about '
-      '21:15, so the evening gets the low light and the fortress gets the daytime hours it needs. '
-      'Walkers come <b>down</b> via Fjellveien and Skansen — buy one-way-up tickets for them and '
-      'returns for everyone riding.',
+ plan='Moved to ~20:15 for actual sunset (~21:15), and <b>everyone rides both ways</b>. The 3 km walk '
+      'down is out, which is what freed the timing — the descent was the only reason this had to happen '
+      'in daylight. Buy <b>returns</b> for everyone, NOK 200 each, or NOK 100 apiece with the Bergen Card. '
+      'The funicular runs to midnight, so there is no last-departure anxiety.',
  body=[
   ('p','Bergen is ringed by seven mountains and Fløyen is the accessible one. The Fløibanen funicular '
        'opened in 1918 and climbs from a station 150 metres behind Bryggen to 320 metres in about six '
