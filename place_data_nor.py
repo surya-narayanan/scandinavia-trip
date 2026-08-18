@@ -692,7 +692,7 @@ dict(slug='schotstuene', name='Schøtstuene and the Hanseatic collection', city=
 
 dict(slug='kode', name='KODE Art Museums', city='Bergen',
  wp='KODE Art Museums of Bergen', commons='KODE art museum Bergen Rasmus Meyer',
- day=11, when='Rain-day alternative',
+ day=11, when='13:45–15:10',
  tagline='Four buildings on a city lake holding 50,000 works — and one collection inside them worth going for.',
  facts=[('Buildings','Four, around Lille Lungegårdsvannet'),
         ('Collection','~50,000 works'),
@@ -716,7 +716,7 @@ dict(slug='kode', name='KODE Art Museums', city='Bergen',
 
 dict(slug='bryggens-museum', name='Bryggens Museum', city='Bergen',
  wp='Bryggens Museum', commons='Bryggens Museum Bergen excavations',
- day=11, when='Rain-day alternative',
+ day=11, when='10:40–11:50',
  
  tagline='Built directly over the excavated foundations of Bergen’s oldest buildings, uncovered when Bryggen burned in 1955.',
  facts=[('What it is','The archaeological museum of medieval Bergen and Vestlandet'),
@@ -782,13 +782,18 @@ dict(slug='mariakirken', name='Mariakirken (St Mary’s Church)', native='Mariak
 # ------------- Bergen: considered and not in the plan
 dict(slug='gamle-bergen', name='Gamle Bergen', native='Old Bergen Museum', city='Bergen',
  wp='Old Bergen Museum', commons='Gamle Bergen Museum Sandviken',
- day=11, when='10:05–12:05', 
+ day=None, 
  tagline='About fifty wooden houses moved to Sandviken and laid out as streets and yards — the city as it was when it was the largest wooden city in Europe.',
  facts=[('Where','Sandviken, ~4 km north of the centre'),
         ('Getting there','Bus 3, 4, 12, 16E or 19 from Bryggen'),
         ('Season','Roughly mid-May to end of August'),
         ('Time needed','~2 hrs round trip from the centre')],
- plan='<b>Now the morning of Aug 18</b>, after the fjord cruise was dropped on the 17th — this is what the freed 3½ hours bought. Bus 3, 4, 12, 16E or 19 from the Bryggen stops, ~15–20 min; get off at Gamle Bergen, turn right and walk under the motorway, because the entrance is not visible from the road. Two hours on site. <b>It is open-air, so if the morning is wet, skip it</b> and do the indoor Hanseatic morning instead: Bryggens Museum then Schøtstuene, both five minutes from the hotel. House interiors are guided-tour only — ask for the next English tour when you arrive.',
+ plan='<b>Dropped on 18 Aug, at your call.</b> It had the morning of Aug 18 after the fjord cruise was '
+      'cut, and removing it freed about 2¾ hours plus the only bus ride of the day. That time went to '
+      '<b>Bryggens Museum and KODE</b>, both of which the Bergen Card already covers and both of which are '
+      'in the centre — so the day lost its one open-air stop and its one weather risk, and gained two free '
+      'museums. If you want it back on a future trip it is bus 3, 4, 12, 16E or 19 to Sandviken, about 20 '
+      'minutes each way.',
  body=[
   ('p','In the 19th century Bergen was the largest wooden city in Europe, and most of it is gone — '
        'lost to fire, to demolition, and to the concrete of the 20th century. Gamle Bergen collects '
@@ -803,8 +808,45 @@ dict(slug='gamle-bergen', name='Gamle Bergen', native='Old Bergen Museum', city=
        'guided tours.'),
  ]),
 
+dict(slug='nordnes-sjobad', name='Nordnes Sjøbad', native='Nordnes Sea Bath', city='Bergen',
+ wp='Nordnes', commons='Nordnes Sjobad Bergen sea pool',
+ day=12, when='11:50–12:35',
+ match='Nordnes Sjøbad',
+ tagline='A heated outdoor salt-water pool on the harbour edge at the tip of the Nordnes peninsula, with the fjord and the mountains in front of you.',
+ facts=[('Where','Nordnesparken, the western tip of the peninsula — a few minutes past the aquarium'),
+        ('Season','Roughly June to September, open daily'),
+        ('Water','Heated sea water, about 27°C; there is a sauna as well'),
+        ('Cost','~NOK 130 — <b>not covered by the Bergen Card</b>'),
+        ('Bring','A towel and swimwear, or hire them there')],
+ plan='The optional stop on Aug 19, and the first thing to cut if the day runs long or anyone is flagging. '
+      'It sits a few minutes beyond the aquarium on the same peninsula, so the two make one trip out to '
+      'Nordnes rather than two. It is also the only thing across these two Bergen days that your card does '
+      'not touch, which is worth knowing before you decide it is worth NOK 130.',
+ body=[
+  ('p','Nordnes Sjøbad is an outdoor swimming pool at the very tip of the Nordnes peninsula, filled with '
+       'heated sea water and set right on the edge of the harbour. You swim looking out at the fjord and '
+       'the mountains on the far shore, which is the whole point of it — the pool itself is ordinary, the '
+       'setting is not.'),
+  ('h2','Why it is worth a slot at all'),
+  ('p','It is one of the few genuinely local things in central Bergen that a visitor can simply walk into. '
+       'In summer it is used by Bergensers rather than tour groups, and on a clear day the combination of '
+       'warm water and cold air off the fjord is the sort of thing people remember from a trip long after '
+       'the museums blur together. On a grey day it is much less compelling, which is why it is marked '
+       'optional rather than starred.'),
+  ('h2','The practicalities'),
+  ('ul',['The season runs roughly June to September, and the pool is open daily within it.',
+         'The water is heated to around 27°C, so it is swimmable regardless of the air temperature.',
+         'There is a sauna on site, which is what makes it work on a cool day.',
+         'Entry is about NOK 130. <b>The Bergen Card does not cover it.</b>',
+         'Bring a towel and swimwear if you have them; both can be hired.']),
+  ('p','Weather can close it at short notice, so it is worth a look at the website or a glance from the '
+       'aquarium before committing the time.'),
+ ],
+ links=[('Nordnes Sjøbad — official site','https://nordnessjobad.no/en/'),
+        ('visitBergen — Nordnes seawater pool','https://en.visitbergen.com/things-to-do/nordnes-seawater-pool-p5669873')]),
+
 dict(slug='akvariet-bergen', name='Akvariet i Bergen', native='The Bergen Aquarium',
- city='Bergen — not in the plan', wp='Bergen Aquarium', commons='Akvariet i Bergen aquarium',
+ city='Bergen', wp='Bergen Aquarium', commons='Akvariet i Bergen aquarium',
  day=None, match='<b>|Akvariet i Bergen',
  
  tagline='Norway’s largest aquarium, on the tip of the Nordnes peninsula — and, by most local accounts, primarily a place to take children.',
@@ -812,12 +854,12 @@ dict(slug='akvariet-bergen', name='Akvariet i Bergen', native='The Bergen Aquari
         ('Open','10:00–18:00 in summer'),
         ('Size','60-plus tanks; penguins, sea lions, seals, otters, tropical hall'),
         ('Time needed','1½–2 hrs')],
- plan='Considered and left out, and the reason changed once you skipped Atlanterhavsparken. It is not '
-      'a duplicate any more — it is a geography and priority problem. Akvariet is on the far side of '
-      'Vågen from Bergenhus, Bryggen and Fløyen, which all cluster to the north-east, and your 10:00 '
-      'cruise blocks the only morning that would make it comfortable. Fitting it in means dropping '
-      'either the fortress interiors or Fløyen. <b>If there are children in the party, flip this — it '
-      'is the best thing in Bergen for them.</b>',
+ plan='<b>In the plan now — Aug 19, 10:00–11:50.</b> Two things put it there. Skipping '
+      'Atlanterhavsparken removed the duplication argument, and dropping the Hardanger trip created a '
+      'second Bergen day with room on the Nordnes side of the harbour. It opens at 10:00 and the sea '
+      'bath is a few minutes further out on the same peninsula, so the two make one trip. <b>The Bergen '
+      'Card gives 25% off from March to October</b>, not free entry — it is free only in winter — so this '
+      'is one of the few things on these two days you still pay real money for.',
  body=[
   ('p','The aquarium opened in 1960 on the outer tip of Nordnes, where the water is clean and the '
        'peninsula runs out into the fjord. It holds more than sixty tanks, a large outdoor complex for '
@@ -859,7 +901,7 @@ dict(slug='fantoft', name='Fantoft Stave Church', native='Fantoft stavkirke',
        'before you spend a morning on it.'),
  ]),
 
-dict(slug='ulriken', name='Ulriken', city='Bergen — not in the plan',
+dict(slug='ulriken', name='Ulriken', city='Bergen',
  wp='Ulriken', commons='Ulriken cable car Bergen Ulriksbanen',
  day=None, match='<b>|Ulriken',
  
@@ -868,10 +910,11 @@ dict(slug='ulriken', name='Ulriken', city='Bergen — not in the plan',
         ('Cable car','Ulriksbanen, departures every ~5 min from 1 April to 30 September'),
         ('On foot','The Sherpa steps, from Montana — bus 12 from the centre'),
         ('Getting there','~20–30 min each way from the centre, plus the ride')],
- plan='Cut, and it stays cut. The view substantially overlaps Fløyen’s, the transfers run about an '
-      'hour round trip, and on your one Bergen day that hour is what pushes the Rosenkrantz Tower past '
-      'its 17:00 closing time. It is running normally in 2026 — the problem is not availability, it is '
-      'that it is the weakest use of the afternoon.',
+ plan='<b>Back in, as the centrepiece of Aug 19.</b> It was cut when Bergen was one day; a second day is exactly '
+      'what makes it worth having, and the Bergen Card covers the buses out. Deliberately <b>mid-afternoon, '
+      'not sunset</b> — Fløyen already took golden hour the night before, and the closing time is genuinely '
+      'disputed (09:00–23:00 by one source, a last car around 18:30 by another), so a 14:30 start survives '
+      'either answer. Ride both ways: the descent here is a real hike, not Fløyen’s road.',
  body=[
   ('p','Ulriken is the tallest of the seven mountains around Bergen and gives the biggest view: the '
        'whole city, the islands, the fjords inland, and on a clear day a long way out to sea. The '
