@@ -579,7 +579,7 @@ dict(slug='bryggen', name='Bryggen', city='Bergen',
 dict(slug='floyen', name='Fløyen, Fløibanen and Fjellveien', city='Bergen',
  wp='Fløyen', cat='Category:Fløyen', commons='Floyen Floibanen Bergen funicular view',
  day=11, when='20:15–21:45',
- match='Fløibanen funicular + Mount Fløyen',
+ match='',   # row already carries its own links; autolink covers the rest
  tagline='A funicular from the city centre to 320 metres, and a flat pedestrian road along the mountainside that almost no visitor finds.',
  facts=[('Fløibanen opened','1918'),
         ('Ride','~6 minutes, to 320 m'),
