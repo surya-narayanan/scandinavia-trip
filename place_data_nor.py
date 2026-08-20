@@ -4,6 +4,80 @@
 PLACES = [
 
 # ---------------------------------------------------------------- OSLO
+dict(slug='holmenkollen', name='Holmenkollen', native='Holmenkollbakken og Skimuseet', city='Oslo',
+ wp='Holmenkollbakken', cat='Category:Holmenkollbakken', commons='Holmenkollen ski jump Oslo',
+ day=14, when='12:00–13:45',
+ match='',   # the row carries its own link; autolink covers the rest
+ tagline='A working ski jump above the city, with a lift to the top of the tower and the best view in Oslo from the place the jumpers start.',
+ facts=[('Where','Kongeveien 5 — metro line 1 to Holmenkollen, ~23 min from Nationaltheatret'),
+        ('Open','Daily 09:00–17:00 May–September; 10:00–16:00 October–April'),
+        ('Cost','NOK 185 adult, NOK 110 child 6–15, under 6 free'),
+        ('Getting up','~300 m of steep uphill from the station — <b>take a taxi for that stretch</b>'),
+        ('At the top','A lift runs to the tower summit; ramps and lifts on site'),
+        ('Jumping since','1892 on this hill; the current tower dates from 2010')],
+ plan='The Aug 21 afternoon, freed when the real Stockholm flight turned out to be 19:50 rather than the '
+      '18:00 the plan had assumed. Chosen over another museum because it is a different kind of thing '
+      'entirely, and because <b>the view is reached by lift rather than by climbing</b> — the only hard '
+      'part is the 300 m from the station, which a taxi removes.',
+ body=[
+  ('p','Holmenkollen is a ski jump, and it has been one since 1892. The hill sits in the forest above Oslo, '
+       'about twenty minutes out on the metro, and the tower you see from most of the city is the 2010 '
+       'rebuild — a steel cantilever that carries the in-run out over the hillside. Competitions still run '
+       'here, and the Holmenkollen ski festival in March fills the arena with tens of thousands of people.'),
+  ('h2','The tower, and why it is the good bit'),
+  ('p','<b>A lift takes you to the top.</b> You come out at the jumpers’ start gate and look straight down '
+       'the in-run — a perspective that explains the sport more quickly than any exhibit — and then out over '
+       'Oslo, the fjord and the islands. It is the best panorama in the city, and unusually for a great view '
+       'in Norway, you do not earn it on foot. There is a zipline from the top for anyone who wants to '
+       'descend the way the jumpers do, roughly.'),
+  ('h2','The Ski Museum, underneath'),
+  ('p','Built into the base of the hill, and the <b>oldest ski museum in the world</b>. It runs from 4,000-year-old '
+       'skis found in bogs through to the polar expeditions — Nansen’s and Amundsen’s actual equipment is here, '
+       'which connects it to the Fram you have already seen down on Bygdøy. Allow an hour for the museum and '
+       'the tower together, or ninety minutes if you read the labels.'),
+  ('h2','Getting there without the climb'),
+  ('ul',['<b>Metro line 1</b> towards Frognerseteren, to Holmenkollen station. About 23 minutes from '
+         'Nationaltheatret, 20 from Majorstuen, and covered by a Ruter pass.',
+         '<b>From the station it is roughly 300 m uphill, and it is steep</b> — commonly described as a '
+         '10–15 minute climb. This is the one genuinely difficult part.',
+         '<b>Take a taxi for that stretch</b> if anyone in the party would rather not. It is the standard '
+         'advice for visitors with mobility limits and it drops you at the entrance.',
+         'On site there are ramps and lifts, so once you are there the difficulty stops.']),
+ ],
+ links=[('Ski Museum and jump tower — official site','https://holmenkollen.com/en/'),
+        ('visitOSLO — Holmenkollen','https://www.visitoslo.com/en/product/?tlp=2984523')]),
+
+dict(slug='nasjonalmuseet', name='Nasjonalmuseet', native='The National Museum', city='Oslo',
+ wp='National Museum of Norway', commons='Nasjonalmuseet Oslo',
+ day=14, when='Optional, 14:30–16:30',
+ match='Nasjonalmuseet',
+ tagline='The largest art museum in the Nordic countries, opened in 2022 on the Oslo waterfront.',
+ facts=[('Where','Brynjulf Bulls plass 3, by Aker Brygge'),
+        ('Open','Friday 10:00–17:00; check other days, they vary'),
+        ('Cost','NOK 180 adult; under 18 free'),
+        ('Size','Around 6,500 works on display across 86 rooms'),
+        ('Time needed','Two hours barely scratches it')],
+ plan='Listed as the optional half of the Aug 21 afternoon, not as a commitment. It is central, flat and '
+      'open until 17:00 on a Friday, which makes it the easy answer if there is energy left after '
+      'Holmenkollen — and an easy thing to skip on a flight day if there is not.',
+ body=[
+  ('p','The National Museum opened in 2022, merging Norway’s former national galleries of art, architecture '
+       'and design into one building on the waterfront. It is the biggest art museum in the Nordics, with '
+       'roughly 6,500 works on show at any time across 86 rooms, and it is deliberately not only paintings — '
+       'furniture, textiles, silver and architectural drawings sit alongside the fine art.'),
+  ('p','The collection runs from antiquity to the present, with the strongest holdings in Norwegian art of the '
+       '19th century. There is a version of <b>The Scream</b> here as well as at MUNCH, along with the Norwegian '
+       'romantic landscape painters — Dahl, Tidemand and Gude — whose views of the fjords you will recognise '
+       'from having just travelled through them.'),
+  ('h2','Whether to bother'),
+  ('p','Honestly: only if you want it. By this point in the trip you will have done MUNCH, KODE, Bryggens '
+       'Museum, the Fram and the Folk Museum, and there is a real risk of the rooms blurring together. It is '
+       'central and flat and open late enough to fit, which is why it is here — but <b>the alternative of '
+       'Grünerløkka, a coffee and no ticket at all is a legitimate answer</b> on a day that ends with a flight.'),
+ ],
+ links=[('Nasjonalmuseet — official site','https://www.nasjonalmuseet.no/en/'),
+        ('Entry tickets','https://www.nasjonalmuseet.no/en/tickets/entry-tickets/')]),
+
 dict(slug='fram-museum', name='The Fram Museum', native='Frammuseet', city='Oslo',
  wp='Fram Museum', commons='Fram Museum Oslo polar ship',
  day=6, when='10:00–11:30',
