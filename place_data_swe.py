@@ -355,7 +355,7 @@ dict(slug='vasa', name='The Vasa Museum', native='Vasamuseet', city='Stockholm',
         ('Raised','24 April 1961'),
         ('Original material','~98 per cent'),
         ('Height','Masts to 52 m; the hull fills the building'),
-        ('Cost','~SEK 210, timed slot. Open daily 08:30–18:00 in August')],
+        ('Cost','SEK 240 (2026 rate, 1 May–30 Sep), timed slot. Open daily 08:30–18:00 in August, last admission 17:30')],
  plan='Booked for a 14:30 timed slot, reached by the Djurgården ferry from the Slussen side. Watch the '
       '20-minute English film first — it makes the rest of the visit legible — then circle the ship '
       'from the top gallery downward. The museum runs to 18:00 in August, so an earlier slot exists if '
