@@ -258,6 +258,12 @@ def autolink(s):
     names = []
     for pl in PLACES:
         names.append((pl['name'], pl['slug']))
+        # The "The "-stripped alias is a trap for generic names: "The Royal
+        # Palace" in Stockholm yielded "Royal Palace", which then matched
+        # Oslo's own palace and linked one city's sight to another's page.
+        # Records whose short name is not unique across cities set noalt.
+        if pl.get('noalt'):
+            continue
         alt = pl['name'].replace('The ', '')
         if alt != pl['name']:
             names.append((alt, pl['slug']))

@@ -313,6 +313,7 @@ dict(slug='gamla-stan', name='Gamla Stan and Storkyrkan', city='Stockholm',
  ]),
 
 dict(slug='royal-palace-stockholm', name='The Royal Palace', native='Kungliga slottet', city='Stockholm',
+ noalt=True,   # 'Royal Palace' alone also names Oslo's; do not autolink the bare form
  wp='Stockholm Palace', cat='Category:Stockholm Palace', commons='Stockholm Royal Palace Kungliga slottet',
  day=17, when='10:30–12:05, guard change 12:15',
  match='Royal Palace — State Apartments + Treasury',
