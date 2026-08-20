@@ -93,7 +93,7 @@ dict(slug='akershus', name='Akershus Fortress', native='Akershus festning', city
 
 dict(slug='oslo-opera', name='Oslo Opera House', native='Operahuset', city='Oslo',
  wp='Oslo Opera House', commons='Oslo Opera House Operahuset',
- day=6, when='15:35–16:30',
+ day=13, when='20:35–21:20',
  match='Oslo Opera House roof',
  tagline='A building designed to be walked on: a white marble slope rising straight out of the fjord.',
  facts=[('Opened','2008'), ('Architects','Snøhetta'),
@@ -117,15 +117,17 @@ dict(slug='oslo-opera', name='Oslo Opera House', native='Operahuset', city='Oslo
   ('p','The marble is slippery when wet and the slope is unforgiving about footwear.'),
  ]),
 
-dict(slug='vigeland', name='Vigeland Sculpture Park', native='Vigelandsanlegget', city='Oslo',
+dict(slug='vigeland', name='Vigeland Sculpture Park and Museum', native='Vigelandsanlegget og Vigelandmuseet', city='Oslo',
  wp='Vigeland installation', cat='Category:Vigeland Park', commons='Vigeland Park Oslo Monolith',
- day=13, when='15:15–16:45',
+ day=13, when='14:30–17:15',
  match='Vigeland Sculpture Park',
  tagline='Two hundred and more sculptures of the human body by one artist, on one axis, all of it free and open at any hour.',
  facts=[('Made','1924–1943, by Gustav Vigeland'),
         ('Works','212 sculptures in bronze, granite and wrought iron'),
         ('The Monolith','17 m, 121 intertwined figures, carved from a single block'),
-        ('Cost','Free, open 24 hours')],
+        ('Park cost','Free, open 24 hours'),
+        ('Museum','Nobels gate 32, across the road — Tue–Sun 10:00–17:00, closed Mondays'),
+        ('Museum cost','NOK 80 adult, 40 concession')],
  plan='Ninety minutes on flat gravel paths, reached by tram 12 from Øvre Slottsgate. It never closes '
       'and never charges, so it absorbs a late arrival without trouble.',
  body=[
@@ -145,11 +147,29 @@ dict(slug='vigeland', name='Vigeland Sculpture Park', native='Vigelandsanlegget'
        'in place by three masons over 14 years, surrounded by 36 granite groups on the plateau.'),
   ('p','Vigeland’s brother Emanuel painted the extraordinary mausoleum on the other side of the city; '
        'Gustav himself is buried in the tower of the museum at the park’s edge.'),
- ]),
+  ('h2','The Museum, which is a different place'),
+  ('p','People say “Vigeland” and mean the park, but there are two things here and they sit on opposite '
+       'sides of the same road. The park is the finished work. <b>The Vigeland Museum, at Nobels gate 32, is '
+       'where it was made</b> — it was Gustav Vigeland’s own studio and home, built for him by the city as its '
+       'half of the 1921 bargain, and he lived and worked in it until he died in 1943.'),
+  ('p','Inside is the workings: the <b>original plaster models</b> for the figures you then walk out and meet '
+       'full size, along with casts, woodcuts, drawings and his tools. His apartment on the top floor is kept '
+       'as it was. The scale of the models is what lands — the Monolith’s 121 figures existed in plaster inside '
+       'this building before a single one was cut in granite.'),
+  ('ul',['<b>Open:</b> Tuesday–Sunday 10:00–17:00. <b>Closed Mondays.</b>',
+         '<b>Cost:</b> NOK 80 adult, NOK 40 seniors, students and children 7–17, free under 7.',
+         '<b>Time needed:</b> about an hour.',
+         '<b>Where:</b> Nobels gate 32, directly across the road from the park.']),
+  ('p','<b>Do the museum first and the park second.</b> The clock forces it — the museum closes at 17:00 and '
+       'the park never closes — but it is also the better order to experience, because you meet the models '
+       'before the monuments rather than the other way round.'),
+ ],
+ links=[('Vigeland Museum and Park — official site','https://vigeland.museum.no/en/'),
+        ('visitOSLO — Vigeland Park','https://www.visitoslo.com/en/product/?tlp=2985133')]),
 
 dict(slug='munch', name='MUNCH', city='Oslo',
  wp='Munch Museum', commons='Munch Museum Oslo Lambda',
- day=14, when='11:00–13:00',
+ day=13, when='18:00–20:30',
  match='font-weight:700;">★ |MUNCH museum',
  tagline='Thirteen floors on the Oslo waterfront holding the largest collection of one artist’s work anywhere.',
  facts=[('Opened','October 2021'), ('Architects','Estudio Herreros'),
