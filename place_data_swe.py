@@ -46,7 +46,7 @@ dict(slug='barkarby-outlet', name='Stockholm Quality Outlet, Barkarby', city='St
  tagline='The largest outlet village in northern Europe — about 70 stores, 200-plus brands, laid out as an open-air village.',
  facts=[('Where','Flyginfarten 4, Järfälla — ~20 km north-west of the centre'),
         ('Stores','~70, carrying 200+ brands at roughly 30–70% off'),
-        ('Hours','10:00–19:00 weekdays, 10:00–18:00 Sat and Sun — confirm on the day'),
+        ('Hours','10:00–19:00 every day, per the outlet — some sources say weekends close earlier, so confirm on the day'),
         ('Getting there','Pendeltåg from Stockholm Central to Barkarby, then bus 550 to Barkarby Handelsplats. From Jakobsberg it is bus 567'),
         ('Layout','Open-air — you are outdoors between shops')],
  plan='Saturday is the only day in the Stockholm leg with room for this, and fitting it in costs the '
